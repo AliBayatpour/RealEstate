@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <!-- HOA help text -->
+  <div class="hoaTooltiptext">
+    <h4 class="hoaTooltiptext__header">Homeowners Association (HOA)</h4>
+    <span class="hoaTooltiptext__text"
+      >HOA fees are monthly or annual charges that cover the costs of
+      maintaining and improving shared spaces. HOA fees are common within condos
+      and some single-family home neighborhoods. Co-ops also have monthly fees
+      (Common Charges and Maintenance Fees), which may also include real estate
+      taxes and a portion of the building's underlying mortgage.</span
+    >
+    <span class="hoaTooltiptext__closeSign">&#10006;</span>
+  </div>
+  <body onload="loadUser() ; initialCheck(this.id)">
+    <nav>
+      <div class="phoneNavMenue" id="resultPhoneNavMenue">
+        <div class="phoneNavMenue__header">
+          <i
+            class="fa fa-close phoneNavMenue__closeIcon"
+            onclick="resultHideMobileMenue('#resultPhoneNavMenue')"
+            style="font-size: 25px;"
+          ></i>
+          <a href="index.html"><img class="phoneNavMenue__logo" src="./images/logo.png" alt="logo" /></a>
+        </div>
+        <div class="phoneNavMenue__body">
+          <div class="phoneNavMenue__ul">
+            <div class="phoneNavMenue__li">
+              <span
+                class="phoneNavMenue__liText phoneNavMenue__liText--active phoneNavMenue__liText--extraMr"
+                >Homepages</span
+              >
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">My Zillow</span
+              ><i
+                id="phoneMenueMyZillowArrow"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="phoneMenueMyZillow">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >My homes</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Claim my home</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >My account</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Profile</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Subscriptions</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Setting</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option phoneNavMenue__dropDownLi--mt"
+                  >Sign out</a
+                >
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Buy</span
+              ><i
+                id="phoneMenueBuyArrow"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="phoneMenueBuy">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Homes for Sale</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Homes for Sale</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Foreclosures</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >For sale by owner</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Open houses</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >New construction</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Coming soon</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Recent home sales</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >All homes</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Resources</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Buyer's Guide</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Foreclosure center</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Real estate app</a
+                >
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Rent</span
+              ><i
+                id="phoneMenueRentArrow"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="phoneMenueRent">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Search for Rentals</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Rental Buildings</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Apartments for rent</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Houses for rent</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >All rental listings</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >All rental buildings</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >I'm a Rental Manager</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >My listings</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >List a rental</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Received applications</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Rent payments</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Zillow Rental Manager</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >I'm a Renter</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >My rental applications</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >My rent Payments</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Rent affordability calculator</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Renters Guide</a
+                >
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Sell</span
+              ><i
+                id="phoneMenueSellArrow"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="phoneMenueSell">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Resources</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Explore your options</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >See your home's Zestimate</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Home values</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Seller's guide</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Selling options</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Sell with zillow offers</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Find a seller's agent</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Post For Sale by Owner</a
+                >
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Home loans</span
+              ><i
+                id="phoneMenueHomeLoansArrow"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="phoneMenueHomeLoans">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Shop mortgages</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Mortgage lenders</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >HELOC lenders</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Mortgage rates</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Refinance rates</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >All mortgage rates</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Calculators</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Mortgage calculator</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Refinance calculator</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Affordability calculator</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Amortization calculator</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Debt-to-Income calculator</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Resources</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Lender reviews</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Mortgage learning center</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Mortgages app</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Lender resource center
+                </a>
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Agent finder</span
+              ><i
+                id="phoneMenueAgentFinderArrow"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="phoneMenueAgentFinder">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Looking for pros?</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Real estate agents</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Property managers</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Home inspectors</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Other pros</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Home improvement pros</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Home builders</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Real estate photographers</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >I'm a pro</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Agent advertising</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Agent resource center</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Create a free agent account</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Real estate business plan</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Real estate agent scripts</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Listing flyer templates</a
+                >
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText phoneNavMenue__liText--active"
+                >Advertise</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="topnav">
+        <div class="topnav__section topnav__section--left">
+          <ul class="mainNavUl">
+            <li class="mainNavUl__list" id="buyNavBut"><a href="#">Buy</a></li>
+            <li class="mainNavUl__list" id="rentNavBut">
+              <a href="#">Rent</a>
+            </li>
+            <li class="mainNavUl__list" id="sellNavBut">
+              <a href="#">Sell</a>
+            </li>
+            <li class="mainNavUl__list" id="homeLoansNavBut">
+              <a href="#">Home Loans</a>
+            </li>
+            <li class="mainNavUl__list" id="agentFinderNavBut">
+              <a href="#">Agent Finder</a>
+            </li>
+          </ul>
+        </div>
+        <div class="topnav__middle topnav__middle--left">
+          <a href="index.html" class="topnav__link"
+            ><img class="topnav__img" src="images/logo.png" alt="Home logo"
+          /></a>
+        </div>
+        <div class="topnav__section topnav__section--left">
+          <ul class="mainNavUl">
+            <li class="mainNavUl__list mainNavUl__list--hide">
+              <a href="#">List your rental</a>
+            </li>
+            <li class="mainNavUl__list"><a href="#">Advertise</a></li>
+            <li class="mainNavUl__list" id="myZillowNavBut">
+              <a class="mainNavUl__list--mr" href="#">My Zillow</a>
+            </li>
+            <li class="mainNavUl__list mainNavUl__list--hide">
+              <a href="#">Help</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Buy DropDown -->
+      <div class="navDropDown" id="buyNavDropDown">
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Homes for Sale</h4></li>
+            <li><a href="#">Homes for sale</a></li>
+            <li><a href="#">Foreclosures</a></li>
+            <li><a href="#">For sale by owner</a></li>
+            <li><a href="#">Open houses</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>&nbsp;</h4></li>
+            <li><a href="#">New construction</a></li>
+            <li><a href="#">Coming soon</a></li>
+            <li><a href="#">Recent home sales</a></li>
+            <li><a href="#">All homes</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Resources</h4></li>
+            <li><a href="#">Buyers guide</a></li>
+            <li><a href="#">Foreclosure center</a></li>
+            <li><a href="#">Real estate app</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Rent DropDown -->
+      <div class="navDropDown" id="rentNavDropDown">
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Search for Rentals</h4></li>
+            <li><a href="#">Rental Buildings</a></li>
+            <li><a href="#">Apartments for rent</a></li>
+            <li><a href="#">Houses for rent</a></li>
+            <li><a href="#">All rental listings</a></li>
+            <li><a href="#">All rental buildings</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>I'm a rental manager</h4></li>
+            <li><a href="#">My listings</a></li>
+            <li><a href="#">List a rental</a></li>
+            <li><a href="#">Received applications</a></li>
+            <li><a href="#">Rent payments</a></li>
+            <li><a href="#">Zillow rental managment</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>I'm a Renter</h4></li>
+            <li><a href="#">My rental applications</a></li>
+            <li><a href="#">My rent payments</a></li>
+            <li><a href="#">Rent affordability calculator</a></li>
+            <li><a href="#">Renters Guide</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Sell DropDown -->
+      <div class="navDropDown" id="sellNavDropDown">
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Resources</h4></li>
+            <li><a href="#">Explore your options</a></li>
+            <li><a href="#">See your home's Zestimate</a></li>
+            <li><a href="#">Home value</a></li>
+            <li><a href="#">Sellers Guide</a></li>
+            <li><a href="#">All sellal buildings</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Selling options</h4></li>
+            <li><a href="#">Sell with Zillow Offers</a></li>
+            <li><a href="#">Find a seller's agent</a></li>
+            <li><a href="#">Post For Sale by Owner</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- HomeLoans DropDown -->
+      <div class="navDropDown" id="homeLoansNavDropDown">
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Shop mortgages</h4></li>
+            <li><a href="#">Mortgage lenders</a></li>
+            <li><a href="#">HELOC lenders</a></li>
+            <li><a href="#">Mortgage rates</a></li>
+            <li><a href="#">Refinance rates</a></li>
+            <li><a href="#">All mortgage rates</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Calculators</h4></li>
+            <li><a href="#">Mortgage calculator</a></li>
+            <li><a href="#">Refinance calculator</a></li>
+            <li><a href="#">Affordability calculator</a></li>
+            <li><a href="#">Amortization calculator</a></li>
+            <li><a href="#">Debt-to-Income calculator</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Resources</h4></li>
+            <li><a href="#">Lender Reviews</a></li>
+            <li><a href="#">Mortgage learning center</a></li>
+            <li><a href="#">Mortgages app</a></li>
+            <li><a href="#">Lender resource center</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- AgentFinder DropDown -->
+      <div class="navDropDown" id="agentFinderNavDropDown">
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Real state agents</h4></li>
+            <li><a href="#">Property managers</a></li>
+            <li><a href="#">Home inspectors</a></li>
+            <li><a href="#">Other pros</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>&nbsp;</h4></li>
+            <li><a href="#">Home improvement pros</a></li>
+            <li><a href="#">Home builders</a></li>
+            <li><a href="#">Real state photographers</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>I'm a pro</h4></li>
+            <li><a href="#">Agent advertising</a></li>
+            <li><a href="#">Agent resource center</a></li>
+            <li><a href="#">Create a free agent account</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>&nbsp;</h4></li>
+            <li><a href="#">Real state business plan</a></li>
+            <li><a href="#">Real state agent scripts</a></li>
+            <li><a href="#">Listing flyer templates</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- My Zillow -->
+      <div class="myZillowDropDown" id="myZillowNavDropDown">
+        <ul class="myZillowDropDown__ul myZillowDropDown__ul__bb">
+          <li><h4>My homes</h4></li>
+          <li><a href="#">Claim my home</a></li>
+        </ul>
+        <ul class="myZillowDropDown__ul myZillowDropDown__ul__bb">
+          <li class="mainNavUl__list"><h4>My account</h4></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Subscriptions</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+        <ul class="myZillowDropDown__ul">
+          <li><a href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="resultNav">
+      <div class="resultNav__smallSearch">
+        <div class="resultNav__mobileIcons">
+          <img
+            class="resultNav__mobileMenueIcon"
+            onclick="resultShowMobileMenue()"
+            src="./images/mobileMenue.png"
+            alt="Menue Icon"
+            style="width: 22px; margin: 0 3px 0 5px;"
+          />
+          <a href="index.html" style=" margin: 0 5px 0 10px;"
+            ><img
+              src="./images/LogoMakr_2I0wT1.png"
+              alt="smallLogo"
+              style="width: 25px; height: 28px;"
+          /></a>
+        </div>
+        <form
+          class="smallSearch"
+          id="smallSearchResult"
+          onsubmit="inputAssign(event, 'searchBoxResult')"
+          autocomplete="off"
+          onkeyup="inputKeyUp(event)"
+        >
+          <input type="text" id="searchBoxResult" />
+          <button type="submit" class="searchButton" id="submitButtonResult">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="saleRentDropDown">
+        <button class="navButs" id="homeType">
+          <span id="colorfulCircles">
+            <span id="saleHome" class="houseForSaleCircle"></span>
+            <span id="potentialHome" class="potentialListings"></span>
+            <span id="rentHome" class="houseForRentCircle"></span>
+            <span id="soldHome" class="sold"></span>
+          </span>
+          <span id="textCircles">
+            <span id="txtSaleHome" class="buttonCircles"></span
+            ><span id="txtPotentialHome" class="buttonCircles"></span
+            ><span id="txtRentHome" class="buttonCircles"></span
+            ><span id="txtSoldHome" class="buttonCircles"></span>
+          </span>
+          <span id="buttonTxt">
+            <span id="listingType">Listing Type</span>
+            <span id="all">All</span>
+          </span>
+        </button>
+        <div id="checkBoxContainer">
+          <div
+            class="checkbox"
+            id="checkboxId_1"
+            onclick="checkboxClick(this.id); event.preventDefault();"
+          >
+            <input
+              class="customCheckbox"
+              type="checkbox"
+              id="checkbox_1"
+              value="sale"
+            />
+            <label id="labelCheck_1" for="checkbox_1" style="cursor: pointer"
+              >&nbsp&nbsp<span class="houseForSaleCircle"></span> For
+              Sale</label
+            >
+          </div>
+          <div
+            class="checkbox"
+            id="checkboxId_2"
+            onclick="checkboxClick(this.id); event.preventDefault();"
+          >
+            <input
+              class="customCheckbox"
+              type="checkbox"
+              id="checkbox_2"
+              value="potential"
+            />
+            <label id="labelCheck_2" for="checkbox_2" style="cursor: pointer"
+              >&nbsp&nbsp<span class="potentialListings"></span> Potential
+              Listings</label
+            >
+          </div>
+          <div
+            class="checkbox"
+            id="checkboxId_3"
+            onclick="checkboxClick(this.id); event.preventDefault();"
+          >
+            <input
+              class="customCheckbox"
+              type="checkbox"
+              id="checkbox_3"
+              value="rent"
+            />
+            <label id="labelCheck_3" for="checkbox_3" style="cursor: pointer"
+              >&nbsp&nbsp<span class="houseForRentCircle"></span> For
+              Rent</label
+            >
+          </div>
+          <div
+            class="checkbox"
+            id="checkboxId_4"
+            onclick="checkboxClick(this.id); event.preventDefault();"
+          >
+            <input
+              class="customCheckbox"
+              type="checkbox"
+              id="checkbox_4"
+              value="sold"
+            />
+            <label id="labelCheck_4" for="checkbox_4" style="cursor: pointer"
+              >&nbsp&nbsp<span class="sold"></span> Sold</label
+            >
+          </div>
+          <div class="done" id="checkboxId_5">
+            <button
+              class="done"
+              id="doneBut"
+              onclick="donePush('#checkBoxContainer', 'homeType')"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="PriceDropDown">
+        <button class="navButs" id="homePriceType">Price</button>
+        <div id="priceButContainer">
+          <div id="priceRangeInput">
+            <span>Price Range</span><br />
+            <form style="margin-top: 10px;">
+              <input
+                type="text"
+                name="search"
+                placeholder="Min"
+                id="minSearch"
+                class="priceSearch"
+                autocomplete="off"
+                autofocus
+                onfocus="focusInput('minSearch')"
+                oninput="priceFilter('min',this.value)"
+              /><span id="dash"></span
+              ><input
+                type="text"
+                name="search"
+                placeholder="Max"
+                id="maxSearch"
+                class="priceSearch"
+                autocomplete="off"
+                onfocus="focusInput('maxSearch')"
+                oninput="priceFilter('max',this.value)"
+              />
+            </form>
+          </div>
+          <div id="priceListContainer">
+            <div class="priceList" id="priceListMin">
+              <ul>
+                <li value="0" onclick="priceFilter('min',this.value)">$0+</li>
+                <li value="100000" onclick="priceFilter('min',this.value)">
+                  $100,000+
+                </li>
+                <li value="200000" onclick="priceFilter('min',this.value)">
+                  $200,000+
+                </li>
+                <li value="300000" onclick="priceFilter('min',this.value)">
+                  $300,000+
+                </li>
+                <li value="400000" onclick="priceFilter('min',this.value)">
+                  $400,000+
+                </li>
+                <li value="500000" onclick="priceFilter('min',this.value)">
+                  $500,000+
+                </li>
+                <li value="600000" onclick="priceFilter('min',this.value)">
+                  $600,000+
+                </li>
+                <li value="700000" onclick="priceFilter('min',this.value)">
+                  $700,000+
+                </li>
+                <li value="800000" onclick="priceFilter('min',this.value)">
+                  $800,000+
+                </li>
+                <li value="900000" onclick="priceFilter('min',this.value)">
+                  $900,000+
+                </li>
+              </ul>
+            </div>
+            <div class="priceList" id="priceListMax">
+              <ul>
+                <li value="500000" onclick="priceFilter('max',this.value)">
+                  $500,000+
+                </li>
+                <li value="600000" onclick="priceFilter('max',this.value)">
+                  $600,000+
+                </li>
+                <li value="700000" onclick="priceFilter('max',this.value)">
+                  $700,000+
+                </li>
+                <li value="800000" onclick="priceFilter('max',this.value)">
+                  $800,000+
+                </li>
+                <li value="900000" onclick="priceFilter('max',this.value)">
+                  $900,000+
+                </li>
+                <li value="1000000" onclick="priceFilter('max',this.value)">
+                  $1M
+                </li>
+                <li value="1250000" onclick="priceFilter('max',this.value)">
+                  $1.25M
+                </li>
+                <li value="1500000" onclick="priceFilter('max',this.value)">
+                  $1.5M
+                </li>
+                <li value="1750000" onclick="priceFilter('max',this.value)">
+                  $1.75M
+                </li>
+                <li value="2000000000" onclick="priceFilter('any',this.value)">
+                  Any Price
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="doneContainer">
+            <button
+              class="done"
+              id="doneButPrice"
+              onclick="donePush('#priceButContainer', 'homePriceType')"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="bedsDropDown">
+        <button class="navButs" id="homeBedsType">Beds</button>
+        <div id="bedsButContainer">
+          <div id="bedroomsInput">
+            <span>Bedrooms</span>
+            <ul class="bedList" id="normalBedList" style="display: noneexact-">
+              <li class="bedNum" id="bedAny">
+                <input
+                  onclick="bedFilter(this)"
+                  id="beds-options-0"
+                  name="beds-options"
+                  type="radio"
+                  value="0+"
+                />
+                <label for="beds-options-0"></label>
+              </li>
+              <li class="bedNum">
+                <input
+                  onclick="bedFilter(this)"
+                  id="beds-options-1"
+                  name="beds-options"
+                  type="radio"
+                  value="1+"
+                />
+                <label for="beds-options-1"></label>
+              </li>
+              <li class="bedNum">
+                <input
+                  onclick="bedFilter(this)"
+                  id="beds-options-2"
+                  name="beds-options"
+                  type="radio"
+                  value="2+"
+                />
+                <label for="beds-options-2"></label>
+              </li>
+              <li class="bedNum">
+                <input
+                  onclick="bedFilter(this)"
+                  id="beds-options-3"
+                  name="beds-options"
+                  type="radio"
+                  value="3+"
+                />
+                <label for="beds-options-3"></label>
+              </li>
+              <li class="bedNum">
+                <input
+                  onclick="bedFilter(this)"
+                  id="beds-options-4"
+                  name="beds-options"
+                  type="radio"
+                  value="4+"
+                />
+                <label for="beds-options-4"></label>
+              </li>
+              <li class="bedNum" id="bedNum-5">
+                <input
+                  onclick="bedFilter(this)"
+                  id="beds-options-5"
+                  name="beds-options"
+                  type="radio"
+                  value="5+"
+                />
+                <label for="beds-options-5"></label>
+              </li>
+            </ul>
+            <br />
+            <!-- Exact number of beds -->
+            <ul class="bedList" id="exactBedList">
+              <li class="bedNumExact" id="exactBedStudio">
+                <input
+                  onclick="bedFilter(this)"
+                  id="exact-beds-options-0"
+                  name="beds-options"
+                  type="radio"
+                  value="0"
+                />
+                <label for="exact-beds-options-0"></label>
+              </li>
+              <li class="bedNumExact">
+                <input
+                  onclick="bedFilter(this)"
+                  id="exact-beds-options-1"
+                  name="beds-options"
+                  type="radio"
+                  value="1"
+                />
+                <label for="exact-beds-options-1"></label>
+              </li>
+              <li class="bedNumExact">
+                <input
+                  onclick="bedFilter(this)"
+                  id="exact-beds-options-2"
+                  name="beds-options"
+                  type="radio"
+                  value="2"
+                />
+                <label for="exact-beds-options-2"></label>
+              </li>
+              <li class="bedNumExact">
+                <input
+                  onclick="bedFilter(this)"
+                  id="exact-beds-options-3"
+                  name="beds-options"
+                  type="radio"
+                  value="3"
+                />
+                <label for="exact-beds-options-3"></label>
+              </li>
+              <li class="bedNumExact">
+                <input
+                  onclick="bedFilter(this)"
+                  id="exact-beds-options-4"
+                  name="beds-options"
+                  type="radio"
+                  value="4"
+                />
+                <label for="exact-beds-options-4"></label>
+              </li>
+              <li class="bedNumExact" id="exactBedNum-5">
+                <input
+                  onclick="bedFilter(this)"
+                  id="exact-beds-options-5"
+                  name="beds-options"
+                  type="radio"
+                  value="5"
+                />
+                <label for="exact-beds-options-5"></label>
+              </li>
+            </ul>
+            <br />
+            <div id="exact">
+              <input
+                class="customCheckbox"
+                id="exactMatch"
+                name="bed-exact-match"
+                type="checkbox"
+                onclick="exactBed();"
+              />
+              <label for="exactMatch">Use exact match</label>
+            </div>
+          </div>
+          <div id="doneContainer-1">
+            <button
+              class="done"
+              id="doneButBed"
+              onclick="donePush('#bedsButContainer', 'homeBedsType')"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="houseDropDown">
+        <button class="navButs" id="houseType">Home type</button>
+        <div id="houseButContainer">
+          <fieldset>
+            <legend>Home Type</legend>
+            <ul>
+              <li>
+                <input
+                  onclick="homeTypeFilter(this)"
+                  value="House"
+                  class="customCheckbox homeTypeClass"
+                  type="checkbox"
+                  id="home-type_isSingleFamily"
+                  checked=""
+                />
+                <label for="home-type_isSingleFamily">Houses</label>
+              </li>
+              <li>
+                <input
+                  onclick="homeTypeFilter(this)"
+                  value="Apartment"
+                  class="customCheckbox homeTypeClass"
+                  type="checkbox"
+                  id="home-type_isMultiFamily"
+                  checked=""
+                />
+                <label for="home-type_isMultiFamily">Apartments</label>
+              </li>
+              <li>
+                <input
+                  onclick="homeTypeFilter(this)"
+                  value="Condo"
+                  class="customCheckbox homeTypeClass"
+                  type="checkbox"
+                  id="home-type_isCondo"
+                  checked=""
+                />
+                <label for="home-type_isCondo">Condos/co-ops</label>
+              </li>
+              <li>
+                <input
+                  onclick="homeTypeFilter(this)"
+                  value="Townhouse"
+                  class="customCheckbox homeTypeClass"
+                  type="checkbox"
+                  id="home-type_isTownhouse"
+                  checked=""
+                />
+                <label for="home-type_isTownhouse">Townhouse</label>
+              </li>
+              <li>
+                <input
+                  onclick="homeTypeFilter(this)"
+                  value="Manufactured"
+                  class="customCheckbox homeTypeClass"
+                  type="checkbox"
+                  id="home-type_isManufactured"
+                  checked=""
+                />
+                <label for="home-type_isManufactured">Manufactured</label>
+              </li>
+              <li>
+                <input
+                  onclick="homeTypeFilter(this)"
+                  value="Lots"
+                  class="customCheckbox homeTypeClass"
+                  type="checkbox"
+                  id="home-type_isLotLand"
+                  checked=""
+                />
+                <label for="home-type_isLotLand">Lots/Land</label>
+              </li>
+            </ul>
+          </fieldset>
+          <div id="doneContainer-2">
+            <button
+              class="done"
+              id="doneButHouseType"
+              onclick="donePush('#houseButContainer', 'houseType')"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="moreDropDown">
+        <button id="moreButSmallnav">More</button>
+        <div id="moreMainContainer">
+          <div id="moreButContainer">
+            <fieldset class="bathListFieldset">
+              <legend>Bathrooms</legend>
+              <ul class="bathList">
+                <li class="bathNum">
+                  <input
+                    type="radio"
+                    id="baths-options-0"
+                    name="baths-options"
+                    value="0"
+                    ,
+                    onclick="bathFilter(this)"
+                    checked=""
+                  />
+                  <label for="baths-options-0"></label>
+                </li>
+                <li class="bathNum">
+                  <input
+                    type="radio"
+                    id="baths-options-1"
+                    name="baths-options"
+                    value="1"
+                    ,
+                    onclick="bathFilter(this)"
+                  />
+                  <label for="baths-options-1"></label>
+                </li>
+                <li class="bathNum">
+                  <input
+                    type="radio"
+                    id="baths-options-2"
+                    name="baths-options"
+                    value="2"
+                    ,
+                    onclick="bathFilter(this)"
+                  />
+                  <label for="baths-options-2"></label>
+                </li>
+                <li class="bathNum">
+                  <input
+                    type="radio"
+                    id="baths-options-3"
+                    name="baths-options"
+                    value="3"
+                    ,
+                    onclick="bathFilter(this)"
+                  />
+                  <label for="baths-options-3"></label>
+                </li>
+                <li class="bathNum">
+                  <input
+                    type="radio"
+                    id="baths-options-4"
+                    name="baths-options"
+                    value="4"
+                    ,
+                    onclick="bathFilter(this)"
+                  />
+                  <label for="baths-options-4"></label>
+                </li>
+                <li class="bathNum">
+                  <input
+                    type="radio"
+                    id="baths-options-5"
+                    name="baths-options"
+                    value="5"
+                    onclick="bathFilter(this)"
+                  />
+                  <label for="baths-options-5"></label>
+                </li>
+              </ul>
+            </fieldset>
+            <div class="hoaFieldset">
+              <div id="hoaText" class="hoaLabel">
+                Max HOA<i class="fa fa-question-circle"></i>
+              </div>
+              <!--surround the select box with a "custom-select" DIV element -->
+              <div class="custom-select" id="hoaSelect">
+                <select>
+                  <option value="2000000000">Any</option>
+                  <option value="0">No HOA Fee</option>
+                  <option value="50">$50/month</option>
+                  <option value="100">$100/month</option>
+                  <option value="200">$200/month</option>
+                  <option value="300">$300/month</option>
+                  <option value="400">$400/month</option>
+                  <option value="500">$500/month</option>
+                  <option value="600">$600/month</option>
+                  <option value="700">$700/month</option>
+                  <option value="800">$800/month</option>
+                  <option value="900">$900/month</option>
+                  <option value="1000">$1000/month</option>
+                </select>
+              </div>
+            </div>
+            <div class="openHouseFieldset">
+              <div id="openHouseFieldsetText">
+                <span>Open House</span>
+              </div>
+              <div id="openHouseInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="mustOpenHouse"
+                  value="false"
+                  onchange="openHouseFilter(this)"
+                />
+                <label for="mustOpenHouse">Must have open house</label>
+              </div>
+            </div>
+            <div class="ParkingSpotsFieldset">
+              <div id="ParkingSpotsText">
+                <span>Parking Spots</span>
+              </div>
+              <!--surround the select box with a "custom-select" DIV element -->
+              <div class="custom-select" id="totalParkingSelect">
+                <select>
+                  <option value="0">Any</option>
+                  <option value="1">1+</option>
+                  <option value="2">2+</option>
+                  <option value="3">3+</option>
+                  <option value="4">4+</option>
+                </select>
+              </div>
+            </div>
+            <div class="mustHaveGarageFieldset">
+              <div id="mustHaveGarageFieldsetText">
+                <!-- There is no text for this field -->
+              </div>
+              <div id="garageInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="mustGarage"
+                  value="false"
+                  onchange="garageFilter(this)"
+                />
+                <label for="mustGarage">Must have garage</label>
+              </div>
+            </div>
+            <div class="squareFeetFieldset">
+              <div id="squareFeetText">
+                <span>Square Feet</span>
+              </div>
+              <!--surround the select box with a "custom-select" DIV element -->
+              <div class="selectContainer">
+                <div class="custom-select" id="minLivingAreaSelect">
+                  <select>
+                    <option value="0">Any</option>
+                    <option value="500">500</option>
+                    <option value="750">750</option>
+                    <option value="1000">1,000</option>
+                    <option value="1250">1,250</option>
+                    <option value="1500">1,500</option>
+                    <option value="1750">1,750</option>
+                    <option value="2000">2,000</option>
+                    <option value="2250">2,250</option>
+                    <option value="2500">2,500</option>
+                    <option value="2750">2,750</option>
+                    <option value="3000">3,000</option>
+                    <option value="3500">3,500</option>
+                    <option value="4000">4,000</option>
+                    <option value="5000">5,000</option>
+                    <option value="7500">7,500</option>
+                  </select>
+                </div>
+                <span class="dash"></span>
+                <div class="custom-select" id="maxLivingAreaSelect">
+                  <select>
+                    <option value="200000000">Any</option>
+                    <option value="500">500</option>
+                    <option value="750">750</option>
+                    <option value="1000">1,000</option>
+                    <option value="1250">1,250</option>
+                    <option value="1500">1,500</option>
+                    <option value="1750">1,750</option>
+                    <option value="2000">2,000</option>
+                    <option value="2250">2,250</option>
+                    <option value="2500">2,500</option>
+                    <option value="2750">2,750</option>
+                    <option value="3000">3,000</option>
+                    <option value="3500">3,500</option>
+                    <option value="4000">4,000</option>
+                    <option value="5000">5,000</option>
+                    <option value="7500">7,500</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="lotSizeFieldset">
+              <div id="lotSizeText">
+                <span>Lot Size</span>
+              </div>
+              <!--surround the select box with a "custom-select" DIV element -->
+              <div class="selectContainer">
+                <div id="lotFirstSelect">
+                  <div class="custom-select" id="minLotSizeSelect">
+                    <select>
+                      <option value="0">Any</option>
+                      <option value="1000">1,000 sqft</option>
+                      <option value="2000">2,000 sqft</option>
+                      <option value="3000">3,000 sqft</option>
+                      <option value="4000">4,000 sqft</option>
+                      <option value="5000">5,000 sqft</option>
+                      <option value="7500">7,500 sqft</option>
+                      <option value="10890">1/4 acre/10,890 sqft</option>
+                      <option value="21780">1/2 acre</option>
+                      <option value="43560">1 acre</option>
+                      <option value="87120">2 acres</option>
+                      <option value="217800">5 acres</option>
+                      <option value="435600">10 acres</option>
+                      <option value="871200">20 acres</option>
+                      <option value="2178000">50 acres</option>
+                      <option value="4356000">100 acres</option>
+                    </select>
+                  </div>
+                </div>
+                <span class="dash"></span>
+                <div id="lotsecondSelect">
+                  <div class="custom-select" id="maxLotSizeSelect">
+                    <select>
+                      <option value="200000000">Any</option>
+                      <option value="1000">1,000 sqft</option>
+                      <option value="2000">2,000 sqft</option>
+                      <option value="3000">3,000 sqft</option>
+                      <option value="4000">4,000 sqft</option>
+                      <option value="5000">5,000 sqft</option>
+                      <option value="7500">7,500 sqft</option>
+                      <option value="10890">1/4 acre/10,890 sqft</option>
+                      <option value="21780">1/2 acre</option>
+                      <option value="43560">1 acre</option>
+                      <option value="87120">2 acres</option>
+                      <option value="217800">5 acres</option>
+                      <option value="435600">10 acres</option>
+                      <option value="871200">20 acres</option>
+                      <option value="2178000">50 acres</option>
+                      <option value="4356000">100 acres</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="yearBuiltFieldset">
+              <div id="yearBuiltText">
+                <span>Year Built</span>
+              </div>
+              <div class="inputTextContainer">
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="Min"
+                  id="minYear"
+                  autocomplete="off"
+                  onkeyup="yearBuiltFilter(this)"
+                />
+                <span class="dash"></span>
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="Max"
+                  id="maxYear"
+                  autocomplete="off"
+                  onkeyup="yearBuiltFilter(this)"
+                />
+              </div>
+            </div>
+            <div class="basementFieldset">
+              <div id="basementText">
+                <span>Basement</span>
+              </div>
+              <div id="basementInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="basement"
+                  value="false"
+                  onchange="basementFilter(this)"
+                />
+                <label for="basement">Has Basement</label>
+              </div>
+            </div>
+            <div class="storiesFieldset">
+              <div id="storiesText">
+                <span>Number Of Stories</span>
+              </div>
+              <div id="storiesInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="stories"
+                  value="false"
+                  onchange="stories_pool_WaterFront_view_Filter()"
+                />
+                <label for="stories">Single-story only</label>
+              </div>
+            </div>
+            <fieldset class="otherAmenitiesFieldset">
+              <legend>Other Amenities</legend>
+              <div id="poolInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="pool"
+                  value="false"
+                  onchange="stories_pool_WaterFront_view_Filter()"
+                />
+                <label for="pool">Must have pool</label>
+              </div>
+              <div id="waterFrontInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="waterFront"
+                  value="false"
+                  onchange="stories_pool_WaterFront_view_Filter()"
+                />
+                <label for="waterFront">Waterfront</label>
+              </div>
+            </fieldset>
+            <div class="viewFieldset">
+              <legend>View</legend>
+              <br />
+              <div id="cityInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="cityView"
+                  value="false"
+                  onchange="stories_pool_WaterFront_view_Filter()"
+                />
+                <label for="cityView">City</label>
+              </div>
+              <div id="mountainInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="mountainView"
+                  value="false"
+                  onchange="stories_pool_WaterFront_view_Filter()"
+                />
+                <label for="mountainView">Mountain</label>
+              </div>
+              <div id="parkInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="parkView"
+                  value="false"
+                  onchange="stories_pool_WaterFront_view_Filter()"
+                />
+                <label for="parkView">Park</label>
+              </div>
+              <div id="waterInput">
+                <input
+                  class="customCheckbox"
+                  type="checkbox"
+                  id="waterView"
+                  value="false"
+                  onchange="stories_pool_WaterFront_view_Filter()"
+                />
+                <label for="waterView">Water</label>
+              </div>
+            </div>
+            <div class="daysOnZillowFieldset">
+              <div id="daysOnZillowText">
+                <span>Days On Zillow</span>
+              </div>
+              <!--surround the select box with a "custom-select" DIV element -->
+              <div class="custom-select" id="daysOnMarketSelect">
+                <select>
+                  <option value="5000">Any</option>
+                  <option value="1">1 day</option>
+                  <option value="7">7 days</option>
+                  <option value="14">14 days</option>
+                  <option value="30">30 days</option>
+                  <option value="90">90 days</option>
+                  <option value="180">6 months</option>
+                  <option value="360">12 months</option>
+                  <option value="720">24 months</option>
+                  <option value="1080">36 months</option>
+                </select>
+              </div>
+            </div>
+            <div id="doneContainer-3">
+              <button
+                class="done"
+                id="doneButMore"
+                onclick="donePush('#moreMainContainer', 'moreButSmallnav')"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="saveSearch">Save Search</button>
+      <div class="mobileButs">
+        <button class="mobSaveSearchBut">Save Search</button>
+        <button class="mobSortBut">Sort</button>
+        <button class="mobMapBut">Map</button>
+      </div>
+    </div>
+    <section class="mainSection">
+      <div id="map"></div>
+      <div id="homeContainer">
+        <div id="homeInfo" onclick="checkClickArea(event)"></div>
+        <div id="pageButtons">
+          <button id="previous" onclick="previousPage()">PREV</button>
+          <ul id="orderedPageList"></ul>
+          <button id="next" onclick="nextPage()">NEXT</button>
+        </div>
+      </div>
+    </section>
+    <section id="homeSectionContainer" class="mainBigHomeContainer">
+      <div class="mainBigHomeContainer__smallHeader">
+        <div class="mainBigHomeContainer__firstRow">
+          <i class="fa fa-bars mobileMenueIcon" onclick="showMobileMenue()"></i>
+          <a href="index.html" style="margin-right: auto;">
+            <img
+              class="mainBigHomeContainer__hedearLogo"
+              src="./images/logo.png"
+              alt="zillowLogo"
+          /></a>
+        </div>
+        <div class="mainBigHomeContainer__secondRow">
+          <i class="fa fa-angle-left directionIcon HomeContainerIcon__icon"></i>
+          <button class="HomeContainerIcon HomeContainerIcon--left">
+            <i class="far fa-heart HomeContainerIcon__icon" style="font-size:20px"></i
+            ><span class="HomeContainerIcon__txt">Save &nbsp&nbsp</span>
+          </button>
+          <button class="HomeContainerIcon">
+            <i class="far fa-share-square HomeContainerIcon__icon" style="font-size:20px"></i
+            ><span class="HomeContainerIcon__txt">Share &nbsp&nbsp</span>
+          </button>
+          <button class="HomeContainerIcon" id="more">
+            <i class="fa fa-ellipsis-h HomeContainerIcon__icon" style="font-size:20px"></i
+            ><span class="HomeContainerIcon__txt">More</span>
+          </button>
+        </div>
+      </div>
+      <div id="clickHome" class="homeContainer" onscroll="mobileNavStyleControl(this)">
+        <div class="picContainer">
+          <div id="picLeftColumn"></div>
+        </div>
+        <div id="infoRightColumn" class="homeContainer__rightInfo">
+          <div id="RightInfoRow" class="homeContainer__topRight">
+            <div class="logoSection">
+              <img src="images/logo.png" alt="Zillow Logo" />
+              <button id="heart">
+                <i class="far fa-heart" style="font-size:20px"></i
+                ><span class="logoTxt">Save &nbsp&nbsp</span>
+              </button>
+              <button id="share">
+                <i class="far fa-share-square" style="font-size:20px"></i
+                ><span class="logoTxt">Share &nbsp&nbsp</span>
+              </button>
+              <button id="more">
+                <i class="fa fa-ellipsis-h" style="font-size:20px"></i
+                ><span class="logoTxt">More</span>
+              </button>
+            </div>
+            <div id="priceSection" class="homeContainer__generalInfo"></div>
+            <div id="lastRow" class="homeContainer__buttons"></div>
+          </div>
+          <div id="bottomInfoRow" class="homeContainer__bottomRight">
+            <!-- Home overview -->
+            <div id="overview">
+              <div id="overviewText" class="bigBoxHomeOverviewText">
+                Overview
+              </div>
+              <div id="overviewOptions">
+                <div>
+                  <span class="txtOverview">Times</span><br /><span
+                    class="txtNum"
+                    >5</span
+                  >
+                </div>
+                <div>
+                  <span class="txtOverview">Views</span><br /><span
+                    class="txtNum"
+                    >6</span
+                  >
+                </div>
+                <div>
+                  <span class="txtOverview">Saves</span><br /><span
+                    class="txtNum"
+                    >2</span
+                  >
+                </div>
+              </div>
+              <!-- Disclaim about home  -->
+              <div id="disclaimer"></div>
+              <div class="overview__listingAgent">
+                <h3 class="overview__AgentHeader">Listing Agent</h3>
+                <img alt="" class="overview__agentImg" />
+                <p class="overview__AgentName"></p>
+              </div>
+              <!-- Home features -->
+              <div id="homeFeature">
+                <div class="bigBoxHomeOverviewText">Facts and features</div>
+                <div id="featuresList">
+                  <table id="homeFeatureTable">
+                    <tbody>
+                      <tr id="homeTypeFeatureTable" class="featureTable">
+                        <th><i class="far fa-building"></i> Type:</th>
+                        <td></td>
+                      </tr>
+                      <tr id="yearBuiltFeatureTable" class="featureTable">
+                        <th><i class="far fa-calendar"></i> Year built:</th>
+                        <td></td>
+                      </tr>
+                      <tr id="heatingFeatureTable" class="featureTable">
+                        <th><i class="fas fa-temperature-low"></i> Heating:</th>
+                        <td></td>
+                      </tr>
+                      <tr id="coolingFeatureTable" class="featureTable">
+                        <th><i class="far fa-snowflake"></i> Cooling:</th>
+                        <td></td>
+                      </tr>
+                      <tr id="parkingFeatureTable" class="featureTable">
+                        <th><i class="fas fa-parking"></i> Parking:</th>
+                        <td></td>
+                      </tr>
+                      <tr id="lotFeatureTable" class="featureTable">
+                        <th><i class="fas fa-vector-square"></i> Lot:</th>
+                        <td></td>
+                      </tr>
+                      <tr id="priceFeatureTable" class="featureTable">
+                        <th><i class="fa fa-area-chart"></i> Price/sqft:</th>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="closeSign">&#10005;</div>
+    </section>
+  </body>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9SJrJz2gP0QBjWUFgXWGISnJrCA8ko3c&callback=initMap"
+    async
+    defer
+  ></script>
+  <!-- JavaScript Sources -->
+  <script src="main.js"></script>
+  <script src="result.js"></script>
+</html>
