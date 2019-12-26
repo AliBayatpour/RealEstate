@@ -89,7 +89,7 @@ select:-webkit-autofill:focus {
 .indexPhoneNav {
   position: absolute;
   top: 0;
-  padding: 5px 10px 5px 10px;
+  padding: 10px 10px 5px 10px;
   width: 100%;
   background-color: transparent;
   display: -webkit-box;
@@ -106,13 +106,19 @@ select:-webkit-autofill:focus {
 }
 
 .indexPhoneNav__mobileMenueIcon {
-  margin-right: auto;
+  position: absolute;
+  left: 15px;
+  padding: 5px;
 }
 
 .indexPhoneNav__mobileMenueLogo {
-  margin-right: auto;
-  width: 150px;
-  height: 35px;
+  width: 135px;
+}
+
+@media (max-width: 680px) {
+  .indexPhoneNav__mobileMenueLogo {
+    width: 110px;
+  }
 }
 
 .phoneNavMenue {
@@ -143,8 +149,7 @@ select:-webkit-autofill:focus {
 }
 
 .phoneNavMenue__logo {
-  width: 150px;
-  height: 33px;
+  width: 110px;
   margin: 5px 0;
 }
 
@@ -267,6 +272,8 @@ select:-webkit-autofill:focus {
 
 .topnav {
   overflow: hidden;
+  position: absolute;
+  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,12 +283,10 @@ select:-webkit-autofill:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  height: 10vh;
+  height: 70px;
   background-color: white;
-  min-height: 70px;
-  max-height: 75px;
   padding: 0 5%;
-  position: relative;
+  border-bottom: 1px solid #ccc;
 }
 
 @media (max-width: 1200px) {
@@ -373,7 +378,7 @@ select:-webkit-autofill:focus {
 }
 
 .topnav .topnav__middle .topnav__img {
-  width: 150px;
+  width: 135px;
 }
 
 @media (max-width: 800px) {
@@ -394,7 +399,7 @@ select:-webkit-autofill:focus {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border: 1px solid #d1d1d5;
+  border-bottom: 1px solid #d1d1d5;
   position: absolute;
   opacity: 0;
   left: -100%;
@@ -1296,11 +1301,14 @@ select:-webkit-autofill:focus {
 }
 
 .resultNav {
-  padding: 10px 0;
+  position: absolute;
+  top: 70px;
+  padding: 10px 0 0 0;
+  height: 57px;
+  background-color: #fff;
   width: 100%;
-  height: auto;
+  height: 57px;
   border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1319,7 +1327,9 @@ select:-webkit-autofill:focus {
 
 @media (max-width: 800px) {
   .resultNav {
-    padding: 0px 0 0 0;
+    top: 0;
+    padding: 0;
+    height: 131px;
   }
 }
 
@@ -4458,6 +4468,7 @@ select:-webkit-autofill:focus {
 @media (max-width: 1200px) {
   .resultNav .mobileButs {
     width: 100%;
+    background-color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4526,6 +4537,10 @@ select:-webkit-autofill:focus {
 }
 
 .mainSection {
+  padding-top: 127px;
+  width: 100%;
+  height: 100vh;
+  background-color: #eee;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 46.5% 53.5%;
@@ -4534,6 +4549,7 @@ select:-webkit-autofill:focus {
 
 @media (max-width: 1200px) {
   .mainSection {
+    padding-top: 161px;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 100%;
@@ -4541,9 +4557,15 @@ select:-webkit-autofill:focus {
   }
 }
 
+@media (max-width: 800px) {
+  .mainSection {
+    padding-top: 132px;
+  }
+}
+
 .mainSection #map {
   width: 100%;
-  height: 80vh;
+  height: 100%;
 }
 
 @media (max-width: 1200px) {
@@ -4556,7 +4578,7 @@ select:-webkit-autofill:focus {
   scroll-behavior: smooth;
   overflow-y: scroll;
   width: 100%;
-  height: 80vh;
+  height: 100%;
   background-color: #eee;
   overflow-x: hidden;
 }
@@ -4889,7 +4911,7 @@ select:-webkit-autofill:focus {
           align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: rgba(42, 42, 51, 0.65);
   display: none;
   position: absolute;
   top: 0;
@@ -4909,16 +4931,17 @@ select:-webkit-autofill:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 0 0 15px;
 }
 
 @media (max-width: 680px) {
   .mainBigHomeContainer .directionIcon {
+    margin: 0 0 0 15px;
     color: rgba(255, 255, 255, 0.9);
   }
 }
 
 .mainBigHomeContainer__smallHeader {
+  z-index: 10;
   display: none;
 }
 
@@ -4929,20 +4952,28 @@ select:-webkit-autofill:focus {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 100%;
-    height: 14vh;
+    height: 100px;
     background-color: #fff;
+    position: absolute;
+    top: 0;
   }
 }
 
 @media (max-width: 680px) {
   .mainBigHomeContainer__smallHeader {
-    height: auto;
+    height: 45px;
+    max-height: 45px;
   }
 }
 
 .mainBigHomeContainer__firstRow {
   width: 100%;
+  height: 50px;
+  background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4954,12 +4985,14 @@ select:-webkit-autofill:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5px 10px 5px 10px;
+  padding: 0 10px 0 10px;
   border-bottom: rgba(167, 166, 171, 0.5) 0.7px solid;
 }
 
 @media (max-width: 680px) {
   .mainBigHomeContainer__firstRow {
+    width: 100%;
+    height: 45px;
     padding: 0 10px 0 10px;
   }
 }
@@ -4973,14 +5006,18 @@ select:-webkit-autofill:focus {
 
 .mainBigHomeContainer__hedearLogo {
   margin-right: auto;
-  width: 150px;
-  height: 35px;
+  width: 135px;
+  padding-top: 5px;
+}
+
+@media (max-width: 680px) {
+  .mainBigHomeContainer__hedearLogo {
+    width: 110px;
+  }
 }
 
 .mainBigHomeContainer__secondRow {
-  z-index: 10;
   width: 100%;
-  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4993,14 +5030,22 @@ select:-webkit-autofill:focus {
   border-bottom: rgba(167, 166, 171, 0.5) 0.7px solid;
 }
 
+@media (max-width: 900px) {
+  .mainBigHomeContainer__secondRow {
+    width: 100%;
+    height: 50px;
+  }
+}
+
 @media (max-width: 680px) {
   .mainBigHomeContainer__secondRow {
+    width: 100%;
+    height: auto;
+    top: 45px;
     padding: 8px 10px 8px 0;
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(47, 47, 160, 0.3)), to(rgba(47, 47, 160, 0.1)));
     background-image: linear-gradient(rgba(47, 47, 160, 0.3), rgba(47, 47, 160, 0.1));
-    position: absolute;
     border-bottom: none;
-    top: 42px;
   }
 }
 
@@ -5068,8 +5113,15 @@ select:-webkit-autofill:focus {
     display: grid;
     -ms-grid-columns: 55% 45%;
         grid-template-columns: 55% 45%;
-    width: 100%;
-    height: 86vh;
+  }
+}
+
+@media (max-width: 1000px) {
+  .mainBigHomeContainer .homeContainer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
   }
 }
 
@@ -5079,18 +5131,24 @@ select:-webkit-autofill:focus {
     display: grid;
     -ms-grid-columns: 40% 60%;
         grid-template-columns: 40% 60%;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
   }
 }
 
 @media (max-width: 680px) {
   .mainBigHomeContainer .homeContainer {
-    height: 92vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+    padding-top: 45px;
   }
 }
 
@@ -5725,6 +5783,12 @@ select:-webkit-autofill:focus {
 }
 
 @media (max-width: 1200px) {
+  .mainBigHomeContainer #closeSign {
+    right: 15px;
+  }
+}
+
+@media (max-width: 900px) {
   .mainBigHomeContainer #closeSign {
     display: none;
   }

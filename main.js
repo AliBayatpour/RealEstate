@@ -27,50 +27,6 @@ document.addEventListener("mouseover", event => {
     document.getElementById("rentNavDropDown").style.opacity = null;
     document.getElementById("rentNavDropDown").style.left = null;
   }
-  // opacity Sell DropDown
-  if (
-    event.target.closest("#sellNavBut") ||
-    event.target.closest("#sellNavDropDown")
-  ) {
-    document.getElementById("sellNavDropDown").style.opacity = "1";
-    document.getElementById("sellNavDropDown").style.left = "0";
-  } else {
-    document.getElementById("sellNavDropDown").style.opacity = null;
-    document.getElementById("sellNavDropDown").style.left = null;
-  }
-  // opacity Homeloans DropDown
-  if (
-    event.target.closest("#homeLoansNavBut") ||
-    event.target.closest("#homeLoansNavDropDown")
-  ) {
-    document.getElementById("homeLoansNavDropDown").style.opacity = "1";
-    document.getElementById("homeLoansNavDropDown").style.left = "0";
-  } else {
-    document.getElementById("homeLoansNavDropDown").style.opacity = null;
-    document.getElementById("homeLoansNavDropDown").style.left = null;
-  }
-  // opacity AgentFinder DropDown
-  if (
-    event.target.closest("#agentFinderNavBut") ||
-    event.target.closest("#agentFinderNavDropDown")
-  ) {
-    document.getElementById("agentFinderNavDropDown").style.opacity = "1";
-    document.getElementById("agentFinderNavDropDown").style.left = "0";
-  } else {
-    document.getElementById("agentFinderNavDropDown").style.opacity = null;
-    document.getElementById("agentFinderNavDropDown").style.left = null;
-  }
-  // opacity MyZillow DropDown
-  if (
-    event.target.closest("#myZillowNavBut") ||
-    event.target.closest("#myZillowNavDropDown")
-  ) {
-    document.getElementById("myZillowNavDropDown").style.opacity = "1";
-    document.getElementById("myZillowNavDropDown").style.left = "73%";
-  } else {
-    document.getElementById("myZillowNavDropDown").style.opacity = null;
-    document.getElementById("myZillowNavDropDown").style.left = null;
-  }
 });
 
 // mobile nav dropDown
@@ -86,6 +42,7 @@ const mobileMenuShowDropDown = (y, x) => {
     y.style.transform = "rotate(-180deg)";
   }
 };
+
 //  // showing or hiding mobile menue
 const indexShowMobileMenue = x => {
   document.querySelector(x).style.display = "block";
@@ -112,6 +69,22 @@ function normalBox(x, y) {
   document.getElementById(x).style.paddingBottom = null;
   document.getElementById(x).style.boxShadow = "none";
 }
+HTMLElement.prototype.pseudoStyle = function(element, prop, value) {
+  var _this = this;
+  var _sheetId = "pseudoStyles";
+  var _head = document.head || document.getElementsByTagName("head")[0];
+  var _sheet =
+    document.getElementById(_sheetId) || document.createElement("style");
+  _sheet.id = _sheetId;
+  var className = "pseudoStyle" + UID.getNew();
+
+  _this.className += " " + className;
+
+  _sheet.innerHTML +=
+    " ." + className + ":" + element + "{" + prop + ":" + value + "}";
+  _head.appendChild(_sheet);
+  return this;
+};
 
 // Arrows rotate when clicked
 function arrowRotation(x, z) {
@@ -178,22 +151,7 @@ function checkboxClick(x) {
       return this._current;
     }
   };
-  HTMLElement.prototype.pseudoStyle = function(element, prop, value) {
-    var _this = this;
-    var _sheetId = "pseudoStyles";
-    var _head = document.head || document.getElementsByTagName("head")[0];
-    var _sheet =
-      document.getElementById(_sheetId) || document.createElement("style");
-    _sheet.id = _sheetId;
-    var className = "pseudoStyle" + UID.getNew();
 
-    _this.className += " " + className;
-
-    _sheet.innerHTML +=
-      " ." + className + ":" + element + "{" + prop + ":" + value + "}";
-    _head.appendChild(_sheet);
-    return this;
-  };
   let cn = [];
   cn = document.querySelectorAll(".checkbox");
   for (let i = 0; i <= 3; i++) {
@@ -1197,12 +1155,6 @@ function focusInput(x) {
     document.getElementById("priceListMax").style.visibility = "visible";
   }
 }
-// id done button pushed on result.html dropdown button
-function donePush(y, x) {
-  document.querySelector(y).style.display = "none";
-  document.getElementById(x).style.background = "white";
-  document.getElementById(x).style.color = "rgb(0, 106, 255)";
-}
 let mainList = [];
 let list = [];
 let pageList = [];
@@ -1831,9 +1783,10 @@ function housePageBuilder(index, callback) {
       document.querySelector(
         ".overview__AgentName"
       ).innerHTML = `${data[index].ListAgentFullName}`;
-      document.getElementById("picLeftColumn").scrollTop = 0;
       document.getElementById("bottomInfoRow").scrollTop = 0;
       document.getElementById("clickHome").scrollTop = 0;
+      document.querySelector('.picContainer').scrollTop = 0;
+      document.querySelector("#picLeftColumn").scrollTop = 0;
       if (window.matchMedia("(max-width: 700px)").matches) {
         callback();
       }

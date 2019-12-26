@@ -274,6 +274,20 @@ document
     "border-color",
     "transparent transparent transparent transparent"
   );
+
+// id done button pushed on result.html dropdown button
+function donePush(y, x) {
+  let butContainer = document.getElementById(x);
+  let dropDownContainer = document.querySelector(y);
+  dropDownContainer.style.display = "none";
+  butContainer.style.background = "white";
+  butContainer.style.color = "rgb(0, 106, 255)";
+  butContainer.pseudoStyle(
+    "after",
+    "border-color",
+    "transparent transparent transparent transparent"
+  );
+}
 function butDisplay(boxId, butId, flag) {
   let x = document.querySelector(boxId);
   let y = document.getElementById(butId);
@@ -291,8 +305,6 @@ function butDisplay(boxId, butId, flag) {
     }
     y.style.background = "rgb(0, 106, 255)";
     y.style.color = "white";
-    console.log(window.innerWidth);
-    console.log(document.body.clientWidth);
     if (window.matchMedia("(max-width: 899px)").matches) {
       x.style.maxWidth = `${document.body.clientWidth}px`;
       x.style.width = `${document.body.clientWidth}px`;

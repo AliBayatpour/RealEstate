@@ -48,7 +48,9 @@
             onclick="resultHideMobileMenue('#resultPhoneNavMenue')"
             style="font-size: 25px;"
           ></i>
-          <a href="index.html"><img class="phoneNavMenue__logo" src="./images/logo.png" alt="logo" /></a>
+          <a href="index.html"
+            ><img class="phoneNavMenue__logo" src="./images/logo.png" alt="logo"
+          /></a>
         </div>
         <div class="phoneNavMenue__body">
           <div class="phoneNavMenue__ul">
@@ -59,61 +61,17 @@
               >
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">My Zillow</span
-              ><i
-                id="phoneMenueMyZillowArrow"
-                class="fa fa-angle-down phoneNavMenue__liArrow"
-                style="font-size:24px"
-              ></i>
-            </div>
-            <div class="phoneNavMenue__dropDown" id="phoneMenueMyZillow">
-              <div class="phoneNavMenue__dropDownUl">
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >My homes</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Claim my home</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >My account</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Profile</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Subscriptions</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Setting</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option phoneNavMenue__dropDownLi--mt"
-                  >Sign out</a
-                >
-              </div>
+              <span class="phoneNavMenue__liText">My Zillow</span>
             </div>
             <div class="phoneNavMenue__li">
               <span class="phoneNavMenue__liText">Buy</span
               ><i
-                id="phoneMenueBuyArrow"
+                onclick="mobileMenuShowDropDown(this,'#indexPhoneMenueBuy')"
                 class="fa fa-angle-down phoneNavMenue__liArrow"
                 style="font-size:24px"
               ></i>
             </div>
-            <div class="phoneNavMenue__dropDown" id="phoneMenueBuy">
+            <div class="phoneNavMenue__dropDown" id="indexPhoneMenueBuy">
               <div class="phoneNavMenue__dropDownUl">
                 <a
                   href="#"
@@ -124,11 +82,6 @@
                   href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
                   >Homes for Sale</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Foreclosures</a
                 >
                 <a
                   href="#"
@@ -137,36 +90,11 @@
                 >
                 <a
                   href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Open houses</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >New construction</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Coming soon</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Recent home sales</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >All homes</a
-                >
-                <a
-                  href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
                   >Resources</a
                 >
                 <a
-                  href="#"
+                  href="./pages/BuyersGuide/buyersGuide.html"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
                   >Buyer's Guide</a
                 >
@@ -175,32 +103,22 @@
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
                   >Foreclosure center</a
                 >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Real estate app</a
-                >
               </div>
             </div>
             <div class="phoneNavMenue__li">
               <span class="phoneNavMenue__liText">Rent</span
               ><i
-                id="phoneMenueRentArrow"
+                onclick="mobileMenuShowDropDown(this,'#indexPhoneMenueRent')"
                 class="fa fa-angle-down phoneNavMenue__liArrow"
                 style="font-size:24px"
               ></i>
             </div>
-            <div class="phoneNavMenue__dropDown" id="phoneMenueRent">
+            <div class="phoneNavMenue__dropDown" id="indexPhoneMenueRent">
               <div class="phoneNavMenue__dropDownUl">
                 <a
                   href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
                   >Search for Rentals</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Rental Buildings</a
                 >
                 <a
                   href="#"
@@ -219,38 +137,13 @@
                 >
                 <a
                   href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >All rental buildings</a
-                >
-                <a
-                  href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
                   >I'm a Rental Manager</a
                 >
                 <a
                   href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >My listings</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
                   >List a rental</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Received applications</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Rent payments</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Zillow Rental Manager</a
                 >
                 <a
                   href="#"
@@ -260,265 +153,18 @@
                 <a
                   href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >My rental applications</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >My rent Payments</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Rent affordability calculator</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
                   >Renters Guide</a
                 >
               </div>
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Sell</span
-              ><i
-                id="phoneMenueSellArrow"
-                class="fa fa-angle-down phoneNavMenue__liArrow"
-                style="font-size:24px"
-              ></i>
-            </div>
-            <div class="phoneNavMenue__dropDown" id="phoneMenueSell">
-              <div class="phoneNavMenue__dropDownUl">
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >Resources</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Explore your options</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >See your home's Zestimate</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Home values</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Seller's guide</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >Selling options</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Sell with zillow offers</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Find a seller's agent</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Post For Sale by Owner</a
-                >
-              </div>
+              <span class="phoneNavMenue__liText">Sell</span>
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Home loans</span
-              ><i
-                id="phoneMenueHomeLoansArrow"
-                class="fa fa-angle-down phoneNavMenue__liArrow"
-                style="font-size:24px"
-              ></i>
-            </div>
-            <div class="phoneNavMenue__dropDown" id="phoneMenueHomeLoans">
-              <div class="phoneNavMenue__dropDownUl">
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >Shop mortgages</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Mortgage lenders</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >HELOC lenders</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Mortgage rates</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Refinance rates</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >All mortgage rates</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >Calculators</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Mortgage calculator</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Refinance calculator</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Affordability calculator</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Amortization calculator</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Debt-to-Income calculator</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >Resources</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Lender reviews</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Mortgage learning center</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Mortgages app</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Lender resource center
-                </a>
-              </div>
+              <span class="phoneNavMenue__liText">Home loans</span>
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Agent finder</span
-              ><i
-                id="phoneMenueAgentFinderArrow"
-                class="fa fa-angle-down phoneNavMenue__liArrow"
-                style="font-size:24px"
-              ></i>
-            </div>
-            <div class="phoneNavMenue__dropDown" id="phoneMenueAgentFinder">
-              <div class="phoneNavMenue__dropDownUl">
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >Looking for pros?</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Real estate agents</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Property managers</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Home inspectors</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Other pros</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Home improvement pros</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Home builders</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Real estate photographers</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
-                  >I'm a pro</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Agent advertising</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Agent resource center</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Create a free agent account</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Real estate business plan</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Real estate agent scripts</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Listing flyer templates</a
-                >
-              </div>
+              <span class="phoneNavMenue__liText">Agent finder</span>
             </div>
             <div class="phoneNavMenue__li">
               <span class="phoneNavMenue__liText phoneNavMenue__liText--active"
@@ -568,30 +214,20 @@
       </div>
       <!-- Buy DropDown -->
       <div class="navDropDown" id="buyNavDropDown">
-        <div class="dropdownBox dropdownBox__nonBorder">
+        <div class="dropdownBox">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>Homes for Sale</h4></li>
             <li><a href="#">Homes for sale</a></li>
-            <li><a href="#">Foreclosures</a></li>
             <li><a href="#">For sale by owner</a></li>
-            <li><a href="#">Open houses</a></li>
-          </ul>
-        </div>
-        <div class="dropdownBox">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>&nbsp;</h4></li>
-            <li><a href="#">New construction</a></li>
-            <li><a href="#">Coming soon</a></li>
-            <li><a href="#">Recent home sales</a></li>
-            <li><a href="#">All homes</a></li>
           </ul>
         </div>
         <div class="dropdownBox dropdownBox__nonBorder">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>Resources</h4></li>
-            <li><a href="#">Buyers guide</a></li>
+            <li>
+              <a href="./pages/BuyersGuide/buyersGuide.html">Buyers guide</a>
+            </li>
             <li><a href="#">Foreclosure center</a></li>
-            <li><a href="#">Real estate app</a></li>
           </ul>
         </div>
       </div>
@@ -600,136 +236,23 @@
         <div class="dropdownBox">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>Search for Rentals</h4></li>
-            <li><a href="#">Rental Buildings</a></li>
             <li><a href="#">Apartments for rent</a></li>
             <li><a href="#">Houses for rent</a></li>
             <li><a href="#">All rental listings</a></li>
-            <li><a href="#">All rental buildings</a></li>
           </ul>
         </div>
         <div class="dropdownBox">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>I'm a rental manager</h4></li>
-            <li><a href="#">My listings</a></li>
             <li><a href="#">List a rental</a></li>
-            <li><a href="#">Received applications</a></li>
-            <li><a href="#">Rent payments</a></li>
-            <li><a href="#">Zillow rental managment</a></li>
           </ul>
         </div>
         <div class="dropdownBox dropdownBox__nonBorder">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>I'm a Renter</h4></li>
-            <li><a href="#">My rental applications</a></li>
-            <li><a href="#">My rent payments</a></li>
-            <li><a href="#">Rent affordability calculator</a></li>
             <li><a href="#">Renters Guide</a></li>
           </ul>
         </div>
-      </div>
-      <!-- Sell DropDown -->
-      <div class="navDropDown" id="sellNavDropDown">
-        <div class="dropdownBox">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>Resources</h4></li>
-            <li><a href="#">Explore your options</a></li>
-            <li><a href="#">See your home's Zestimate</a></li>
-            <li><a href="#">Home value</a></li>
-            <li><a href="#">Sellers Guide</a></li>
-            <li><a href="#">All sellal buildings</a></li>
-          </ul>
-        </div>
-        <div class="dropdownBox dropdownBox__nonBorder">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>Selling options</h4></li>
-            <li><a href="#">Sell with Zillow Offers</a></li>
-            <li><a href="#">Find a seller's agent</a></li>
-            <li><a href="#">Post For Sale by Owner</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- HomeLoans DropDown -->
-      <div class="navDropDown" id="homeLoansNavDropDown">
-        <div class="dropdownBox">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>Shop mortgages</h4></li>
-            <li><a href="#">Mortgage lenders</a></li>
-            <li><a href="#">HELOC lenders</a></li>
-            <li><a href="#">Mortgage rates</a></li>
-            <li><a href="#">Refinance rates</a></li>
-            <li><a href="#">All mortgage rates</a></li>
-          </ul>
-        </div>
-        <div class="dropdownBox">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>Calculators</h4></li>
-            <li><a href="#">Mortgage calculator</a></li>
-            <li><a href="#">Refinance calculator</a></li>
-            <li><a href="#">Affordability calculator</a></li>
-            <li><a href="#">Amortization calculator</a></li>
-            <li><a href="#">Debt-to-Income calculator</a></li>
-          </ul>
-        </div>
-        <div class="dropdownBox dropdownBox__nonBorder">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>Resources</h4></li>
-            <li><a href="#">Lender Reviews</a></li>
-            <li><a href="#">Mortgage learning center</a></li>
-            <li><a href="#">Mortgages app</a></li>
-            <li><a href="#">Lender resource center</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- AgentFinder DropDown -->
-      <div class="navDropDown" id="agentFinderNavDropDown">
-        <div class="dropdownBox dropdownBox__nonBorder">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>Real state agents</h4></li>
-            <li><a href="#">Property managers</a></li>
-            <li><a href="#">Home inspectors</a></li>
-            <li><a href="#">Other pros</a></li>
-          </ul>
-        </div>
-        <div class="dropdownBox">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>&nbsp;</h4></li>
-            <li><a href="#">Home improvement pros</a></li>
-            <li><a href="#">Home builders</a></li>
-            <li><a href="#">Real state photographers</a></li>
-          </ul>
-        </div>
-        <div class="dropdownBox dropdownBox__nonBorder">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>I'm a pro</h4></li>
-            <li><a href="#">Agent advertising</a></li>
-            <li><a href="#">Agent resource center</a></li>
-            <li><a href="#">Create a free agent account</a></li>
-          </ul>
-        </div>
-        <div class="dropdownBox dropdownBox__nonBorder">
-          <ul class="dropdownBox__mainNavDropDown">
-            <li><h4>&nbsp;</h4></li>
-            <li><a href="#">Real state business plan</a></li>
-            <li><a href="#">Real state agent scripts</a></li>
-            <li><a href="#">Listing flyer templates</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- My Zillow -->
-      <div class="myZillowDropDown" id="myZillowNavDropDown">
-        <ul class="myZillowDropDown__ul myZillowDropDown__ul__bb">
-          <li><h4>My homes</h4></li>
-          <li><a href="#">Claim my home</a></li>
-        </ul>
-        <ul class="myZillowDropDown__ul myZillowDropDown__ul__bb">
-          <li class="mainNavUl__list"><h4>My account</h4></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Subscriptions</a></li>
-          <li><a href="#">Settings</a></li>
-        </ul>
-        <ul class="myZillowDropDown__ul">
-          <li><a href="#">Sign out</a></li>
-        </ul>
       </div>
     </nav>
     <div class="resultNav">
@@ -1633,20 +1156,33 @@
         <div class="mainBigHomeContainer__secondRow">
           <i class="fa fa-angle-left directionIcon HomeContainerIcon__icon"></i>
           <button class="HomeContainerIcon HomeContainerIcon--left">
-            <i class="far fa-heart HomeContainerIcon__icon" style="font-size:20px"></i
+            <i
+              class="far fa-heart HomeContainerIcon__icon"
+              style="font-size:20px"
+            ></i
             ><span class="HomeContainerIcon__txt">Save &nbsp&nbsp</span>
           </button>
           <button class="HomeContainerIcon">
-            <i class="far fa-share-square HomeContainerIcon__icon" style="font-size:20px"></i
+            <i
+              class="far fa-share-square HomeContainerIcon__icon"
+              style="font-size:20px"
+            ></i
             ><span class="HomeContainerIcon__txt">Share &nbsp&nbsp</span>
           </button>
           <button class="HomeContainerIcon" id="more">
-            <i class="fa fa-ellipsis-h HomeContainerIcon__icon" style="font-size:20px"></i
+            <i
+              class="fa fa-ellipsis-h HomeContainerIcon__icon"
+              style="font-size:20px"
+            ></i
             ><span class="HomeContainerIcon__txt">More</span>
           </button>
         </div>
       </div>
-      <div id="clickHome" class="homeContainer" onscroll="mobileNavStyleControl(this)">
+      <div
+        id="clickHome"
+        class="homeContainer"
+        onscroll="mobileNavStyleControl(this)"
+      >
         <div class="picContainer">
           <div id="picLeftColumn"></div>
         </div>

@@ -376,18 +376,22 @@ select:-webkit-autofill:focus {
 .indexPhoneNav {
   position: absolute;
   top: 0;
-  padding: 5px 10px 5px 10px;
+  padding: 10px 10px 5px 10px;
   @include boxSize(100%, null, null, transparent, null);
   @include flex(center, center, null);
   &__mobileMenueIcon {
-    margin-right: auto;
+    position: absolute;
+    left: 15px;
+    padding: 5px;
   }
   &__mobileMenueLogo {
-    margin-right: auto;
-    @include boxSize(150px, 35px, null, null, null);
+    @include boxSize(135px, null, null, null, null);
+    @include for-phone-only() {
+      @include boxSize(110px, null, null, null, null);
+    }
   }
 }
-// Phone Nave dropdown container
+// Phone Nav dropdown container
 .phoneNavMenue {
   position: absolute;
   z-index: 200;
@@ -400,7 +404,7 @@ select:-webkit-autofill:focus {
     border-bottom: #ccc 1px solid;
   }
   &__logo {
-    @include boxSize(150px, 33px, null, null, null);
+    @include boxSize(110px, null, null, null, null);
     margin: 5px 0;
   }
   &__closeIcon {
@@ -471,12 +475,12 @@ select:-webkit-autofill:focus {
 // Top navigation bar on all pages
 .topnav {
   overflow: hidden;
+  position: absolute;
+  top: 0;
   @include flex(space-between, null, null);
-  @include boxSize(100%, 10vh, null, color_function(back), null);
-  min-height: 70px;
-  max-height: 75px;
+  @include boxSize(100%, 70px, null, color_function(back), null);
   padding: 0 5%;
-  position: relative;
+  border-bottom: 1px solid #ccc;
   @include for-tablet-landscape-up() {
     padding: 0 0 0 0;
   }
@@ -526,7 +530,7 @@ select:-webkit-autofill:focus {
       margin: 0 auto 0 6%;
     }
     .topnav__img {
-      width: 150px;
+      width: 135px;
     }
   }
   @media (max-width: 800px) {
@@ -555,7 +559,7 @@ select:-webkit-autofill:focus {
   padding: 25px 45px 35px 45px;
   @include boxSize(100%, auto, null, #fff, null);
   @include flex(null, null, null);
-  border: 1px solid #d1d1d5;
+  border-bottom: 1px solid #d1d1d5;
   position: absolute;
   .dropdownBox {
     padding-right: 5px;
@@ -571,9 +575,6 @@ select:-webkit-autofill:focus {
   opacity: 0;
   left: -100%;
   transition-delay: 500ms;
-  // @include for-tablet-portrait-up() {
-  //   display: none;
-  // }
 }
 .myZillowDropDown {
   @include boxSize(20%, auto, null, #fff, null);
@@ -1055,16 +1056,21 @@ select:-webkit-autofill:focus {
 // Result page
 // Small navigation under the main navigation
 .resultNav {
-  padding: 10px 0;
+  position: absolute;
+  top: 70px;
+  padding: 10px 0 0 0;
+  @include boxSize(null, 57px, null, #fff, null);
   @include for-tablet-landscape-up() {
     padding: 10px 0 0 0;
   }
   @media (max-width: 800px) {
-    padding: 0px 0 0 0;
+    top: 0;
+    padding: 0;
+    @include boxSize(null, 131px, null, null, null);
   }
-  @include boxSize(100%, auto, null, null, null);
+  @include boxSize(100%, 57px, null, null, null);
   border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
+  // border-top: 1px solid #ccc;
   @include flex(null, center, null);
   // Search input on the small navigation
   &__smallSearch {
@@ -2313,7 +2319,7 @@ select:-webkit-autofill:focus {
     display: none;
     padding: 10px 0;
     @include for-tablet-landscape-up() {
-      @include boxSize(100%, null, null, null, null);
+      @include boxSize(100%, null, null, #fff, null);
       @include flex(null, null, null);
       .mobSaveSearchBut {
         border: none;
@@ -2356,14 +2362,20 @@ select:-webkit-autofill:focus {
   }
 }
 .mainSection {
+  padding-top: 127px;
+  @include boxSize(100%, 100vh, null, #eee, null);
   @include grid(null, null, true, null, false, 46.5% 53.5%);
   @include for-tablet-landscape-up() {
+    padding-top: 161px;
     @include grid(null, null, true, null, false, 100%);
+  }
+  @media (max-width:800px) {
+    padding-top: 132px;
   }
 
   // Google map on result.html
   #map {
-    @include boxSize(100%, 80vh, null, null, null);
+    @include boxSize(100%, 100%, null, null, null);
     @include for-tablet-landscape-up() {
       display: none;
     }
@@ -2371,7 +2383,7 @@ select:-webkit-autofill:focus {
   #homeContainer {
     scroll-behavior: smooth;
     overflow-y: scroll;
-    @include boxSize(100%, 80vh, null, #eee, null);
+    @include boxSize(100%, 100%, null, #eee, null);
     overflow-x: hidden;
     // Homes on the right side of the map
     #homeInfo {
@@ -2528,34 +2540,39 @@ select:-webkit-autofill:focus {
 .mainBigHomeContainer {
   overflow: hidden;
   @include flex(center, center, null);
-  @include boxSize(100%, 100vh, null, #fff, null);
+  @include boxSize(100%, 100vh, null, rgba(42, 42, 51, 0.65), null);
   display: none;
   position: absolute;
   top: 0;
   .directionIcon {
     @include font(null, 25px, null, null, color_function(mainblue));
     @include flex(center, center, null);
-    margin: 0 0 0 15px;
     @include for-phone-only() {
+      margin: 0 0 0 15px;
       @include font(null, null, null, null, rgba(255, 255, 255, 0.9));
     }
   }
   &__smallHeader {
+    z-index: 10;
     display: none;
     @include for-tablet-portrait-up() {
-      @include flex(null, null, null);
-      @include boxSize(100%, 14vh, null, #fff, null);
+      @include flex(center, null, null);
+      @include boxSize(100%, 100px, null, #fff, null);
+      position: absolute;
+      top: 0;
     }
     @include for-phone-only() {
-      @include boxSize(null, auto, null, null, null);
+      @include boxSize(null, 45px, null, null, null);
+      max-height: 45px;
     }
   }
   &__firstRow {
-    @include boxSize(100%, null, null, null, null);
+    @include boxSize(100%, 50px, null, #fff, null);
     @include flex(center, center, null);
-    padding: 5px 10px 5px 10px;
+    padding: 0 10px 0 10px;
     border-bottom: rgba(167, 166, 171, 0.5) 0.7px solid;
     @include for-phone-only() {
+      @include boxSize(100%, 45px, null, null, null);
       padding: 0 10px 0 10px;
     }
     .mobileMenueIcon {
@@ -2566,24 +2583,29 @@ select:-webkit-autofill:focus {
   }
   &__hedearLogo {
     margin-right: auto;
-    width: 150px;
-    height: 35px;
+    @include boxSize(135px, null, null, null, null);
+    padding-top: 5px;
+    @include for-phone-only() {
+      @include boxSize(110px, null, null, null, null);
+    }
   }
   &__secondRow {
-    z-index: 10;
-    @include boxSize(100%, auto, null, null, null);
+    @include boxSize(100%, null, null, null, null);
     @include flex(center, null, null);
     padding: 5px 15px;
     border-bottom: rgba(167, 166, 171, 0.5) 0.7px solid;
+    @include for-tablet-portrait-up() {
+      @include boxSize(100%, 50px, null, null, null);
+    }
     @include for-phone-only() {
+      @include boxSize(100%, auto, null, null, null);
+      top: 45px;
       padding: 8px 10px 8px 0;
       background-image: linear-gradient(
         rgba(47, 47, 160, 0.3),
         rgba(47, 47, 160, 0.1)
       );
-      position: absolute;
       border-bottom: none;
-      top: 42px;
     }
   }
   .HomeContainerIcon {
@@ -2619,15 +2641,21 @@ select:-webkit-autofill:focus {
     justify-self: center;
     @include for-tablet-landscape-up() {
       @include grid(null, null, true, null, null, 55% 45%);
-      @include boxSize(100%, 86vh, null, null, null);
+    }
+    @media (max-width: 1000px) {
+      @include grid(null, null, true, null, null, 50% 50%);
     }
     @include for-tablet-portrait-up() {
       @include grid(null, null, true, null, null, 40% 60%);
+      @include boxSize(100%, 100vh, null, null, null);
+      padding-top: 100px;
     }
     @include for-phone-only() {
-      @include boxSize(null, 92vh, null, null, null);
       @include flex(null, null, null);
       overflow-y: scroll;
+      overflow-x: hidden;
+      @include boxSize(100%, 100vh, null, null, null);
+      padding-top: 45px;
     }
     .picContainer {
       position: relative;
@@ -2960,6 +2988,9 @@ select:-webkit-autofill:focus {
     right: 25px;
     top: 15px;
     @include for-tablet-landscape-up() {
+      right: 15px;
+    }
+    @include for-tablet-portrait-up() {
       display: none;
     }
   }
