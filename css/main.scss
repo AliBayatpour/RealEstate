@@ -1,26 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.show {
-  display: block;
-}
-input[type="text"]:focus {
-  border: #006aff 1px solid;
-  outline: none;
-}
-button {
-  cursor: pointer;
-}
-body {
-  overflow-x: hidden;
-}
 // Arrays of variables for colors image paths
 $colors: (
-  back: white,
-  mainblue: #006aff
+  myWhite: white,
+  mainblue: #006aff,
+  textColor: #2a2a33,
+  redCircle: #ff5a50,
+  violetCircle: #985dff,
+  yellowCircle: #ffd237
 );
+// color_function(myWhite)
 // Arrays of variables for image paths
 $img_path: (
   bannerhouse: "../images/bannerhouse.jpg",
@@ -30,7 +17,6 @@ $img_path: (
 // fonts
 $open-sans: "Open Sans", sans-serif;
 $new-open-sans: "Roboto", sans-serif;
-
 // Functions: colors, image paths
 @function color_function($color_name) {
   @return map-get($colors, $color_name);
@@ -104,24 +90,24 @@ $new-open-sans: "Roboto", sans-serif;
 // Styling text for rent or sale
 @mixin rentOrSale($radius) {
   .houseForSaleCircle {
-    @include boxSize($radius, $radius, null, #ff5a50, 50%);
+    @include boxSize($radius, $radius, null, color_function(redCircle), 50%);
     display: inline-block;
-    border: color_function(back) 1px solid;
+    border: color_function(myWhite) 1px solid;
   }
   .houseForRentCircle {
-    @include boxSize($radius, $radius, null, #985dff, 50%);
+    @include boxSize($radius, $radius, null, color_function(violetCircle), 50%);
     display: inline-block;
-    border: color_function(back) 1px solid;
+    border: color_function(myWhite) 1px solid;
   }
   .potentialListings {
-    @include boxSize($radius, $radius, null, #006aff, 50%);
+    @include boxSize($radius, $radius, null, color_function(mainblue), 50%);
     display: inline-block;
-    border: color_function(back) 1px solid;
+    border: color_function(myWhite) 1px solid;
   }
   .sold {
-    @include boxSize($radius, $radius, null, #ffd237, 50%);
+    @include boxSize($radius, $radius, null, color_function(yellowCircle), 50%);
     display: inline-block;
-    border: color_function(back) 1px solid;
+    border: color_function(myWhite) 1px solid;
   }
 }
 @mixin doneButton {
@@ -135,7 +121,7 @@ $new-open-sans: "Roboto", sans-serif;
       auto,
       auto,
       color_function(mainblue),
-      color_function(back),
+      color_function(myWhite),
       4px
     );
     min-width: 100px;
@@ -156,7 +142,7 @@ $new-open-sans: "Roboto", sans-serif;
   $leftAfter,
   $topAfter,
   $weight,
-  $labelColor: #2a2a33,
+  $labelColor: color_function(textColor),
   $after: true,
   $borderColor: rgba(127, 133, 150, 0.5)
 ) {
@@ -171,7 +157,7 @@ $new-open-sans: "Roboto", sans-serif;
     position: relative;
     @include font($open-sans, $labelFontSize, $weight, null, $labelColor);
     &:hover {
-      color: #006aff;
+      color: color_function(mainblue);
     }
   }
   label::before {
@@ -187,7 +173,7 @@ $new-open-sans: "Roboto", sans-serif;
     label::after {
       content: "";
       display: inline-block;
-      @include boxSize(8px, 4px, color_function(back), null, 2px);
+      @include boxSize(8px, 4px, color_function(myWhite), null, 2px);
       border-left: 2px solid;
       border-bottom: 2px solid;
       transform: rotate(-45deg);
@@ -208,9 +194,9 @@ $new-open-sans: "Roboto", sans-serif;
     border: 1px color_function(mainblue) solid;
     text-align: $textAlign;
     line-height: $lineHeight;
-    color: color_function(back);
+    color: color_function(myWhite);
   } @else {
-    background: color_function(back);
+    background: color_function(myWhite);
     text-align: $textAlign;
     line-height: $lineHeight;
   }
@@ -238,7 +224,7 @@ $new-open-sans: "Roboto", sans-serif;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    background-color: white;
+    background-color: color_function(myWhite);
     border: rgba(178, 181, 189, 0.8) 1px solid;
     padding: 4px 0 4px 5px;
     width: $boxWidth;
@@ -247,7 +233,7 @@ $new-open-sans: "Roboto", sans-serif;
   .select-items div {
     padding: 1px 0 1px 5px;
     &:hover {
-      color: #fff;
+      color: color_function(myWhite);
     }
   }
   /*style the arrow inside the select element:*/
@@ -280,7 +266,7 @@ $new-open-sans: "Roboto", sans-serif;
     width: $itemsWidth;
     max-height: 320px;
     overflow-y: auto;
-    background-color: color_function(back);
+    background-color: color_function(myWhite);
     border: rgba(178, 181, 189, 0.8) 1px solid;
     position: absolute;
     top: $top;
@@ -326,11 +312,36 @@ $new-open-sans: "Roboto", sans-serif;
     @content;
   }
 }
+// general styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.show {
+  display: block;
+}
+input[type="text"]:focus {
+  border: color_function(mainblue) 1px solid;
+  outline: none;
+}
+button {
+  cursor: pointer;
+}
+body {
+  overflow-x: hidden;
+}
 // Tool tip text for HOA
 .hoaTooltiptext {
   visibility: hidden;
   @include font($open-sans, 15px, null, null, null);
-  @include boxSize(300px, auto, #fff, #2a2a33, 5px);
+  @include boxSize(
+    300px,
+    auto,
+    color_function(myWhite),
+    color_function(textColor),
+    5px
+  );
   padding: 8px 5px 15px 5px;
   position: fixed;
   z-index: 10;
@@ -357,7 +368,7 @@ $new-open-sans: "Roboto", sans-serif;
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent #2a2a33 transparent transparent;
+  border-color: transparent color_function(textColor) transparent transparent;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -369,7 +380,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none;
-  -webkit-text-fill-color: #2a2a33;
+  -webkit-text-fill-color: color_function(textColor);
   -webkit-box-shadow: none;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -396,7 +407,7 @@ select:-webkit-autofill:focus {
   position: absolute;
   z-index: 200;
   display: none;
-  @include boxSize(100%, 100vh, null, #fff, null);
+  @include boxSize(100%, 100vh, null, color_function(myWhite), null);
   &__header {
     @include flex(center, center, null);
     position: absolute;
@@ -427,7 +438,7 @@ select:-webkit-autofill:focus {
   }
   &__li {
     @include flex(null, center, null);
-    @include font($open-sans, 16px, 500, null, #2a2a33);
+    @include font($open-sans, 16px, 500, null, color_function(textColor));
     padding: 15px 20px;
     border-top: 1px #eee solid;
     border-bottom: 1px #eee solid;
@@ -452,7 +463,7 @@ select:-webkit-autofill:focus {
   &__dropDownLi {
     text-decoration: none;
     &--header {
-      @include font($new-open-sans, 16px, 700, null, #2a2a33);
+      @include font($new-open-sans, 16px, 700, null, color_function(textColor));
       padding: 30px 0 10px 0;
     }
     &--option {
@@ -478,7 +489,7 @@ select:-webkit-autofill:focus {
   position: absolute;
   top: 0;
   @include flex(space-between, null, null);
-  @include boxSize(100%, 70px, null, color_function(back), null);
+  @include boxSize(100%, 70px, null, color_function(myWhite), null);
   padding: 0 5%;
   border-bottom: 1px solid #ccc;
   @include for-tablet-landscape-up() {
@@ -500,14 +511,20 @@ select:-webkit-autofill:focus {
           padding: 5px 10px 10px 10px;
           margin-bottom: 10px;
           text-decoration: none;
-          @include font($open-sans, 14.5px, 400, null, #2a2a33);
+          @include font(
+            $open-sans,
+            14.5px,
+            400,
+            null,
+            color_function(textColor)
+          );
           @include for-tablet-landscape-up() {
             padding: 5px 5px 10px 5px;
           }
         }
         &:hover {
           a {
-            color: #006aff;
+            color: color_function(mainblue);
           }
         }
         @include for-tablet-landscape-up() {
@@ -538,26 +555,28 @@ select:-webkit-autofill:focus {
   }
 }
 .navDropDown {
+  position: absolute;
   z-index: 100;
   overflow: hidden;
+  top: 70px;
   ul {
     margin-right: 5px;
     li {
       list-style: none;
       margin-bottom: 15px;
       h4 {
-        @include font($open-sans, 15px, 600, null, #2a2a33);
+        @include font($open-sans, 15px, 600, null, color_function(textColor));
         padding-left: 7px;
       }
       a {
-        @include font($open-sans, 14px, null, null, #006aff);
+        @include font($open-sans, 14px, null, null, color_function(mainblue));
         text-decoration: none;
         padding: 7px;
       }
     }
   }
   padding: 25px 45px 35px 45px;
-  @include boxSize(100%, auto, null, #fff, null);
+  @include boxSize(100%, auto, null, color_function(myWhite), null);
   @include flex(null, null, null);
   border-bottom: 1px solid #d1d1d5;
   position: absolute;
@@ -577,7 +596,7 @@ select:-webkit-autofill:focus {
   transition-delay: 500ms;
 }
 .myZillowDropDown {
-  @include boxSize(20%, auto, null, #fff, null);
+  @include boxSize(20%, auto, null, color_function(myWhite), null);
   border: #d1d1d5 1px solid;
   z-index: 2;
   position: absolute;
@@ -589,11 +608,11 @@ select:-webkit-autofill:focus {
       list-style: none;
       margin: 20px 0;
       h4 {
-        @include font($open-sans, 15px, 600, null, #2a2a33);
+        @include font($open-sans, 15px, 600, null, color_function(textColor));
         padding-left: 7px;
       }
       a {
-        @include font($open-sans, 14px, null, null, #006aff);
+        @include font($open-sans, 14px, null, null, color_function(mainblue));
         text-decoration: none;
         padding: 7px;
       }
@@ -627,7 +646,13 @@ select:-webkit-autofill:focus {
       width: 100%;
       font-size: 0;
       #searchId {
-        @include boxSize(50%, 68px, null, #fff, 4px 4px 4px 4px);
+        @include boxSize(
+          50%,
+          68px,
+          null,
+          color_function(myWhite),
+          4px 4px 4px 4px
+        );
         @include flex(center, center, null);
         position: relative;
         border: 1px solid #d1d1d5;
@@ -668,7 +693,13 @@ select:-webkit-autofill:focus {
           }
         }
         .searchButton {
-          @include boxSize(8%, 100%, null, color_function(back), 0 4px 4px 0);
+          @include boxSize(
+            8%,
+            100%,
+            null,
+            color_function(myWhite),
+            0 4px 4px 0
+          );
           border: none;
           outline: none;
           cursor: pointer;
@@ -712,14 +743,14 @@ select:-webkit-autofill:focus {
 
   h1 {
     margin-bottom: 26px;
-    @include font(null, 58px, 600, null, color_function(back));
+    @include font(null, 58px, 600, null, color_function(myWhite));
     @include for-phone-only() {
       @include font(null, 45px, null, null, null);
     }
   }
   p {
     margin-bottom: 30px;
-    @include font($open-sans, 20px, 400, null, color_function(back));
+    @include font($open-sans, 20px, 400, null, color_function(myWhite));
     @include boxSize(70%, null, null, null, null);
   }
 }
@@ -745,7 +776,7 @@ select:-webkit-autofill:focus {
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: color_function(myWhite);
   border-bottom: 1px solid #d4d4d4;
 }
 
@@ -757,9 +788,9 @@ select:-webkit-autofill:focus {
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
   background-color: DodgerBlue !important;
-  color: #ffffff;
+  color: color_function(myWhite) fff;
   .fa-search {
-    @include font(null, 18px, null, null, #fff);
+    @include font(null, 18px, null, null, color_function(myWhite));
   }
 }
 .autocomplete {
@@ -785,7 +816,7 @@ select:-webkit-autofill:focus {
     // Yellow line bellow the text
     .yellowLine {
       margin: 64px auto;
-      @include boxSize(150px, 2px, null, #ffd237, null);
+      @include boxSize(150px, 2px, null, color_function(yellowCircle), null);
     }
   }
   // Three big box under banner on index.html
@@ -801,7 +832,7 @@ select:-webkit-autofill:focus {
       transition-duration: 0.4s;
       margin: 15px;
       text-align: center;
-      @include boxSize(95%, auto, null, color_function(back), 4px);
+      @include boxSize(95%, auto, null, color_function(myWhite), 4px);
       border: rgb(235, 235, 235) 1.8px solid;
       max-width: 390px;
       padding: 20px 0 60px 0;
@@ -820,7 +851,7 @@ select:-webkit-autofill:focus {
         @include font($open-sans, 15px, 600, null, null);
         @include buttonMaker(
           color_function(mainblue),
-          color_function(back),
+          color_function(myWhite),
           2px,
           null,
           null
@@ -917,7 +948,7 @@ select:-webkit-autofill:focus {
         margin: 20px 0;
         cursor: pointer;
         border: none;
-        @include boxSize(auto, null, null, color_function(back), null);
+        @include boxSize(auto, null, null, color_function(myWhite), null);
         @include flex(space-evenly, center, null);
         @include font(null, 17px, null, null, null);
         padding: 10px 15px;
@@ -945,15 +976,16 @@ select:-webkit-autofill:focus {
 
       .dropdown-content {
         display: none;
-        a {
+        .dropdown-content__stateSpans {
+          cursor: pointer;
           display: block;
-          text-decoration: none;
           @include boxSize(270px, null, color_function(mainblue), null, null);
           padding: 5px 0;
           @include for-tablet-landscape-up() {
             width: 100%;
             text-align: left;
             padding: 5px 10px;
+            cursor: pointer;
           }
         }
       }
@@ -961,7 +993,7 @@ select:-webkit-autofill:focus {
   }
   .bottomLinks {
     border-bottom: 1px solid #d8d8d8;
-    @include boxSize(100%, auto, null, color_function(back), null);
+    @include boxSize(100%, auto, null, color_function(myWhite), null);
     @include flex(center, center, null);
     a {
       text-decoration: none;
@@ -984,6 +1016,9 @@ select:-webkit-autofill:focus {
   @include for-tablet-portrait-up() {
     @include boxSize(100%, auto, null, null, null);
   }
+  &--autoHeight {
+    @include boxSize(100%, auto, null, null, null);
+  }
   &__imageContainer {
     @include boxSize(100%, null, null, null);
   }
@@ -994,10 +1029,10 @@ select:-webkit-autofill:focus {
     @include flex(center, center, null);
   }
   &__logos {
-    @include boxSize(100%, 16%, null, null, null);
+    @include boxSize(100%, 16%, null, color_function(myWhite) null);
     @include flex(center, center, null);
     img {
-      width: 160px;
+      width: 135px;
       @include for-tablet-portrait-up() {
         margin-top: 10px;
       }
@@ -1012,7 +1047,7 @@ select:-webkit-autofill:focus {
   }
   &__text {
     @include font(null, 14px, null, null, null);
-    @include boxSize(100%, auto, null, null, null);
+    @include boxSize(100%, auto, null, color_function(myWhite), null);
     @include flex(center, null, null);
   }
   &__txtSpan {
@@ -1026,6 +1061,11 @@ select:-webkit-autofill:focus {
     @include for-phone-only() {
       @include boxSize(95%, null, null, null, null);
     }
+    &--fullWidth {
+      @include boxSize(100%, null, null, null, null);
+      @include font(null, 12px, null, null, null);
+      padding: 24px 7px;
+    }
   }
   &--linkStyle {
     text-decoration: none;
@@ -1037,7 +1077,7 @@ select:-webkit-autofill:focus {
     vertical-align: middle;
   }
   .fa-twitter {
-    @include boxSize(null, null, color_function(back), #55acee, 50%);
+    @include boxSize(null, null, color_function(myWhite), #55acee, 50%);
     padding: 5px 4px 0 4px;
     font-size: 25px;
   }
@@ -1046,7 +1086,7 @@ select:-webkit-autofill:focus {
     font-size: 25px;
     text-align: center;
     text-decoration: none;
-    @include boxSize(null, null, color_function(back), #3b5998, 50%);
+    @include boxSize(null, null, color_function(myWhite), #3b5998, 50%);
   }
   .fa-home {
     font-size: 28px;
@@ -1059,7 +1099,7 @@ select:-webkit-autofill:focus {
   position: absolute;
   top: 70px;
   padding: 10px 0 0 0;
-  @include boxSize(null, 57px, null, #fff, null);
+  @include boxSize(null, 57px, null, color_function(myWhite), null);
   @include for-tablet-landscape-up() {
     padding: 10px 0 0 0;
   }
@@ -1118,7 +1158,7 @@ select:-webkit-autofill:focus {
         28px,
         100%,
         color_function(mainblue),
-        color_function(back),
+        color_function(myWhite),
         0 2px 2px 0
       );
       border: none;
@@ -1141,7 +1181,7 @@ select:-webkit-autofill:focus {
       auto,
       30px,
       color_function(mainblue),
-      color_function(back),
+      color_function(myWhite),
       2px
     );
     min-width: 103px;
@@ -1200,9 +1240,9 @@ select:-webkit-autofill:focus {
     }
     #checkBoxContainer {
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
-      @include font($open-sans, 13px, 600, null, #2a2a33);
+      @include font($open-sans, 13px, 600, null, color_function(textColor));
       position: absolute;
-      @include boxSize(410px, auto, null, color_function(back), null);
+      @include boxSize(410px, auto, null, color_function(myWhite), null);
       display: none;
       top: 36px;
       z-index: 2;
@@ -1225,7 +1265,13 @@ select:-webkit-autofill:focus {
       }
 
       .checkbox {
-        @include boxSize(100%, 55px, #2a2a33, color_function(back), null);
+        @include boxSize(
+          100%,
+          55px,
+          color_function(textColor),
+          color_function(myWhite),
+          null
+        );
         border-bottom: 0.2px solid rgba(0, 0, 0, 0.5);
         padding-left: 10px;
         line-height: 55px;
@@ -1252,7 +1298,7 @@ select:-webkit-autofill:focus {
         -11.5px,
         8px,
         600,
-        #2a2a33,
+        color_function(textColor),
         true,
         rgba(178, 181, 189, 0.5)
       );
@@ -1287,7 +1333,7 @@ select:-webkit-autofill:focus {
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
       @include font($open-sans, 14px, 600, null, rgba(0, 0, 0, 0.75));
       position: absolute;
-      @include boxSize(375px, auto, null, color_function(back), null);
+      @include boxSize(375px, auto, null, color_function(myWhite), null);
       max-width: 375px;
       top: 35px;
       z-index: 2;
@@ -1307,7 +1353,7 @@ select:-webkit-autofill:focus {
           flex-wrap: nowrap;
           input[type="text"]:focus {
             box-shadow: 0 0 5px rgb(30, 142, 255);
-            border: #006aff 1px solid;
+            border: color_function(mainblue) 1px solid;
             outline: none;
           }
           .priceSearch {
@@ -1330,7 +1376,7 @@ select:-webkit-autofill:focus {
       }
       #priceListContainer {
         padding: 0 15px 0 20px;
-        @include boxSize(100%, auto, null, color_function(back), null);
+        @include boxSize(100%, auto, null, color_function(myWhite), null);
         @include grid(2, 1fr, null, 12px, null, null);
         @include font($open-sans, 16px, 600, null, rgba(0, 0, 0, 0.6));
         .priceList {
@@ -1366,7 +1412,7 @@ select:-webkit-autofill:focus {
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
       @include font($open-sans, 14px, 600, null, rgba(0, 0, 0, 0.75));
       position: absolute;
-      @include boxSize(390px, auto, null, color_function(back), null);
+      @include boxSize(390px, auto, null, color_function(myWhite), null);
       z-index: 2;
       top: 35px;
       #bedroomsInput {
@@ -1525,7 +1571,7 @@ select:-webkit-autofill:focus {
             -15px,
             6px,
             500,
-            #2a2a33,
+            color_function(textColor),
             true,
             rgba(127, 133, 150, 0.5)
           );
@@ -1556,7 +1602,7 @@ select:-webkit-autofill:focus {
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
       @include font($open-sans, 14px, 600, null, rgba(0, 0, 0, 0.75));
       position: absolute;
-      @include boxSize(276px, auto, null, color_function(back), null);
+      @include boxSize(276px, auto, null, color_function(myWhite), null);
       max-width: 276px;
       top: 35px;
       right: 0;
@@ -1590,7 +1636,7 @@ select:-webkit-autofill:focus {
               -17.5px,
               6px,
               600,
-              #2a2a33,
+              color_function(textColor),
               true,
               rgba(127, 133, 150, 0.5)
             );
@@ -1630,7 +1676,7 @@ select:-webkit-autofill:focus {
         60px,
         32px,
         color_function(mainblue),
-        color_function(back),
+        color_function(myWhite),
         2px
       );
       &::after {
@@ -1654,7 +1700,7 @@ select:-webkit-autofill:focus {
     #moreMainContainer {
       display: none;
       position: absolute;
-      @include boxSize(430px, 480px, null, color_function(back), null);
+      @include boxSize(430px, 480px, null, color_function(myWhite), null);
       max-width: 430px;
       @include font($open-sans, 14px, 600, null, rgba(0, 0, 0, 0.75));
       top: 35px;
@@ -1798,7 +1844,13 @@ select:-webkit-autofill:focus {
               cursor: pointer;
               @include font(null, 15px, null, null, #a7a6ab);
               &:hover {
-                @include font(null, 15px, null, null, #2a2a33);
+                @include font(
+                  null,
+                  15px,
+                  null,
+                  null,
+                  color_function(textColor)
+                );
               }
             }
           }
@@ -2305,7 +2357,7 @@ select:-webkit-autofill:focus {
     @include boxSize(
       115px,
       32px,
-      color_function(back),
+      color_function(myWhite),
       color_function(mainblue),
       3px
     );
@@ -2319,18 +2371,30 @@ select:-webkit-autofill:focus {
     display: none;
     padding: 10px 0;
     @include for-tablet-landscape-up() {
-      @include boxSize(100%, null, null, #fff, null);
+      @include boxSize(100%, null, null, color_function(myWhite), null);
       @include flex(null, null, null);
       .mobSaveSearchBut {
         border: none;
-        @include boxSize(null, null, color_function(mainblue), #fff, null);
+        @include boxSize(
+          null,
+          null,
+          color_function(mainblue),
+          color_function(myWhite),
+          null
+        );
         padding: 3px 5px;
         cursor: pointer;
         @include font($open-sans, 14px, null, null, null);
       }
       .mobSortBut {
         border: none;
-        @include boxSize(null, null, color_function(mainblue), #fff, null);
+        @include boxSize(
+          null,
+          null,
+          color_function(mainblue),
+          color_function(myWhite),
+          null
+        );
         cursor: pointer;
         padding: 3px 5px;
         margin: 0 0 0 auto;
@@ -2338,7 +2402,13 @@ select:-webkit-autofill:focus {
       }
       .mobMapBut {
         border: none;
-        @include boxSize(null, null, color_function(mainblue), #fff, null);
+        @include boxSize(
+          null,
+          null,
+          color_function(mainblue),
+          color_function(myWhite),
+          null
+        );
         cursor: pointer;
         padding: 3px 5px;
         margin: 0 10px 0 5px;
@@ -2348,12 +2418,12 @@ select:-webkit-autofill:focus {
   }
   // orange and purple circles on the button of small navigation
   #saleCircle {
-    @include boxSize(10px, 10px, null, #ff5a50, 50%);
+    @include boxSize(10px, 10px, null, color_function(redCircle), 50%);
     display: inline-block;
     @include font($open-sans, 12px, 600, null, null);
   }
   #rentCircle {
-    @include boxSize(10px, 10px, null, #985dff, 50%);
+    @include boxSize(10px, 10px, null, color_function(violetCircle), 50%);
     display: inline-block;
   }
   @include for-tablet-portrait-up() {
@@ -2369,7 +2439,7 @@ select:-webkit-autofill:focus {
     padding-top: 161px;
     @include grid(null, null, true, null, false, 100%);
   }
-  @media (max-width:800px) {
+  @media (max-width: 800px) {
     padding-top: 132px;
   }
 
@@ -2456,7 +2526,13 @@ select:-webkit-autofill:focus {
             overflow: hidden !important;
             text-overflow: ellipsis;
             @include boxSize(98%, null, null, null, null);
-            @include font($open-sans, 15px, 600, null, #2a2a33);
+            @include font(
+              $open-sans,
+              15px,
+              600,
+              null,
+              color_function(textColor)
+            );
             padding-bottom: 5px;
             @include for-tablet-portrait-up() {
               @include font(null, 14px, null, null, null);
@@ -2475,7 +2551,13 @@ select:-webkit-autofill:focus {
             @include flex(null, center, null);
             list-style: none;
             @include rentOrSale(12px);
-            @include font($open-sans, 14px, 600, null, #2a2a33);
+            @include font(
+              $open-sans,
+              14px,
+              600,
+              null,
+              color_function(textColor)
+            );
             @include for-tablet-portrait-up() {
               @include font(null, 13px, null, null, null);
             }
@@ -2492,7 +2574,7 @@ select:-webkit-autofill:focus {
       @include flex(center, null, null);
       button {
         outline: none;
-        @include font($open-sans, 12px, 500, null, #2a2a33);
+        @include font($open-sans, 12px, 500, null, color_function(textColor));
         @include boxSize(36px, 36px, null, #eee, null);
         @media (max-width: 380px) {
           @include boxSize(30px, 30px, null, #eee, null);
@@ -2508,13 +2590,19 @@ select:-webkit-autofill:focus {
         @include flex(null, null, null);
         overflow: hidden;
         .activePageBut {
-          @include boxSize(null, null, color_function(back), #2a2a33, null);
+          @include boxSize(
+            null,
+            null,
+            color_function(myWhite),
+            color_function(textColor),
+            null
+          );
           &:hover {
             background: color_function(mainblue);
           }
         }
         .pageButList {
-          @include boxSize(null, null, #2a2a33, #eee, null);
+          @include boxSize(null, null, color_function(textColor), #eee, null);
           &:hover {
             color: color_function(mainblue);
             background: rgba(0, 0, 0, 0.05);
@@ -2534,6 +2622,52 @@ select:-webkit-autofill:focus {
         }
       }
     }
+  }
+  &__noResultContainer {
+    display: none;
+    @include boxSize(100%, null, null, color_function(myWhite), color_function(textColor));
+  }
+  &__whyZillow {
+    @include boxSize(null, null, null, #f1f1f4, color_function(textColor));
+    padding: 25px 15px;
+  }
+  &__paraHead {
+    @include font(null, null, 600, null, null);
+  }
+  &__paragraph {
+    @include font(null, 12px, null, null, #54545A);
+    &--border {
+      padding: 0 0 10px 0;
+      margin: 0 0 10px 0;
+      border-bottom: 1.2px solid #a7a6ab;
+      @include font(null, 12px, null, null, color_function(textColor));
+    }
+    &--marginBot{
+      margin: 0 0 15px 0;
+    }
+  }
+  &__changeSearchTxt {
+    @include font(null, 15px, null, null, color_function(textColor));
+    padding: 8px 0 8px 20px;
+  }
+  &__noMatchTxt {
+    @include font(null, 20px, 600, null, null);
+    padding-left: 20px;
+    &--pad {
+      padding: 20px;
+    }
+  }
+  &__removeFiterTxt {
+    @include font(null, 15px, 600, null, color_function(mainblue));
+    margin: 0 0 26px 20px;
+    cursor: pointer;
+  }
+  &__whyZillowHeader {
+    @include font(null, 13px, null, null, color_function(textColor));
+    margin: 0 0 15px 0;
+  }
+  &__noResult {
+    @include boxSize(100%, null, null, color_function(myWhite), null);
   }
 }
 // page which appears when click on a home box
@@ -2557,7 +2691,7 @@ select:-webkit-autofill:focus {
     display: none;
     @include for-tablet-portrait-up() {
       @include flex(center, null, null);
-      @include boxSize(100%, 100px, null, #fff, null);
+      @include boxSize(100%, 100px, null, color_function(myWhite), null);
       position: absolute;
       top: 0;
     }
@@ -2567,7 +2701,7 @@ select:-webkit-autofill:focus {
     }
   }
   &__firstRow {
-    @include boxSize(100%, 50px, null, #fff, null);
+    @include boxSize(100%, 50px, null, color_function(myWhite), null);
     @include flex(center, center, null);
     padding: 0 10px 0 10px;
     border-bottom: rgba(167, 166, 171, 0.5) 0.7px solid;
@@ -2609,7 +2743,13 @@ select:-webkit-autofill:focus {
     }
   }
   .HomeContainerIcon {
-    @include boxSize(null, null, color_function(mainblue), #fff, null);
+    @include boxSize(
+      null,
+      null,
+      color_function(mainblue),
+      color_function(myWhite),
+      null
+    );
     border: none;
     @include flex(center, center, null);
     @include font($open-sans, 14px, null, null, null);
@@ -2636,7 +2776,7 @@ select:-webkit-autofill:focus {
     }
   }
   .homeContainer {
-    @include boxSize(90%, 100vh, null, color_function(back), null);
+    @include boxSize(90%, 100vh, null, color_function(myWhite), null);
     @include grid(null, null, true, null, null, 61% 39%);
     justify-self: center;
     @include for-tablet-landscape-up() {
@@ -2722,7 +2862,7 @@ select:-webkit-autofill:focus {
       @include flex(null, null, column);
       @include boxSize(100%, auto, null, null, null);
       #overview {
-        @include boxSize(100%, auto, null, color_function(back), 3px);
+        @include boxSize(100%, auto, null, color_function(myWhite), 3px);
         box-shadow: rgb(209, 209, 213) 0px 0px 4px;
         padding: 10px 15px;
         @include for-phone-only() {
@@ -2748,7 +2888,13 @@ select:-webkit-autofill:focus {
         }
         #disclaimer {
           padding: 15px 0;
-          @include font($open-sans, 15px, null, null, #2a2a33);
+          @include font(
+            $open-sans,
+            15px,
+            null,
+            null,
+            color_function(textColor)
+          );
           line-height: 1.5;
           text-align: justify;
         }
@@ -2775,7 +2921,13 @@ select:-webkit-autofill:focus {
             padding: 8px 0px;
             th {
               text-align: left;
-              @include font($open-sans, 15px, 600, null, #2a2a33);
+              @include font(
+                $open-sans,
+                15px,
+                600,
+                null,
+                color_function(textColor)
+              );
               i {
                 @include font(null, 18px, null, null, dodgerblue);
                 padding-right: 8px;
@@ -2785,7 +2937,13 @@ select:-webkit-autofill:focus {
               text-overflow: ellipsis;
               overflow: hidden;
               white-space: nowrap;
-              @include font($open-sans, 15px, 400, null, #2a2a33);
+              @include font(
+                $open-sans,
+                15px,
+                400,
+                null,
+                color_function(textColor)
+              );
             }
           }
         }
@@ -2793,7 +2951,7 @@ select:-webkit-autofill:focus {
     }
     // Text information about home
     &__topRight {
-      @include boxSize(100%, auto, null, #fff, null);
+      @include boxSize(100%, auto, null, color_function(myWhite), null);
       @include flex(null, null, column);
       border-bottom: 1px solid #ccc;
       padding: 10px 15px;
@@ -2860,7 +3018,7 @@ select:-webkit-autofill:focus {
         @include boxSize(
           95%,
           42px,
-          color_function(back),
+          color_function(myWhite),
           color_function(mainblue),
           3px
         );
@@ -2871,7 +3029,7 @@ select:-webkit-autofill:focus {
         @include boxSize(
           45%,
           42px,
-          color_function(back),
+          color_function(myWhite),
           color_function(mainblue),
           3px
         );
@@ -2883,7 +3041,7 @@ select:-webkit-autofill:focus {
           45%,
           42px,
           color_function(mainblue),
-          color_function(back),
+          color_function(myWhite),
           3px
         );
         border: 1px solid #a7a6ab;
@@ -2913,7 +3071,7 @@ select:-webkit-autofill:focus {
         white-space: nowrap;
         overflow: hidden !important;
         text-overflow: ellipsis;
-        @include font($open-sans, 15px, 600, null, #2a2a33);
+        @include font($open-sans, 15px, 600, null, color_function(textColor));
         @include for-phone-only() {
           @include font(null, 14px, null, null, null);
         }
@@ -2922,9 +3080,15 @@ select:-webkit-autofill:focus {
         white-space: nowrap;
       }
       .r {
-        @include font($open-sans, 7px, 400, null, #2a2a33);
-        border: #2a2a33 1px solid;
-        @include boxSize(9px, 10px, #2a2a33, color_function(back), 50%);
+        @include font($open-sans, 7px, 400, null, color_function(textColor));
+        border: color_function(textColor) 1px solid;
+        @include boxSize(
+          9px,
+          10px,
+          color_function(textColor),
+          color_function(myWhite),
+          50%
+        );
         margin-bottom: 10px;
         @include flex(center, center, null);
       }
@@ -2935,10 +3099,10 @@ select:-webkit-autofill:focus {
         @include boxSize(1px, 20px, null, null, null);
       }
       .zestimatePrice {
-        @include font($open-sans, 13px, 400, null, #2a2a33);
+        @include font($open-sans, 13px, 400, null, color_function(textColor));
       }
       #rentOrSale {
-        @include font($open-sans, 13px, 600, null, #2a2a33);
+        @include font($open-sans, 13px, 600, null, color_function(textColor));
         @include rentOrSale(12px);
       }
       .homeContainer__mainInfo {
@@ -2973,7 +3137,7 @@ select:-webkit-autofill:focus {
         @include font($open-sans, 14px, 700, null, color_function(mainblue));
         #roundDollar {
           @include boxSize(null, null, null, color_function(mainblue), 50%);
-          @include font($open-sans, 14px, 700, null, #fff);
+          @include font($open-sans, 14px, 700, null, color_function(myWhite));
           padding: 0 7px 2px 8px;
           margin-right: 5px;
         }
@@ -2983,7 +3147,7 @@ select:-webkit-autofill:focus {
   // A close cross shaped button on the page appeard when click on a home
   #closeSign {
     cursor: pointer;
-    @include font(null, 25px, 500, null, color_function(back));
+    @include font(null, 25px, 500, null, color_function(myWhite));
     position: absolute;
     right: 25px;
     top: 15px;

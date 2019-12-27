@@ -23,7 +23,7 @@
     <title>Real estate website</title>
   </head>
 
-  <body onscroll="movingArrow()" onload="movingArrow()">
+  <body onscroll="movingArrow()" onload="movingArrow() ; initialization()">
     <nav>
       <div class="indexPhoneNav">
         <i
@@ -256,8 +256,8 @@
         <h1 class="banner__header">Reimagine home</h1>
         <p>We'll help you find a place you'll love</p>
         <form
-          onsubmit="inputAssign(event, 'searchBox')"
-          onkeyup="inputKeyUp(event)"
+          onsubmit="inputAssign(event, 'searchBox', 'all')"
+          onkeyup="inputKeyUp(event,'all')"
           id="mainSearchResult"
         >
           <div id="searchId" class="autocomplete">
@@ -359,18 +359,7 @@
             <span class>Real Estate</span
             ><i id="arrow1" class="fa fa-angle-down" style="font-size:24px"></i>
           </button>
-          <div id="myDropdown1" class="dropdown-content">
-            <a href="#">Browse all homes</a>
-            <a href="#">Albuquerque real estate</a>
-            <a href="#">Atlanta real estate</a>
-            <a href="#">Austin real estate</a>
-            <a href="#">Baltimore real estate</a>
-            <a href="#">Boston real estate</a>
-            <a href="#">Calgary real estate</a>
-            <a href="#">Charlotte real estate</a>
-            <a href="#">Chicago real estate</a>
-            <a href="#">Cleveland real estate</a>
-          </div>
+          <div id="myDropdown1" class="dropdown-content"></div>
         </div>
         <div class="line"></div>
         <div id="rentalsBut" class="dropDownBut">
@@ -378,18 +367,7 @@
             <span class>Rentals</span
             ><i id="arrow2" class="fa fa-angle-down" style="font-size:24px"></i>
           </button>
-          <div id="myDropdown2" class="dropdown-content">
-            <a href="#">Rental Buildings</a>
-            <a href="#">Atlanta apartments for rent</a>
-            <a href="#">Austin apartments for rent</a>
-            <a href="#">Baltimore apartments for rent</a>
-            <a href="#">Boston apartments for rent</a>
-            <a href="#">Bronx NYC apartments for rent</a>
-            <a href="#">Brooklyn NYC apartments for rent</a>
-            <a href="#">Charlotte apartments for rent</a>
-            <a href="#">Chicago apartments for rent</a>
-            <a href="#">Dallas apartments for rent</a>
-          </div>
+          <div id="myDropdown2" class="dropdown-content"></div>
         </div>
         <div class="line"></div>
         <div id="mortgageRatesBut" class="dropDownBut">
@@ -397,21 +375,10 @@
             id="mortgageRates"
             onclick="arrowRotation('myDropdown3','arrow3')"
           >
-            <span class>Mortgage Rates</span
+            <span class>Sales</span
             ><i id="arrow3" class="fa fa-angle-down" style="font-size:24px"></i>
           </button>
-          <div id="myDropdown3" class="dropdown-content">
-            <a href="#">Current mortgage rates</a>
-            <a href="#">Alaska mortgage rates</a>
-            <a href="#">Alabama mortgage rates</a>
-            <a href="#">Arkansas mortgage rates</a>
-            <a href="#">Arizona mortgage rates</a>
-            <a href="#">California mortgage rates</a>
-            <a href="#">Colorado mortgage rates</a>
-            <a href="#">Connecticut mortgage rates</a>
-            <a href="#">Delaware mortgage rates</a>
-            <a href="#">Delaware mortgage rates</a>
-          </div>
+          <div id="myDropdown3" class="dropdown-content"></div>
         </div>
         <div class="line"></div>
         <div id="browsHomesBut" class="dropDownBut">
@@ -422,18 +389,7 @@
             <span class>Browse Homes</span
             ><i id="arrow4" class="fa fa-angle-down" style="font-size:24px"></i>
           </button>
-          <div id="myDropdown4" class="dropdown-content">
-            <a href="#">California</a>
-            <a href="#">Texas</a>
-            <a href="#">New York</a>
-            <a href="#">Florida</a>
-            <a href="#">Illinoise</a>
-            <a href="#">Pennsylvania</a>
-            <a href="#">Ohio</a>
-            <a href="#">Michigan</a>
-            <a href="#">Georgia</a>
-            <a href="#">North Carolina</a>
-          </div>
+          <div id="myDropdown4" class="dropdown-content"></div>
         </div>
       </div>
       <div class="bottomLinks">

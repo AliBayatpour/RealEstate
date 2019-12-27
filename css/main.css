@@ -28,7 +28,7 @@ body {
   font-size: 15px;
   width: 300px;
   height: auto;
-  color: #fff;
+  color: white;
   border-radius: 5px;
   background-color: #2a2a33;
   padding: 8px 5px 15px 5px;
@@ -127,7 +127,7 @@ select:-webkit-autofill:focus {
   display: none;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: white;
 }
 
 .phoneNavMenue__header {
@@ -388,12 +388,14 @@ select:-webkit-autofill:focus {
 }
 
 .navDropDown {
+  position: absolute;
   z-index: 100;
   overflow: hidden;
+  top: 70px;
   padding: 25px 45px 35px 45px;
   width: 100%;
   height: auto;
-  background-color: #fff;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -457,7 +459,7 @@ select:-webkit-autofill:focus {
 .myZillowDropDown {
   width: 20%;
   height: auto;
-  background-color: #fff;
+  background-color: white;
   border: #d1d1d5 1px solid;
   z-index: 2;
   position: absolute;
@@ -566,7 +568,7 @@ select:-webkit-autofill:focus {
   width: 50%;
   height: 68px;
   border-radius: 4px 4px 4px 4px;
-  background-color: #fff;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -755,7 +757,7 @@ select:-webkit-autofill:focus {
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: white;
   border-bottom: 1px solid #d4d4d4;
 }
 
@@ -767,11 +769,11 @@ select:-webkit-autofill:focus {
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
   background-color: DodgerBlue !important;
-  color: #ffffff;
+  color: white fff;
 }
 
 .autocomplete-active .fa-search {
-  color: #fff;
+  color: white;
   font-size: 18px;
 }
 
@@ -1102,19 +1104,20 @@ select:-webkit-autofill:focus {
   display: none;
 }
 
-.buttonsAndLinks .buttons .dropDownBut .dropdown-content a {
+.buttonsAndLinks .buttons .dropDownBut .dropdown-content .dropdown-content__stateSpans {
+  cursor: pointer;
   display: block;
-  text-decoration: none;
   width: 270px;
   color: #006aff;
   padding: 5px 0;
 }
 
 @media (max-width: 1200px) {
-  .buttonsAndLinks .buttons .dropDownBut .dropdown-content a {
+  .buttonsAndLinks .buttons .dropDownBut .dropdown-content .dropdown-content__stateSpans {
     width: 100%;
     text-align: left;
     padding: 5px 10px;
+    cursor: pointer;
   }
 }
 
@@ -1170,6 +1173,11 @@ select:-webkit-autofill:focus {
   }
 }
 
+.footerInfo--autoHeight {
+  width: 100%;
+  height: auto;
+}
+
 .footerInfo__imageContainer {
   width: 100%;
 }
@@ -1195,6 +1203,7 @@ select:-webkit-autofill:focus {
 .footerInfo__logos {
   width: 100%;
   height: 16%;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1209,7 +1218,7 @@ select:-webkit-autofill:focus {
 }
 
 .footerInfo__logos img {
-  width: 160px;
+  width: 135px;
 }
 
 @media (max-width: 900px) {
@@ -1236,6 +1245,7 @@ select:-webkit-autofill:focus {
   font-size: 14px;
   width: 100%;
   height: auto;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1265,6 +1275,12 @@ select:-webkit-autofill:focus {
   .footerInfo__txtSpan {
     width: 95%;
   }
+}
+
+.footerInfo__txtSpan--fullWidth {
+  width: 100%;
+  font-size: 12px;
+  padding: 24px 7px;
 }
 
 .footerInfo--linkStyle {
@@ -1305,7 +1321,7 @@ select:-webkit-autofill:focus {
   top: 70px;
   padding: 10px 0 0 0;
   height: 57px;
-  background-color: #fff;
+  background-color: white;
   width: 100%;
   height: 57px;
   border-bottom: 1px solid #ccc;
@@ -2840,7 +2856,7 @@ select:-webkit-autofill:focus {
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .hoaFieldset .select-items div:hover {
-  color: #fff;
+  color: white;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .hoaFieldset .select-selected:after {
@@ -3067,7 +3083,7 @@ select:-webkit-autofill:focus {
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .ParkingSpotsFieldset .select-items div:hover {
-  color: #fff;
+  color: white;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .ParkingSpotsFieldset .select-selected:after {
@@ -3298,7 +3314,7 @@ select:-webkit-autofill:focus {
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .squareFeetFieldset .selectContainer .select-items div:hover {
-  color: #fff;
+  color: white;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .squareFeetFieldset .selectContainer .select-selected:after {
@@ -3422,7 +3438,7 @@ select:-webkit-autofill:focus {
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotFirstSelect .select-items div:hover {
-  color: #fff;
+  color: white;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotFirstSelect .select-selected:after {
@@ -3510,7 +3526,7 @@ select:-webkit-autofill:focus {
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotsecondSelect .select-items div:hover {
-  color: #fff;
+  color: white;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotsecondSelect .select-selected:after {
@@ -4282,7 +4298,7 @@ select:-webkit-autofill:focus {
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .daysOnZillowFieldset .select-items div:hover {
-  color: #fff;
+  color: white;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .daysOnZillowFieldset .select-selected:after {
@@ -4468,7 +4484,7 @@ select:-webkit-autofill:focus {
 @media (max-width: 1200px) {
   .resultNav .mobileButs {
     width: 100%;
-    background-color: #fff;
+    background-color: white;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4478,7 +4494,7 @@ select:-webkit-autofill:focus {
   .resultNav .mobileButs .mobSaveSearchBut {
     border: none;
     color: #006aff;
-    background-color: #fff;
+    background-color: white;
     padding: 3px 5px;
     cursor: pointer;
     font-family: "Open Sans", sans-serif;
@@ -4487,7 +4503,7 @@ select:-webkit-autofill:focus {
   .resultNav .mobileButs .mobSortBut {
     border: none;
     color: #006aff;
-    background-color: #fff;
+    background-color: white;
     cursor: pointer;
     padding: 3px 5px;
     margin: 0 0 0 auto;
@@ -4497,7 +4513,7 @@ select:-webkit-autofill:focus {
   .resultNav .mobileButs .mobMapBut {
     border: none;
     color: #006aff;
-    background-color: #fff;
+    background-color: white;
     cursor: pointer;
     padding: 3px 5px;
     margin: 0 10px 0 5px;
@@ -4896,6 +4912,75 @@ select:-webkit-autofill:focus {
   margin: 0 3px;
 }
 
+.mainSection__noResultContainer {
+  display: none;
+  width: 100%;
+  border-radius: #2a2a33;
+  background-color: white;
+}
+
+.mainSection__whyZillow {
+  border-radius: #2a2a33;
+  background-color: #f1f1f4;
+  padding: 25px 15px;
+}
+
+.mainSection__paraHead {
+  font-weight: 600;
+}
+
+.mainSection__paragraph {
+  color: #54545A;
+  font-size: 12px;
+}
+
+.mainSection__paragraph--border {
+  padding: 0 0 10px 0;
+  margin: 0 0 10px 0;
+  border-bottom: 1.2px solid #a7a6ab;
+  color: #2a2a33;
+  font-size: 12px;
+}
+
+.mainSection__paragraph--marginBot {
+  margin: 0 0 15px 0;
+}
+
+.mainSection__changeSearchTxt {
+  color: #2a2a33;
+  font-size: 15px;
+  padding: 8px 0 8px 20px;
+}
+
+.mainSection__noMatchTxt {
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 20px;
+}
+
+.mainSection__noMatchTxt--pad {
+  padding: 20px;
+}
+
+.mainSection__removeFiterTxt {
+  color: #006aff;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 26px 20px;
+  cursor: pointer;
+}
+
+.mainSection__whyZillowHeader {
+  color: #2a2a33;
+  font-size: 13px;
+  margin: 0 0 15px 0;
+}
+
+.mainSection__noResult {
+  width: 100%;
+  background-color: white;
+}
+
 .mainBigHomeContainer {
   overflow: hidden;
   display: -webkit-box;
@@ -4957,7 +5042,7 @@ select:-webkit-autofill:focus {
             justify-content: center;
     width: 100%;
     height: 100px;
-    background-color: #fff;
+    background-color: white;
     position: absolute;
     top: 0;
   }
@@ -4973,7 +5058,7 @@ select:-webkit-autofill:focus {
 .mainBigHomeContainer__firstRow {
   width: 100%;
   height: 50px;
-  background-color: #fff;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5051,7 +5136,7 @@ select:-webkit-autofill:focus {
 
 .mainBigHomeContainer .HomeContainerIcon {
   color: #006aff;
-  background-color: #fff;
+  background-color: white;
   border: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5425,7 +5510,7 @@ select:-webkit-autofill:focus {
 .mainBigHomeContainer .homeContainer__topRight {
   width: 100%;
   height: auto;
-  background-color: #fff;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5764,7 +5849,7 @@ select:-webkit-autofill:focus {
 .mainBigHomeContainer .homeContainer__generalInfo #prequalifiedLink #roundDollar {
   border-radius: 50%;
   background-color: #006aff;
-  color: #fff;
+  color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 700;

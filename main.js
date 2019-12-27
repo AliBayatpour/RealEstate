@@ -1,3 +1,16 @@
+// create dropdown options
+initialization = () => {
+  let dropdownRealEstate = document.querySelector("#myDropdown1");
+  let dropdownRent = document.querySelector("#myDropdown2");
+  let dropdownSale = document.querySelector("#myDropdown3");
+  let dropdownHomes = document.querySelector("#myDropdown4");
+  for (let item in locations) {
+    dropdownRealEstate.innerHTML += `<span class="dropdown-content__stateSpans" onclick="DropDownInputAssign('${locations[item]}', 'all')">${locations[item]} real estate</span>`;
+    dropdownRent.innerHTML += `<span class="dropdown-content__stateSpans" onclick="DropDownInputAssign('${locations[item]}', 'rent')">${locations[item]} homes for rent</span>`;
+    dropdownSale.innerHTML += `<span class="dropdown-content__stateSpans" onclick="DropDownInputAssign('${locations[item]}', 'sale')">${locations[item]} homes for sale</span>`;
+    dropdownHomes.innerHTML += `<span class="dropdown-content__stateSpans" onclick="DropDownInputAssign('${locations[item]}', 'all')">${locations[item]}</span>`;
+  }
+};
 if (window.location.pathname == "/result.html") {
   document.body.style.overflow = "hidden";
 } else if (window.location.pathname == "/index.html") {
@@ -43,12 +56,14 @@ const mobileMenuShowDropDown = (y, x) => {
   }
 };
 
-//  // showing or hiding mobile menue
+// showing or hiding mobile menue
 const indexShowMobileMenue = x => {
   document.querySelector(x).style.display = "block";
+  document.body.style.overflow = "hidden";
 };
 const IndexHideMobileMenue = x => {
   document.querySelector(x).style.display = "none";
+  document.body.style.overflow = null;
 };
 
 // Change three box under banner when hover
@@ -102,7 +117,6 @@ function arrowRotation(x, z) {
 
 // Moving arrow on the banner
 function movingArrow() {
-  let prevScrollpos = 10;
   let i = document.getElementById("movingArrow");
   let currentScrollPos = window.pageYOffset;
   if (currentScrollPos > 100) {
@@ -117,29 +131,58 @@ focusFunc = () => {
   document.getElementById("searchBox").focus();
 };
 
-let indexPageInput;
-// Getting input value from input.html and locate to result.html
-function inputAssign(e, idName) {
+let indexPageInput = [];
+// Getting input value from mainsearch on index.html and locate to result.html
+function inputAssign(e, idName, type) {
   e.preventDefault();
-  indexPageInput = document.getElementById(idName).value;
+  indexPageInput[0] = document.getElementById(idName).value;
+  indexPageInput[1] = type;
   window.document.location = "result.html" + "?inputLocation=" + indexPageInput;
 }
+// Getting input value from dropdown link on index.html and locate to result.html
+function DropDownInputAssign(locationName, type) {
+  indexPageInput[0] = locationName;
+  indexPageInput[1] = type;
+  window.document.location = "result.html" + "?inputLocation=" + indexPageInput;
+}
+
 // hit enter on the main search bar
-inputKeyUp = e => {
+inputKeyUp = (e, type) => {
   e.which = e.which || e.keyCode;
   if (e.which == 13) {
     if (window.location.pathname == "/index.html") {
-      inputAssign(event, "searchBox");
+      inputAssign(event, "searchBox", type);
     } else if (window.location.pathname == "/result.html") {
-      inputAssign(event, "searchBoxResult");
+      inputAssign(event, "searchBoxResult", type);
     }
   }
 };
 // initially check the listingType checkBoxes
 function initialCheck(id) {
+  console.log(id);
   let checkArray = document.querySelectorAll(".checkbox");
-  for (let checCount = 0; checCount < checkArray.length; checCount++) {
-    checkboxClick(checkArray[checCount].id);
+  // what type of listing type you want?
+  // rent or sale activate if you use dropdown buttons on index.html instead of searchbox
+  switch (id) {
+    case "all":
+      for (let checCount = 0; checCount < checkArray.length; checCount++) {
+        checkboxClick(checkArray[checCount].id);
+      }
+      break;
+
+    case "rent":
+      checkboxClick("checkboxId_3");
+      break;
+
+    case "sale":
+      checkboxClick("checkboxId_1");
+      break;
+
+    default:
+      for (let checCount = 0; checCount < checkArray.length; checCount++) {
+        checkboxClick(checkArray[checCount].id);
+      }
+      break;
   }
 }
 // checkbox check
@@ -1134,16 +1177,33 @@ function selectFiltered(listingTypeInput) {
     pageNumDelete.removeChild(pageNumDelete.firstChild);
   }
   currentPage = 1;
-  if (list.length != 0) {
+  let homeInfo = document.querySelector("#homeInfo");
+  let pageButton = document.querySelector("#pageButtons");
+  let noResultContainer = document.querySelector(
+    ".mainSection__noResultContainer"
+  );
+  if (list.length !== 0) {
+    homeInfo.style.display = null;
+    pageButton.style.display = null;
+    noResultContainer.style.display = null;
     load(function() {
       makeList();
       loadList();
     });
+  } else {
+    document.querySelector("#homeContainer").scrollTop = 0;
+    homeInfo.style.display = "none";
+    pageButton.style.display = "none";
+    noResultContainer.style.display = "block";
   }
   let arraySum = filterCounterArray.reduce((total, num) => {
     return total + num;
   }, 0);
 }
+//relode the page when click on remove filters
+removeFilterRelode = () => {
+  location.reload(true);
+};
 
 // When focus happens In price button section
 function focusInput(x) {
@@ -1162,6 +1222,7 @@ let currentPage = 1;
 let numberPerPage = 20;
 let numberOfPages = 0;
 let cities = [];
+let beforeSplitSearchBarInput = [];
 // Loading and showing homes on result.html
 function loadUser() {
   let xhr = new XMLHttpRequest();
@@ -1171,7 +1232,9 @@ function loadUser() {
       let jsonData = JSON.parse(this.responseText);
       let data = jsonData.value;
       let undecoded = document.location.search.replace(/^.*?\=/, "");
-      let searchBarInput = decodeURI(undecoded);
+      beforeSplitSearchBarInput = decodeURI(undecoded).split(",");
+      let searchBarInput = beforeSplitSearchBarInput[0];
+      console.log(beforeSplitSearchBarInput[1]);
       document.getElementById("searchBoxResult").value = searchBarInput;
       for (var i in data) {
         if (searchBarInput == data[i].City && data[i].Media[0] != undefined) {
@@ -1352,8 +1415,12 @@ function loadUser() {
     }
     // Start Pagination when everything is ready
     load(function() {
-      makeList();
-      loadList();
+      initialCheck(beforeSplitSearchBarInput[1]);
+      // if there is no home show noresult
+      // if (list.length !== 0) {
+      //   makeList();
+      //   loadList();
+      // }
     });
   };
   xhr.send();
@@ -1785,7 +1852,7 @@ function housePageBuilder(index, callback) {
       ).innerHTML = `${data[index].ListAgentFullName}`;
       document.getElementById("bottomInfoRow").scrollTop = 0;
       document.getElementById("clickHome").scrollTop = 0;
-      document.querySelector('.picContainer').scrollTop = 0;
+      document.querySelector(".picContainer").scrollTop = 0;
       document.querySelector("#picLeftColumn").scrollTop = 0;
       if (window.matchMedia("(max-width: 700px)").matches) {
         callback();

@@ -41,7 +41,9 @@ document.addEventListener("mouseover", event => {
   //  // showing or hiding mobile menue
   const ShowMobileMenue = x => {
     document.querySelector(x).style.display = "block";
+    document.body.style.overflow = 'hidden';
   };
   const HideMobileMenue = x => {
     document.querySelector(x).style.display = "none";
+    document.body.style.overflow = null;
   };
