@@ -645,6 +645,7 @@ select:-webkit-autofill:focus {
       @include flex(center, null, null);
       width: 100%;
       font-size: 0;
+      z-index: 10;
       #searchId {
         @include boxSize(
           50%,
@@ -890,7 +891,7 @@ select:-webkit-autofill:focus {
       @include for-tablet-portrait-up() {
         @include boxSize(95%, null, null, null, null);
       }
-      @include for-phone-only() {
+      @media (max-width: 755px) {
         @include flex(center, center, column);
         &__text {
           text-align: center;
@@ -967,9 +968,7 @@ select:-webkit-autofill:focus {
           }
         }
         @include for-tablet-landscape-up() {
-          text-align: left;
           margin: 0;
-          width: 100%;
           padding-left: 25px;
         }
       }

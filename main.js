@@ -1630,10 +1630,18 @@ window.addEventListener("scroll", () => {
 });
 // Google Map
 function initMap() {
-  let map;
-  map = new google.maps.Map(document.getElementById("map"), {
+  let x = document.createElement("IMG");
+  x.setAttribute("src", "redCircleFlag");
+  //New map
+  let map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 37.7749, lng: -122.4194 },
     zoom: 12
+  });
+  // Add a marker
+  let marker = new google.maps.Marker({
+    position:{lat: 37.7749, lng: -122.4194},
+    map:map,
+    icon:'https://www.pinclipart.com/picdir/big/72-729763_dots-clipart-red-circle-circle-png-download.png'
   });
 }
 // Insert comma in the numbers
