@@ -769,7 +769,7 @@ select:-webkit-autofill:focus {
 
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
-  background-color: DodgerBlue !important;
+  background-color: dodgerblue !important;
   color: white fff;
 }
 
@@ -2903,7 +2903,7 @@ select:-webkit-autofill:focus {
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .hoaFieldset .select-items div:hover,
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .hoaFieldset .same-as-selected {
-  background-color: DodgerBlue;
+  background-color: dodgerblue;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .openHouseFieldset {
@@ -3130,7 +3130,7 @@ select:-webkit-autofill:focus {
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .ParkingSpotsFieldset .select-items div:hover,
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .ParkingSpotsFieldset .same-as-selected {
-  background-color: DodgerBlue;
+  background-color: dodgerblue;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .mustHaveGarageFieldset {
@@ -3361,7 +3361,7 @@ select:-webkit-autofill:focus {
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .squareFeetFieldset .selectContainer .select-items div:hover,
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .squareFeetFieldset .selectContainer .same-as-selected {
-  background-color: DodgerBlue;
+  background-color: dodgerblue;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset {
@@ -3485,7 +3485,7 @@ select:-webkit-autofill:focus {
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotFirstSelect .select-items div:hover,
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotFirstSelect .same-as-selected {
-  background-color: DodgerBlue;
+  background-color: dodgerblue;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotsecondSelect {
@@ -3572,7 +3572,7 @@ select:-webkit-autofill:focus {
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotsecondSelect .select-items div:hover,
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .lotSizeFieldset .selectContainer #lotsecondSelect .same-as-selected {
-  background-color: DodgerBlue;
+  background-color: dodgerblue;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .basementFieldset {
@@ -4345,7 +4345,7 @@ select:-webkit-autofill:focus {
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .daysOnZillowFieldset .select-items div:hover,
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .daysOnZillowFieldset .same-as-selected {
-  background-color: DodgerBlue;
+  background-color: dodgerblue;
 }
 
 .resultNav #moreDropDown #moreMainContainer #moreButContainer .KeywordsFieldset {
@@ -4929,7 +4929,7 @@ select:-webkit-autofill:focus {
 }
 
 .mainSection__paragraph {
-  color: #54545A;
+  color: #54545a;
   font-size: 12px;
 }
 
@@ -5876,5 +5876,458 @@ select:-webkit-autofill:focus {
   .mainBigHomeContainer #closeSign {
     display: none;
   }
+}
+
+.formContainer {
+  padding: 70px 10% 0 10%;
+  width: 100%;
+  height: auto;
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+@media (max-width: 800px) {
+  .formContainer {
+    padding: 70px 0 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.formContainer__header {
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 22px 0;
+}
+
+@media (max-width: 800px) {
+  .formContainer__header {
+    font-size: 29px;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 400px) {
+  .formContainer__header {
+    font-size: 25px;
+    font-weight: 500;
+  }
+}
+
+.formContainer .myForm {
+  width: 650px;
+  height: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /*the container must be positioned relative:*/
+  /*hide original SELECT element:*/
+  /*style the arrow inside the select element:*/
+  /*point the arrow upwards when the select box is open (active):*/
+  /*style the items (options), including the selected item:*/
+  /*style items (options):*/
+  /*hide the items when the select box is closed:*/
+}
+
+@media (max-width: 800px) {
+  .formContainer .myForm {
+    width: 90%;
+  }
+}
+
+.formContainer .myForm input,
+.formContainer .myForm select {
+  padding: 11px 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 5px 0 0 0;
+}
+
+.formContainer .myForm textarea {
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 5px 0 0 0;
+}
+
+.formContainer .myForm .custom-select {
+  position: relative;
+  color: rgba(0, 0, 0, 0.75);
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.formContainer .myForm .custom-select select {
+  display: none;
+}
+
+.formContainer .myForm .select-selected {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background-color: white;
+  border: rgba(178, 181, 189, 0.8) 1px solid;
+  padding: 4px 0 4px 5px;
+  width: 100%;
+}
+
+.formContainer .myForm .select-items div {
+  padding: 1px 0 1px 5px;
+}
+
+.formContainer .myForm .select-items div:hover {
+  color: white;
+}
+
+.formContainer .myForm .select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-color: rgba(178, 181, 189, 0.6) transparent transparent transparent;
+}
+
+.formContainer .myForm .select-selected.select-arrow-active:after {
+  border-color: transparent transparent rgba(178, 181, 189, 0.6) transparent;
+  top: 7px;
+}
+
+.formContainer .myForm .select-items div,
+.formContainer .myForm .select-selected {
+  color: black;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.formContainer .myForm .select-items {
+  width: 100%;
+  max-height: 320px;
+  overflow-y: auto;
+  background-color: white;
+  border: rgba(178, 181, 189, 0.8) 1px solid;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.formContainer .myForm .select-hide {
+  display: none;
+}
+
+.formContainer .myForm .select-items div:hover,
+.formContainer .myForm .same-as-selected {
+  background-color: dodgerblue;
+}
+
+.formContainer .myForm .select-selected {
+  background-color: white;
+  border: #ddd 1px solid;
+  padding: 11px 10px;
+  border-radius: 4px;
+}
+
+.formContainer .myForm .select-items {
+  max-height: 150px;
+}
+
+.formContainer .myForm .select-items div {
+  padding: 1px 0 1px 5px;
+}
+
+.formContainer .myForm .select-items div:hover {
+  color: #2a2a33;
+}
+
+.formContainer .myForm .select-items div:hover,
+.formContainer .myForm .same-as-selected {
+  background-color: #ddd;
+}
+
+.formContainer .myForm .select-selected:after {
+  position: absolute;
+  content: "";
+  top: 18px;
+}
+
+.formContainer .myForm .select-selected.select-arrow-active:after {
+  top: 15px;
+}
+
+.formContainer .myForm__inputContainer label {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+}
+
+.formContainer .myForm__subtext {
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+}
+
+.formContainer .myForm .dropFile {
+  padding: 15px 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 5px 0 0 0;
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.formContainer .myForm .dropFile__galary {
+  position: relative;
+}
+
+.formContainer .myForm .dropFile img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.formContainer .myForm .dropFileClose {
+  color: white;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(102, 102, 102, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 5000;
+  top: 5px;
+  right: 20px;
+}
+
+.formContainer .myForm .dropFile.highlight {
+  background-color: #fafafa;
+}
+
+.formContainer .myForm .button {
+  cursor: pointer;
+  color: #006aff;
+  font-family: "Open Sans", sans-serif;
+}
+
+.formContainer .myForm #fileElem {
+  display: none;
+}
+
+.formContainer .myForm .submitBut {
+  cursor: not-allowed;
+  width: 190px;
+  height: 37.6px;
+  color: white;
+  background-color: #ccc;
+}
+
+.mainContent {
+  padding: 70px 0 0 0;
+  width: 100%;
+  background-color: #f9f9fB;
+}
+
+.mainContent__banner {
+  width: 100%;
+  background-color: #f9f9fB;
+  padding: 70px 0;
+}
+
+.mainContent__headerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 162px;
+}
+
+.mainContent .bannerHeader {
+  color: #2a2a33;
+  font-size: 60px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContent .bannerYellowLine {
+  width: 200px;
+  height: 5px;
+  background-color: #ffd237;
+}
+
+.mainContent__picSection {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContent__picSectionHeaderContainer {
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 0 10px 0;
+  color: #2a2a33;
+}
+
+.mainContent__picItemsContainer {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 1216px;
+}
+
+@media (max-width: 1216px) {
+  .mainContent__picItemsContainer {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+.mainContent__itemsWrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContent .singleItemWrapper {
+  width: 33.33%;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainContent .singleItemWrapper__imageContainer {
+  width: 100%;
+  height: 186px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.mainContent .singleItemWrapper__infoContainer {
+  padding: 26px;
+  height: 162px;
+  background-color: white;
+}
+
+.mainContent .singleItemWrapper__firstLinetxt {
+  color: #54545a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.mainContent .singleItemWrapper__secondLinetxt {
+  color: #2a2a33;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
 }
 /*# sourceMappingURL=main.css.map */

@@ -20,9 +20,9 @@
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Foreclosure</title>
+    <title>Real estate website</title>
   </head>
-  <body>
+  <body onload="checkMessage()">
     <nav>
       <div class="indexPhoneNav">
         <i
@@ -256,18 +256,89 @@
         </div>
       </div>
     </nav>
-    <div class="mainContent">
-      <div class="mainContent__banner">
-        <div class="mainContent__headerContainer">
-          <h1 class="mainContent__header">Foreclosure Center</h1>
-          <div class="mainContent__yellowLine"></div>
+    <div class="formContainer">
+      <h1 class="formContainer__header">Submit a request</h1>
+      <form class="myForm" onsubmit="submitContactForm(event)">
+        <div class="myForm__inputContainer">
+          <label for="contactSel">Please tell us who you are<span style="color: red;">*</span></label>
+          <div class="custom-select" id="contactWhoYouAre">
+            <select id="contactSel">
+              <option value="">-</option>
+              <option value="">Consumer</option>
+              <option value="">Real Estate Perofessional</option>
+              <option value="">Lender</option>
+              <option value="">Landlord or Property Manager</option>
+              <option value="">Lender Co-Marketing</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="mainContent__picSection"></div>
-      <div class="mainContent__searchSection"></div>
-      <div class="mainContent__picSection"></div>
-      <div class="mainContent__picSection"></div>
+        <div class="myForm__inputContainer">
+          <label for="contactEmail"
+            >Your email address<span style="color: red;">*</span></label
+          >
+          <input type="email" id="contactEmail" required onkeyup="formValidation(this)"/>
+        </div>
+        <div class="myForm__inputContainer" id="contactSubject">
+          <label for="contactSub"
+            >Subject<span style="color: red;">*</span></label
+          >
+          <input type="text" id="contactSub" name="input" onkeyup="formValidation(this)" required/>
+        </div>
+        <div class="myForm__inputContainer">
+          <label for="contactDescription"
+            >Description<span style="color: red;">*</span></label
+          >
+          <textarea name="textarea" id="contactDescription" cols="50" rows="10" onkeyup="formValidation(this)" required></textarea>
+          <span class="myForm__subtext"
+            >Please enter the details of your request. A member of our support
+            staff will respond as soon as possible.</span
+          >
+        </div>
+        <div class="myForm__inputContainer">
+          <label for="contactIssueSel"
+            >Issue Type<span style="color: red;">*</span></label
+          >
+          <div class="custom-select" id="contactIssue">
+            <select id="contactIssueSel">
+              <option value="">-</option>
+              <option value="">Issue with Posting FSBO or Make Me Move</option>
+              <option value="">Unsubscribe from emails</option>
+              <option value="">Zestimate</option>
+              <option value="">Scam or Frud</option>
+              <option value="">Add or remove photos</option>
+              <option value="">Add or remove photos</option>
+              <option value="">Rental Listing</option>
+              <option value="">Rental Application</option>
+              <option value="">Rent Payments</option>
+              <option value="">Edit or Remove For Sale Listing</option>
+              <option value="">Close Zillow profile</option>
+              <option value="">Other issue about my home</option>
+              <option value="">Other issue about my profile</option>
+              <option value="">Reviews</option>
+              <option value="">Product Question/Issue</option>
+              <option value="">Complaints</option>
+            </select>
+          </div>
+        </div>
+        <div class="dropFile" id="drop-area">
+          <div class="my-form">
+            <input
+              type="file"
+              name="filename"
+              id="fileElem"
+              accept="image/*"
+              onchange="handleFiles(this.files)"
+            />
+            <i style="font-size: 16px; color: #666666;" class="fa">&#xf0c6;</i>
+            <label class="button" for="fileElem">Add file</label
+            ><span style="margin: 0 5px 0 0 ;"> or drop files here </span>
+          </div>
+            <div class="dropFile__galary" id="gallery"></div>
+        </div>
+
+        <input class="submitBut" type="submit" disabled/>
+      </form>
     </div>
   </body>
-  <script src="./buyersGuide.js"></script>
+  <script src="./form.js"></script>
 </html>

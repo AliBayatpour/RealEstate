@@ -2,12 +2,14 @@
 $colors: (
   myWhite: white,
   mainblue: #006aff,
+  myLightBlue: dodgerblue,
   textColor: #2a2a33,
   redCircle: #ff5a50,
   violetCircle: #985dff,
-  yellowCircle: #ffd237
+  yellowCircle: #ffd237,
+  borderColorC: #ccc
 );
-// color_function(myWhite)
+// color_function(textColor)
 // Arrays of variables for image paths
 $img_path: (
   bannerhouse: "../images/bannerhouse.jpg",
@@ -283,7 +285,7 @@ $new-open-sans: "Roboto", sans-serif;
 
   .select-items div:hover,
   .same-as-selected {
-    background-color: DodgerBlue;
+    background-color: color_function(myLightBlue);
   }
 }
 // Media query mixins
@@ -412,7 +414,7 @@ select:-webkit-autofill:focus {
     @include flex(center, center, null);
     position: absolute;
     @include boxSize(100%, 50px, null, null, null);
-    border-bottom: #ccc 1px solid;
+    border-bottom: color_function(borderColorC) 1px solid;
   }
   &__logo {
     @include boxSize(110px, null, null, null, null);
@@ -491,7 +493,7 @@ select:-webkit-autofill:focus {
   @include flex(space-between, null, null);
   @include boxSize(100%, 70px, null, color_function(myWhite), null);
   padding: 0 5%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid color_function(borderColorC);
   @include for-tablet-landscape-up() {
     padding: 0 0 0 0;
   }
@@ -769,7 +771,7 @@ select:-webkit-autofill:focus {
   text-align: left;
   @include font($open-sans, 15px, 600, null, rgba(0, 0, 0, 0.6));
   .fa-search {
-    @include font(null, 18px, null, null, dodgerblue);
+    @include font(null, 18px, null, null, color_function(myLightBlue));
     margin-right: 10px;
   }
 }
@@ -788,7 +790,7 @@ select:-webkit-autofill:focus {
 
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
-  background-color: DodgerBlue !important;
+  background-color: color_function(myLightBlue) !important;
   color: color_function(myWhite) fff;
   .fa-search {
     @include font(null, 18px, null, null, color_function(myWhite));
@@ -1108,8 +1110,8 @@ select:-webkit-autofill:focus {
     @include boxSize(null, 131px, null, null, null);
   }
   @include boxSize(100%, 57px, null, null, null);
-  border-bottom: 1px solid #ccc;
-  // border-top: 1px solid #ccc;
+  border-bottom: 1px solid color_function(borderColorC);
+  // border-top: 1px solid color_function(borderColorC);
   @include flex(null, center, null);
   // Search input on the small navigation
   &__smallSearch {
@@ -2624,7 +2626,13 @@ select:-webkit-autofill:focus {
   }
   &__noResultContainer {
     display: none;
-    @include boxSize(100%, null, null, color_function(myWhite), color_function(textColor));
+    @include boxSize(
+      100%,
+      null,
+      null,
+      color_function(myWhite),
+      color_function(textColor)
+    );
   }
   &__whyZillow {
     @include boxSize(null, null, null, #f1f1f4, color_function(textColor));
@@ -2634,14 +2642,14 @@ select:-webkit-autofill:focus {
     @include font(null, null, 600, null, null);
   }
   &__paragraph {
-    @include font(null, 12px, null, null, #54545A);
+    @include font(null, 12px, null, null, #54545a);
     &--border {
       padding: 0 0 10px 0;
       margin: 0 0 10px 0;
       border-bottom: 1.2px solid #a7a6ab;
       @include font(null, 12px, null, null, color_function(textColor));
     }
-    &--marginBot{
+    &--marginBot {
       margin: 0 0 15px 0;
     }
   }
@@ -2870,14 +2878,14 @@ select:-webkit-autofill:focus {
         .bigBoxHomeOverviewText {
           @include flex(null, center, null);
           padding: 5px 0 14px 0;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid color_function(borderColorC);
           @include font($open-sans, 20px, 600, null, null);
         }
         #overviewOptions {
           padding: 15px 0;
           @include grid(3, 1fr, null, null, null, null);
           text-align: center;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid color_function(borderColorC);
           .txtOverview {
             @include font($open-sans, 14px, 400, null, null);
           }
@@ -2928,7 +2936,13 @@ select:-webkit-autofill:focus {
                 color_function(textColor)
               );
               i {
-                @include font(null, 18px, null, null, dodgerblue);
+                @include font(
+                  null,
+                  18px,
+                  null,
+                  null,
+                  color_function(myLightBlue)
+                );
                 padding-right: 8px;
               }
             }
@@ -2952,14 +2966,14 @@ select:-webkit-autofill:focus {
     &__topRight {
       @include boxSize(100%, auto, null, color_function(myWhite), null);
       @include flex(null, null, column);
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid color_function(borderColorC);
       padding: 10px 15px;
       @include for-phone-only() {
         padding: 10px 5px;
       }
       .logoSection {
         padding: 0 0 10px 0;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid color_function(borderColorC);
         @include flex(null, null, null);
         @include for-tablet-portrait-up() {
           display: none;
@@ -3122,14 +3136,14 @@ select:-webkit-autofill:focus {
       }
       .estPaymentText {
         @include boxSize(100%, null, null, null, null);
-        @include font($open-sans, 14px, 700, null, #2a2a33);
+        @include font($open-sans, 14px, 700, null, color_function(textColor));
         margin-top: 5px;
       }
       .lineText {
         @include flex(null, center, null);
       }
       .zestimateText {
-        border-bottom: 1px dashed #ccc;
+        border-bottom: 1px dashed color_function(borderColorC);
       }
       #prequalifiedLink {
         text-decoration: none;
@@ -3155,6 +3169,203 @@ select:-webkit-autofill:focus {
     }
     @include for-tablet-portrait-up() {
       display: none;
+    }
+  }
+}
+// ----------------FORM PAGE-----------------
+.formContainer {
+  padding: 70px 10% 0 10%;
+  @include boxSize(100%, auto, null, null, null);
+  @include font($open-sans, null, null, null, null);
+  overflow-x: hidden;
+  @media (max-width: 800px) {
+    padding: 70px 0 0 0;
+    @include flex(center, center, null);
+  }
+  &__header {
+    @include font($open-sans, 32px, 500, null, null);
+    @media (max-width: 800px) {
+      @include font(null, 29px, 500, null, null);
+    }
+    @media (max-width: 400px) {
+      @include font(null, 25px, 500, null, null);
+    }
+    margin: 22px 0;
+  }
+  .myForm {
+    @include boxSize(650px, 900px, null, null, null);
+    @include flex(space-evenly, null, column);
+    @media (max-width: 800px) {
+      @include boxSize(90%, null, null, null, null);
+    }
+    input,
+    select {
+      padding: 11px 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      width: 100%;
+      margin: 5px 0 0 0;
+    }
+    textarea {
+      border-radius: 2px;
+      border: 1px solid #ddd;
+      width: 100%;
+      margin: 5px 0 0 0;
+    }
+    @include customSelect(null, 100%, 100%, 0, 100%);
+    .select-selected {
+      background-color: color_function(myWhite);
+      border: #ddd 1px solid;
+      padding: 11px 10px;
+      border-radius: 4px;
+    }
+    .select-items {
+      max-height: 150px;
+    }
+    // Options container under the select box
+    .select-items div {
+      padding: 1px 0 1px 5px;
+      &:hover {
+        color: color_function(textColor);
+      }
+    }
+    .select-items div:hover,
+    .same-as-selected {
+      background-color: #ddd;
+    }
+    .select-selected:after {
+      position: absolute;
+      content: "";
+      top: 18px;
+    }
+    .select-selected.select-arrow-active:after {
+      top: 15px;
+    }
+    &__inputContainer {
+      label {
+        @include font($open-sans, 12px, null, null, null);
+      }
+    }
+    &__subtext {
+      @include font($open-sans, 11px, null, null, #666666);
+    }
+    // Drag and drop upload test
+    .dropFile {
+      padding: 15px 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      width: 100%;
+      margin: 5px 0 0 0;
+      @include font($open-sans, 12px, null, null, #666666);
+      @include flex(center, center, null);
+      &__galary {
+        position: relative;
+      }
+      img {
+        width: 150px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
+    .dropFileClose {
+      @include font(null, null, null, null, color_function(myWhite));
+      @include boxSize(20px, 20px, null, rgba(102, 102, 102, 0.6), null);
+      @include flex(center, center, null);
+      position: absolute;
+      z-index: 5000;
+      top: 5px;
+      right: 20px;
+    }
+    .dropFile.highlight {
+      background-color: #fafafa;
+    }
+    .button {
+      cursor: pointer;
+      @include font($open-sans, null, null, null, color_function(mainblue));
+    }
+    #fileElem {
+      display: none;
+    }
+    .submitBut {
+      cursor: not-allowed;
+      @include boxSize(
+        190px,
+        37.6px,
+        color_function(myWhite),
+        color_function(borderColorC),
+        null
+      );
+    }
+  }
+}
+
+// ----------------ForeClosureCenter PAGE-----------------
+
+.mainContent {
+  padding: 70px 0 0 0;
+  @include boxSize(100%, null, null, #f9f9fB, null);
+  &__banner {
+    @include boxSize(100%, null, null, #f9f9fB, null);
+    padding: 70px 0;
+  }
+  // header section
+  &__headerContainer{
+    @include flex(space-between, center, column);
+    @include boxSize(100%, 162px, null, null, null);
+  }
+  .bannerHeader {
+    @include font(null, 60px, null, null, color_function(textColor));
+    @include boxSize(100%, null, null, null, null);
+    @include flex(center, center, null);
+  }
+  .bannerYellowLine {
+    @include boxSize(200px, 5px, null, #ffd237, null);
+  }
+  &__picSection {
+    @include boxSize(100%, null, null, null, null);
+    @include flex(center, center, null);
+  }
+  &__picSectionHeaderContainer{
+    @include boxSize(100%, null, null, null, null);
+    padding: 0 10px;
+    margin: 0 0 10px 0;
+    @include font(null, null, null, null, color_function(textColor));
+  }
+  &__picItemsContainer{
+    @include boxSize(80%, null, null, null, null);
+    @include flex(center, center, null);
+    min-width: 1216px;
+    @media (max-width: 1216px){
+      min-width: auto;
+      @include boxSize(100%, null, null, null, null);
+    }
+  }
+  &__itemsWrapper{
+    @include boxSize(100%, null, null, null, null);
+    @include flex(center, center, null);
+  }
+  .singleItemWrapper{
+    @include boxSize(33.33%, null, null, null, null);
+    padding: 0 10px;
+    @include flex(center, center, null);
+    &__imageContainer{
+      @include boxSize(100%, 186px, null, null, null);
+      overflow: hidden;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+    }
+    &__infoContainer{
+      padding: 26px;
+      @include boxSize(null, 162px, null, color_function(myWhite), null);
+    }
+    &__firstLinetxt{
+      @include font($open-sans, 11px, 600, null, #54545a);
+      margin:  0 0 5px 0;
+    }
+    &__secondLinetxt {
+      @include font($open-sans, 26px, 600, null, color_function(textColor));
     }
   }
 }

@@ -65,7 +65,10 @@ const IndexHideMobileMenue = x => {
   document.querySelector(x).style.display = "none";
   document.body.style.overflow = null;
 };
-
+// Random coordinate generator
+function getRndInteger(min, max) {
+  return (Math.random() * (max - min) + min).toFixed(6);
+}
 // Change three box under banner when hover
 function bigBox(x, y) {
   document.getElementById(y).style.backgroundColor = "rgb(0, 106, 255)";
@@ -157,36 +160,45 @@ inputKeyUp = (e, type) => {
     }
   }
 };
+//initial state check
+let initialState = true;
 // initially check the listingType checkBoxes
 function initialCheck(id) {
-  console.log(id);
   let checkArray = document.querySelectorAll(".checkbox");
   // what type of listing type you want?
   // rent or sale activate if you use dropdown buttons on index.html instead of searchbox
   switch (id) {
     case "all":
+      listingType.sale = "houseForSaleCircle";
+      listingType.potential = true;
+      listingType.rent = "houseForRentCircle";
+      listingType.sold = true;
       for (let checCount = 0; checCount < checkArray.length; checCount++) {
-        checkboxClick(checkArray[checCount].id);
+        checkboxClick(checkArray[checCount].id, false);
       }
       break;
 
     case "rent":
-      checkboxClick("checkboxId_3");
+      checkboxClick("checkboxId_3", true);
       break;
 
     case "sale":
-      checkboxClick("checkboxId_1");
+      checkboxClick("checkboxId_1", true);
       break;
 
     default:
+      listingType.sale = "houseForSaleCircle";
+      listingType.potential = true;
+      listingType.rent = "houseForRentCircle";
+      listingType.sold = true;
       for (let checCount = 0; checCount < checkArray.length; checCount++) {
-        checkboxClick(checkArray[checCount].id);
+        checkboxClick(checkArray[checCount].id, false);
       }
       break;
   }
 }
 // checkbox check
-function checkboxClick(x) {
+function checkboxClick(x, flag) {
   var UID = {
     _current: 0,
     getNew: function() {
@@ -221,7 +233,7 @@ function checkboxClick(x) {
       textnodeArray[2] = document.createTextNode("For Rent");
       textnodeArray[3] = document.createTextNode("Sold");
       textnodeArray[4] = document.createTextNode(", ");
-      // If a uncheck a box
+      // If uncheck a box
       if (document.getElementById(cn[i].children[0].id).checked) {
         document.getElementById(cn[i].children[0].id).checked = false;
         document.getElementById(circleArray[i].id).style.display = "none";
@@ -320,7 +332,13 @@ function checkboxClick(x) {
             }
             break;
         }
-        listingTypefilterHomes(cn);
+        if (flag) {
+          listingTypefilterHomes(cn);
+        } else {
+          if (x == "checkboxId_4") {
+            listingTypefilterHomes(cn);
+          }
+        }
       }
       // If check a box
       else {
@@ -434,7 +452,13 @@ function checkboxClick(x) {
 
             break;
         }
-        listingTypefilterHomes(cn);
+        if (flag) {
+          listingTypefilterHomes(cn);
+        } else {
+          if (x == "checkboxId_4") {
+            listingTypefilterHomes(cn);
+          }
+        }
       }
     } else {
       var div = document.getElementById(cn[i].children[1].id);
@@ -1195,6 +1219,7 @@ function selectFiltered(listingTypeInput) {
     homeInfo.style.display = "none";
     pageButton.style.display = "none";
     noResultContainer.style.display = "block";
+    initMap();
   }
   let arraySum = filterCounterArray.reduce((total, num) => {
     return total + num;
@@ -1215,6 +1240,7 @@ function focusInput(x) {
     document.getElementById("priceListMax").style.visibility = "visible";
   }
 }
+
 let mainList = [];
 let list = [];
 let pageList = [];
@@ -1234,7 +1260,6 @@ function loadUser() {
       let undecoded = document.location.search.replace(/^.*?\=/, "");
       beforeSplitSearchBarInput = decodeURI(undecoded).split(",");
       let searchBarInput = beforeSplitSearchBarInput[0];
-      console.log(beforeSplitSearchBarInput[1]);
       document.getElementById("searchBoxResult").value = searchBarInput;
       for (var i in data) {
         if (searchBarInput == data[i].City && data[i].Media[0] != undefined) {
@@ -1248,6 +1273,9 @@ function loadUser() {
           divArray.className = "home";
           divArray.width = "100%";
           // Store data information in each home element
+          // give a random lattitude and longitude to each home
+          divArray.dataset.lat = getRndInteger(38.251051, 45.134186);
+          divArray.dataset.lon = getRndInteger(-118.560049, -94.547338);
           //HOA Fee
           divArray.dataset.maxHoa = data[i].AssociationFee;
           // OpenHouse
@@ -1370,6 +1398,7 @@ function loadUser() {
           // check if for sale or rent and then add home price
           if (data[i].SpecialListingConditions[2]) {
             if (data[i].SpecialListingConditions[2] === "Short Sale") {
+              divArray.dataset.homeType = "sale";
               homeInfoFirstRow.innerHTML = `<li id="moneySpan" value=${
                 data[i].ListPrice
               } class = "moneySection"> $${numberWithCommas(
@@ -1379,8 +1408,8 @@ function loadUser() {
                                data[i].BedroomsTotal
                              }>${data[i].BedroomsTotal}</li>
                             <span class="unit">bds</span> <span class= "line"></span> <li class="number" value = "${
-                              data[i].BathroomsTotalInteger
-                            }">${data[i].BathroomsTotalInteger}</li> 
+                              data[i].BathroomsHalf
+                            }">${data[i].BathroomsHalf}</li> 
                             <span class="unit">ba</span> <span class= "line"></span>
                              <li class="number" value=${
                                data[i].LotSizeSquareFeet
@@ -1390,6 +1419,7 @@ function loadUser() {
               homeInfoThirdRow.innerHTML = `<span class= "houseForSaleCircle"></span><li class="inlineText" value=${properStrValue}>${properStr}</li>&nbspfor sale`;
             }
           } else {
+            divArray.dataset.homeType = "rent";
             homeInfoFirstRow.innerHTML = `<li class = "moneySection" value=${data[
               i
             ].ListPrice / 150}> $${numberWithCommas(
@@ -1399,8 +1429,8 @@ function loadUser() {
               data[i].BedroomsTotal
             }</li>
                         <span class="unit">bds</span> <span class= "line"></span> <li class="number" value=${
-                          data[i].BathroomsTotalInteger
-                        }>${data[i].BathroomsTotalInteger}</li> 
+                          data[i].BathroomsHalf
+                        }>${data[i].BathroomsHalf}</li> 
                         <span class="unit">ba</span> <span class= "line"></span>
                          <li class="number" value=${data[i].LivingArea}>${
               data[i].LivingArea
@@ -1416,11 +1446,6 @@ function loadUser() {
     // Start Pagination when everything is ready
     load(function() {
       initialCheck(beforeSplitSearchBarInput[1]);
-      // if there is no home show noresult
-      // if (list.length !== 0) {
-      //   makeList();
-      //   loadList();
-      // }
     });
   };
   xhr.send();
@@ -1555,6 +1580,7 @@ function drawList() {
   for (let r = 0; r < pageList.length; r++) {
     document.getElementById("homeInfo").appendChild(pageList[r]);
   }
+  initMap();
 }
 // check pagination buttons for enabling and disabling
 function check() {
@@ -1634,15 +1660,88 @@ function initMap() {
   x.setAttribute("src", "redCircleFlag");
   //New map
   let map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 37.7749, lng: -122.4194 },
-    zoom: 12
+    center: { lat: 39.381266, lng: -106.8022211 },
+    zoom: 5
   });
   // Add a marker
-  let marker = new google.maps.Marker({
-    position:{lat: 37.7749, lng: -122.4194},
-    map:map,
-    icon:'https://www.pinclipart.com/picdir/big/72-729763_dots-clipart-red-circle-circle-png-download.png'
-  });
+  let image;
+  // red circle for sale on map
+  let imageSale = {
+    url: "https://i.imgur.com/RUbotQy.png",
+    origin: new google.maps.Point(0, 0),
+    scaledSize: new google.maps.Size(15, 15)
+  };
+  // violet circle for rent on map
+  let imageRent = {
+    url: "https://i.imgur.com/yw7EFO6.png",
+    origin: new google.maps.Point(0, 0),
+    scaledSize: new google.maps.Size(15, 15)
+  };
+  // only show something if there are homes available
+  let homeInfoCheck = document.querySelector("#homeInfo").firstChild;
+  if (homeInfoCheck) {
+    for (var i = 0; i < pageList.length; i++) {
+      // check if it's for sale or for rent
+      if (pageList[i].dataset.homeType === "sale") {
+        image = imageSale;
+      } else if (pageList[i].dataset.homeType === "rent") {
+        image = imageRent;
+      }
+      // what to show when a circle on map clicked(building content for infoWindow)
+      // image source of the home
+      let mapImageSrc = pageList[i].firstChild.firstChild.src;
+      // home price
+      let mapHomePrice =
+        pageList[i].children[1].firstChild.firstChild.innerHTML;
+      let mapBedNum = pageList[i].children[1].firstChild.children[1].innerHTML;
+      let mapBathNum = pageList[i].children[1].firstChild.children[4].innerHTML;
+      let mapSqfNum = pageList[i].children[1].firstChild.children[7].innerHTML;
+      // what to show for each home on map
+      let mapMarkerContent = `<div id=${pageList[i].id} style="display: flex"><div style="padding-right: 5px"><img src="${mapImageSrc}" style="width: 60px;"/></div>
+      <p><strong>${mapHomePrice}</strong> <br>${mapBedNum} bd, ${mapBathNum} ba<br> ${mapSqfNum} sqf</p>
+      </div>`;
+      // creating a new infoWindow
+      let infowindow = new google.maps.InfoWindow({
+        content: mapMarkerContent
+      });
+      // build marker
+      let marker = new google.maps.Marker({
+        position: {
+          lat: Number(pageList[i].dataset.lat),
+          lng: Number(pageList[i].dataset.lon)
+        },
+        map: map,
+        icon: image
+      });
+      // create an event listener for each marker
+      marker.addListener("mouseover", function() {
+        infowindow.open(map, marker);
+      });
+      marker.addListener("mouseout", function() {
+        infowindow.close();
+      });
+      marker.addListener("click", function() {
+        let showHomeIndex = String(infowindow.content)
+          .split("myHome")[1]
+          .split(" ", 1);
+        housePageBuilder(showHomeIndex, getImg);
+      });
+      google.maps.event.addDomListener(
+        document.getElementById(pageList[i].id),
+        "mouseover",
+        function() {
+          infowindow.open(map, marker);
+        }
+      );
+      google.maps.event.addDomListener(
+        document.getElementById(pageList[i].id),
+        "mouseout",
+        function() {
+          infowindow.close();
+        }
+      );
+    }
+  }
 }
 // Insert comma in the numbers
 function numberWithCommas(x) {
@@ -1795,7 +1894,7 @@ function housePageBuilder(index, callback) {
           )}</span> 
                     <span class="number">${data[index].BedroomsTotal}</span>
                     <span class="unit">bds</span> <span class= "line"></span> <span class="number">${
-                      data[index].BathroomsTotalInteger
+                      data[index].BathroomsHalf
                     }</span> 
                     <span class="unit">ba</span> <span class= "line"></span>
                     <span class="number">${
@@ -1823,7 +1922,7 @@ function housePageBuilder(index, callback) {
         )}/mo</span> 
                 <span class="number">${data[index].BedroomsTotal}</span>
                 <span class="unit">bds</span> <span class= "line"></span> <span class="number">${
-                  data[index].BathroomsTotalInteger
+                  data[index].BathroomsHalf
                 }</span> 
                 <span class="unit">ba</span> <span class= "line"></span>
                 <span class="number">${
