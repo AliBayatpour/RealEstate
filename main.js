@@ -1761,7 +1761,7 @@ function checkClickArea(e) {
     housePageBuilder(dataIndex, getImg);
   }
 }
-
+// drag and drop image gallary for mobile phone
 getImg = () => {
   let picLeftColumn = document.getElementById("picLeftColumn");
   let posX1 = 0,
@@ -1771,7 +1771,6 @@ getImg = () => {
     threshold = 100,
     slides = document.querySelectorAll(".homeBox"),
     slidesLength = slides.length,
-    slideSize = document.querySelectorAll(".homeBox")[0].offsetWidth,
     getImgindex = 0;
   picLeftColumn.addEventListener("touchstart", dragStart);
   picLeftColumn.addEventListener("touchend", dragEnd);

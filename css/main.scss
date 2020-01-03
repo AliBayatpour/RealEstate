@@ -1026,20 +1026,17 @@ select:-webkit-autofill:focus {
   &__image {
     width: 100%;
   }
-  &__smallContainer {
-    @include flex(center, center, null);
-  }
   &__logos {
-    @include boxSize(100%, 16%, null, color_function(myWhite) null);
+    @include boxSize(100%, 45px, null, color_function(myWhite) null);
     @include flex(center, center, null);
     img {
-      width: 135px;
+      width: 125px;
+      margin-bottom: 5px;
       @include for-tablet-portrait-up() {
-        margin-top: 10px;
+        width: 110px;
       }
     }
     span {
-      margin: 5px 5px;
       @include font($open-sans, 12.5px, null, italic, #666666);
       @include for-tablet-portrait-up() {
         margin: 5px 2px;
@@ -3304,13 +3301,13 @@ select:-webkit-autofill:focus {
 
 .mainContent {
   padding: 70px 0 0 0;
-  @include boxSize(100%, null, null, #f9f9fB, null);
+  @include boxSize(100%, null, null, #f9f9fb, null);
   &__banner {
-    @include boxSize(100%, null, null, #f9f9fB, null);
+    @include boxSize(100%, null, null, #f9f9fb, null);
     padding: 70px 0;
   }
   // header section
-  &__headerContainer{
+  &__headerContainer {
     @include flex(space-between, center, column);
     @include boxSize(100%, 162px, null, null, null);
   }
@@ -3318,6 +3315,18 @@ select:-webkit-autofill:focus {
     @include font(null, 60px, null, null, color_function(textColor));
     @include boxSize(100%, null, null, null, null);
     @include flex(center, center, null);
+    @include for-tablet-portrait-up(){
+      @include font(null, 50px, null, null, null);
+    }
+    @include for-phone-only() {
+      @include font(null, 40px, null, null, null);
+    }
+    @media(max-width: 420px){ 
+      @include font(null, 35px, null, null, null);
+    }
+    @media(max-width: 420px){ 
+      @include font(null, 32px, null, null, null);
+    }
   }
   .bannerYellowLine {
     @include boxSize(200px, 5px, null, #ffd237, null);
@@ -3325,47 +3334,83 @@ select:-webkit-autofill:focus {
   &__picSection {
     @include boxSize(100%, null, null, null, null);
     @include flex(center, center, null);
+    padding: 60px 0;
   }
-  &__picSectionHeaderContainer{
-    @include boxSize(100%, null, null, null, null);
+  &__picSectionHeaderContainer {
+    @include boxSize(1227.2px, null, null, null, null);
     padding: 0 10px;
     margin: 0 0 10px 0;
     @include font(null, null, null, null, color_function(textColor));
+    @media (max-width: 1216px) {
+      @include boxSize(100%, null, null, null, null);
+    }
+    .picsHeader{
+      @include for-tablet-portrait-up() {
+        @include font(null, 25px, null, null, null);
+      }
+      @include for-phone-only() {
+        @include font(null, 22px, null, null, null);
+      }
+    }
   }
-  &__picItemsContainer{
+  &__picItemsContainer {
     @include boxSize(80%, null, null, null, null);
     @include flex(center, center, null);
     min-width: 1216px;
-    @media (max-width: 1216px){
+    @media (max-width: 1216px) {
       min-width: auto;
       @include boxSize(100%, null, null, null, null);
     }
+    @media (max-width: 1024px) {
+      overflow: hidden;
+      position: relative;
+      min-height: 348px;
+    }
   }
-  &__itemsWrapper{
+  &__itemsWrapper {
     @include boxSize(100%, null, null, null, null);
     @include flex(center, center, null);
+    @media (max-width: 1024px) {
+      position: absolute;
+      @include flex(flex-start, flex-start, null);
+      flex-wrap: nowrap;
+      right: 0%;
+    }
   }
-  .singleItemWrapper{
+  .singleItemWrapper {
     @include boxSize(33.33%, null, null, null, null);
     padding: 0 10px;
     @include flex(center, center, null);
-    &__imageContainer{
+    @media (max-width: 1024px) {
+      @include boxSize(408px, null, null, null, null);
+      min-width: 45%;
+    }
+    @media(max-width:530px) {
+      min-width: 95%;
+    }
+    &__imageContainer {
       @include boxSize(100%, 186px, null, null, null);
       overflow: hidden;
       background-position: center;
       background-repeat: no-repeat;
       background-size: 100% auto;
     }
-    &__infoContainer{
+    &__infoContainer {
       padding: 26px;
-      @include boxSize(null, 162px, null, color_function(myWhite), null);
+      @include boxSize(100%, 162px, null, color_function(myWhite), null);
     }
-    &__firstLinetxt{
+    &__firstLinetxt {
       @include font($open-sans, 11px, 600, null, #54545a);
-      margin:  0 0 5px 0;
+      margin: 0 0 5px 0;
     }
     &__secondLinetxt {
-      @include font($open-sans, 26px, 600, null, color_function(textColor));
+      @include font($open-sans, 22px, 600, null, color_function(textColor));
+      @include for-tablet-portrait-up() {
+        @include font(null, 18px, null, null, null);
+      }
+      @include for-phone-only() {
+        @include font(null, 18px, null, null, null);
+      }
     }
   }
 }

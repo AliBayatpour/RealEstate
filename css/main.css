@@ -1185,23 +1185,9 @@ select:-webkit-autofill:focus {
   width: 100%;
 }
 
-.footerInfo__smallContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .footerInfo__logos {
   width: 100%;
-  height: 16%;
+  height: 45px;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1217,17 +1203,17 @@ select:-webkit-autofill:focus {
 }
 
 .footerInfo__logos img {
-  width: 135px;
+  width: 125px;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 900px) {
   .footerInfo__logos img {
-    margin-top: 10px;
+    width: 110px;
   }
 }
 
 .footerInfo__logos span {
-  margin: 5px 5px;
   color: #666666;
   font-family: "Open Sans", sans-serif;
   font-size: 12.5px;
@@ -6173,12 +6159,12 @@ select:-webkit-autofill:focus {
 .mainContent {
   padding: 70px 0 0 0;
   width: 100%;
-  background-color: #f9f9fB;
+  background-color: #f9f9fb;
 }
 
 .mainContent__banner {
   width: 100%;
-  background-color: #f9f9fB;
+  background-color: #f9f9fb;
   padding: 70px 0;
 }
 
@@ -6219,6 +6205,30 @@ select:-webkit-autofill:focus {
           align-items: center;
 }
 
+@media (max-width: 900px) {
+  .mainContent .bannerHeader {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 680px) {
+  .mainContent .bannerHeader {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mainContent .bannerHeader {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mainContent .bannerHeader {
+    font-size: 32px;
+  }
+}
+
 .mainContent .bannerYellowLine {
   width: 200px;
   height: 5px;
@@ -6238,13 +6248,32 @@ select:-webkit-autofill:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 60px 0;
 }
 
 .mainContent__picSectionHeaderContainer {
-  width: 100%;
+  width: 1227.2px;
   padding: 0 10px;
   margin: 0 0 10px 0;
   color: #2a2a33;
+}
+
+@media (max-width: 1216px) {
+  .mainContent__picSectionHeaderContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .mainContent__picSectionHeaderContainer .picsHeader {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 680px) {
+  .mainContent__picSectionHeaderContainer .picsHeader {
+    font-size: 22px;
+  }
 }
 
 .mainContent__picItemsContainer {
@@ -6270,6 +6299,14 @@ select:-webkit-autofill:focus {
   }
 }
 
+@media (max-width: 1024px) {
+  .mainContent__picItemsContainer {
+    overflow: hidden;
+    position: relative;
+    min-height: 348px;
+  }
+}
+
 .mainContent__itemsWrapper {
   width: 100%;
   display: -webkit-box;
@@ -6283,6 +6320,26 @@ select:-webkit-autofill:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .mainContent__itemsWrapper {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    right: 0%;
+  }
 }
 
 .mainContent .singleItemWrapper {
@@ -6301,6 +6358,19 @@ select:-webkit-autofill:focus {
           align-items: center;
 }
 
+@media (max-width: 1024px) {
+  .mainContent .singleItemWrapper {
+    width: 408px;
+    min-width: 45%;
+  }
+}
+
+@media (max-width: 530px) {
+  .mainContent .singleItemWrapper {
+    min-width: 95%;
+  }
+}
+
 .mainContent .singleItemWrapper__imageContainer {
   width: 100%;
   height: 186px;
@@ -6312,6 +6382,7 @@ select:-webkit-autofill:focus {
 
 .mainContent .singleItemWrapper__infoContainer {
   padding: 26px;
+  width: 100%;
   height: 162px;
   background-color: white;
 }
@@ -6327,7 +6398,19 @@ select:-webkit-autofill:focus {
 .mainContent .singleItemWrapper__secondLinetxt {
   color: #2a2a33;
   font-family: "Open Sans", sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .mainContent .singleItemWrapper__secondLinetxt {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  .mainContent .singleItemWrapper__secondLinetxt {
+    font-size: 18px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
