@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../../css/main.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Foreclosure</title>
   </head>
-  <body onload="getImg()">
+  <body>
     <nav>
       <div class="indexPhoneNav">
         <i
@@ -32,7 +32,7 @@
         ></i>
         <img
           class="indexPhoneNav__mobileMenueLogo"
-          src="../../images/logo.png"
+          src="../../../images/logo.png"
           alt=""
         />
       </div>
@@ -196,7 +196,8 @@
               >
             </li>
             <li class="mainNavUl__list" id="homeLoansNavBut">
-              <a href="../../pages/rentalResourceCenter/rentalResourceCenter.html"
+              <a
+                href="../../pages/rentalResourceCenter/rentalResourceCenter.html"
                 >Home Loans</a
               >
             </li>
@@ -260,7 +261,9 @@
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>Resources</h4></li>
             <li>
-              <a href="../../pages/BuyersGuide/buyersGuide.html">Buyers guide</a>
+              <a href="../../pages/BuyersGuide/buyersGuide.html"
+                >Buyers guide</a
+              >
             </li>
             <li>
               <a href="../../pages/foreclosureCenter/foreclosureCenter.html"
@@ -303,119 +306,52 @@
         </div>
       </div>
     </nav>
-    <div class="mainContent">
-      <div class="mainContent__banner">
-        <div class="mainContent__headerContainer">
-          <h1 class="bannerHeader">Home Buyers Guide</h1>
-          <div class="bannerYellowLine"></div>
+    <!-- Main Content -->
+    <div class="mainSubPageContainer">
+      <div class="mainSubPageContainer__middleContainer">
+        <p class="pageName">THE BASICS</p>
+        <h1 class="mainHeader">Setting a Realistic Rental Budget</h1>
+        <p class="subHeader">
+          Before you look for a place, it's smart – and easy – to figure out how
+          much rent you really can afford.
+        </p>
+        <div class="mainSubPageContainer__mainPic">
+          <img
+            class="mainImage"
+            src="../../images/rentalManager3.jpg"
+            alt="budget"
+          />
         </div>
-      </div>
-      <div class="mainContent__picSection">
-        <div class="mainContent__picSectionHeaderContainer">
-          <h1 class="picsHeader">Getting Started</h1>
-        </div>
-        <div class="mainContent__picItemsContainer">
-          <div class="mainContent__itemsWrapper">
-            <div class="singleItemWrapper" onclick="changePage()">
-              <div
-                class="singleItemWrapper__imageContainer"
-                style="background-image: url('../../images/gettingStarted1.jpg');"
-              ></div>
-              <div class="singleItemWrapper__infoContainer">
-                <div class="singleItemWrapper__firstLinetxt">
-                  Getting Started
-                </div>
-                <div class="singleItemWrapper__secondLinetxt">
-                  Buying and Selling a House at the Same Time: Where to Begin
-                </div>
-              </div>
-            </div>
-            <div class="singleItemWrapper" onclick="changePage()">
-              <div
-                class="singleItemWrapper__imageContainer"
-                style="background-image: url('../../images/gettingStarted2.jpg');"
-              ></div>
-              <div class="singleItemWrapper__infoContainer">
-                <div class="singleItemWrapper__firstLinetxt">
-                  Getting Started
-                </div>
-                <div class="singleItemWrapper__secondLinetxt">
-                  Understanding the Differences: Real Estate Broker vs. Agent
-                </div>
-              </div>
-            </div>
-            <div class="singleItemWrapper" onclick="changePage()">
-              <div
-                class="singleItemWrapper__imageContainer"
-                style="background-image: url('../../images/gettingStarted3.jpg');"
-              ></div>
-              <div class="singleItemWrapper__infoContainer">
-                <div class="singleItemWrapper__firstLinetxt">
-                  Getting Started
-                </div>
-                <div class="singleItemWrapper__secondLinetxt">
-                  Homeownership 101: Are You Ready?
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mainContent__picSection">
-        <div class="mainContent__picSectionHeaderContainer">
-          <h1 class="picsHeader">Money Matters</h1>
-        </div>
-        <div class="mainContent__picItemsContainer">
-          <div class="mainContent__itemsWrapper">
-            <div class="singleItemWrapper" onclick="changePage()">
-              <div
-                class="singleItemWrapper__imageContainer"
-                style="background-image: url('../../images/moneyMatters1.jpg');"
-              ></div>
-              <div class="singleItemWrapper__infoContainer">
-                <div class="singleItemWrapper__firstLinetxt">
-                  Money Matters
-                </div>
-                <div class="singleItemWrapper__secondLinetxt">
-                  What Is a Mortgage and How Does It Work?
-                </div>
-              </div>
-            </div>
-            <div class="singleItemWrapper" onclick="changePage()">
-              <div
-                class="singleItemWrapper__imageContainer"
-                style="background-image: url('../../images/moneyMatters2.jpg');"
-              ></div>
-              <div class="singleItemWrapper__infoContainer">
-                <div class="singleItemWrapper__firstLinetxt">
-                  Money Matters
-                </div>
-                <div class="singleItemWrapper__secondLinetxt">
-                  Is Getting Pre-approved for a Home Loan the Same as
-                  Pre-qualifying?
-                </div>
-              </div>
-            </div>
-            <div class="singleItemWrapper" onclick="changePage()">
-              <div
-                class="singleItemWrapper__imageContainer"
-                style="background-image: url('../../images/moneyMatters3.jpg');"
-              ></div>
-              <div class="singleItemWrapper__infoContainer">
-                <div class="singleItemWrapper__firstLinetxt">
-                  Money Matters
-                </div>
-                <div class="singleItemWrapper__secondLinetxt">
-                  What Type of Mortgage Is Best for You?
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="mainSubPageContainer__writerInfo"></div>
+        <div class="mainSubPageContainer__mainInfo">
+          <p class="paraInfo">
+            Before you start a serious search for places to live, it’s smart to
+            figure out how much rent you can really afford. Setting a realistic
+            rental budget now can save you disappointment later by preventing
+            you from falling for the “perfect” place that costs more than you
+            should spend.
+          </p>
+          <p class="paraInfo">
+            Paying 30 percent of your income on rent used to be the basic
+            guideline but that may be misleading. Is that income “gross” or
+            “net” (before or after taxes)? Does the rent include utilities? And
+            if you have student loans, a car payment, or credit card bills to
+            pay, 30 percent just might not be possible.
+          </p>
+          <h3 class="infoHeader">Rental math made easy</h3>
+          <p class="paraInfo">
+            Zillow’s rent affordability calculator does the heavy lifting for
+            you. Just plug in your monthly after-tax income, living expenses and
+            debts, plus what you save and the city where you want to live. The
+            results include a suggested rent you can comfortably afford as well
+            as listings within that range.
+          </p>
         </div>
       </div>
     </div>
+    <!-- Footer -->
     <footer>
-      <div class="footerInfo">
+      <div class="footerInfo footerInfo--borderTp">
         <div class="footerInfo__text">
           <span class="footerInfo__txtSpan"
             >Zillow Group is committed to ensuring digital accessibility for
@@ -427,7 +363,7 @@
           >
         </div>
         <div class="footerInfo__logos">
-          <img src="../../images/logo.png" alt="Home" />
+          <img src="../../../images/logo.png" alt="real estate logo" />
           <span>Follow us: </span><a href="#" class="fab fa-facebook-f"></a
           ><a href="#" class="fab fa-twitter"></a
           ><span>© 2006-2019 Zillow </span><i class="fa fa-home"></i>
@@ -435,12 +371,12 @@
         <div class="footerInfo__imageContainer">
           <img
             class="footerInfo__image"
-            src="../../images/footer.png"
+            src="../../../images/footer.png"
             alt="cartoon houses pic"
           />
         </div>
       </div>
     </footer>
   </body>
-  <script src="./buyersGuide.js"></script>
+  <script src="./help.js"></script>
 </html>

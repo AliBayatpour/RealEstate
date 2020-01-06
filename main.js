@@ -16,6 +16,10 @@ if (window.location.pathname == "/result.html") {
 } else if (window.location.pathname == "/index.html") {
   document.body.style.overflowX = "hidden";
 }
+// change page when sell box clicked
+goToSell = () => {
+  window.location.href = "./pages/foreclosureCenter/foreclosureCenter.html";
+}
 // DropDown Nav button.
 document.addEventListener("mouseover", event => {
   // Display Buy dropDown
@@ -59,10 +63,12 @@ const mobileMenuShowDropDown = (y, x) => {
 // showing or hiding mobile menue
 const indexShowMobileMenue = x => {
   document.querySelector(x).style.display = "block";
+  document.querySelector(x).style.overflowY = "scroll";
   document.body.style.overflow = "hidden";
 };
 const IndexHideMobileMenue = x => {
   document.querySelector(x).style.display = "none";
+  document.querySelector(x).style.overflowY = null;
   document.body.style.overflow = null;
 };
 // Random coordinate generator
@@ -71,21 +77,23 @@ function getRndInteger(min, max) {
 }
 // Change three box under banner when hover
 function bigBox(x, y) {
-  document.getElementById(y).style.backgroundColor = "rgb(0, 106, 255)";
-  document.getElementById(y).style.color = "white";
-  document.getElementById(x).style.marginTop = "0";
-  document.getElementById(x).style.width = "100%";
-  document.getElementById(x).style.paddingBottom = "65px";
-  document.getElementById(x).style.boxShadow =
-    "rgb(150, 150, 150) 0px 5px 15px";
+  if (window.matchMedia("(min-width: 1200px)").matches) {
+    document.getElementById(y).style.backgroundColor = "rgb(0, 106, 255)";
+    document.getElementById(y).style.color = "white";
+    document.getElementById(x).style.marginTop = "0";
+    document.getElementById(x).style.paddingBottom = "65px";
+    document.getElementById(x).style.boxShadow =
+      "rgb(150, 150, 150) 0px 5px 15px";
+  }
 }
 function normalBox(x, y) {
-  document.getElementById(y).style.backgroundColor = "white";
-  document.getElementById(y).style.color = "rgb(0, 106, 255)";
-  document.getElementById(x).style.marginTop = "10px";
-  document.getElementById(x).style.width = "95%";
-  document.getElementById(x).style.paddingBottom = null;
-  document.getElementById(x).style.boxShadow = "none";
+  if (window.matchMedia("(min-width: 1200px)").matches) {
+    document.getElementById(y).style.backgroundColor = "white";
+    document.getElementById(y).style.color = "rgb(0, 106, 255)";
+    document.getElementById(x).style.marginTop = "10px";
+    document.getElementById(x).style.paddingBottom = null;
+    document.getElementById(x).style.boxShadow = "none";
+  }
 }
 HTMLElement.prototype.pseudoStyle = function(element, prop, value) {
   var _this = this;
@@ -111,7 +119,6 @@ function arrowRotation(x, z) {
   if (y.style.display === "block") {
     y.style.display = "none";
     i.style.transform = "rotate(360deg)";
-    i.style.transform = "translateY(5px)";
   } else {
     y.style.display = "block";
     i.style.transform = "rotate(180deg)";

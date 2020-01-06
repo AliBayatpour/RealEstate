@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Foreclosure</title>
+  </head>
+  <body>
+    <nav>
+      <div class="indexPhoneNav">
+        <i
+          class="fa fa-bars indexPhoneNav__mobileMenueIcon"
+          onclick="ShowMobileMenue('#guidePhoneNavMenue')"
+          style="font-size: 25px; color: #006aff;"
+        ></i>
+        <img
+          class="indexPhoneNav__mobileMenueLogo"
+          src="../../../images/logo.png"
+          alt=""
+        />
+      </div>
+      <div class="phoneNavMenue" id="guidePhoneNavMenue">
+        <div class="phoneNavMenue__header">
+          <i
+            class="fas fa-times phoneNavMenue__closeIcon"
+            onclick="HideMobileMenue('#guidePhoneNavMenue')"
+            style="font-size: 25px; color:#006aff ;"
+          ></i>
+          <a href="index.html"
+            ><img
+              class="phoneNavMenue__logo"
+              src="../../../images/logo.png"
+              alt="logo"
+          /></a>
+        </div>
+        <div class="phoneNavMenue__body">
+          <div class="phoneNavMenue__ul">
+            <div class="phoneNavMenue__li">
+              <span
+                class="phoneNavMenue__liText phoneNavMenue__liText--active phoneNavMenue__liText--extraMr"
+                >Homepages</span
+              >
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">My Zillow</span>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Buy</span
+              ><i
+                onclick="mobileMenuShowDropDown(this,'#indexPhoneMenueBuy')"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="indexPhoneMenueBuy">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Homes for Sale</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Homes for Sale</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >For sale by owner</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Resources</a
+                >
+                <a
+                  href="./buyersGuide.html"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Buyer's Guide</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Foreclosure center</a
+                >
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Rent</span
+              ><i
+                onclick="mobileMenuShowDropDown(this,'#indexPhoneMenueRent')"
+                class="fa fa-angle-down phoneNavMenue__liArrow"
+                style="font-size:24px"
+              ></i>
+            </div>
+            <div class="phoneNavMenue__dropDown" id="indexPhoneMenueRent">
+              <div class="phoneNavMenue__dropDownUl">
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >Search for Rentals</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Apartments for rent</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Houses for rent</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >All rental listings</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >I'm a Rental Manager</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >List a rental</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
+                  >I'm a Renter</a
+                >
+                <a
+                  href="#"
+                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
+                  >Renters Guide</a
+                >
+              </div>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Sell</span>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Home loans</span>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText">Agent finder</span>
+            </div>
+            <div class="phoneNavMenue__li">
+              <span class="phoneNavMenue__liText phoneNavMenue__liText--active"
+                >Advertise</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="topnav">
+        <div class="topnav__section topnav__section--left">
+          <ul class="mainNavUl">
+            <li class="mainNavUl__list" id="buyNavBut"><a href="#">Buy</a></li>
+            <li class="mainNavUl__list" id="rentNavBut">
+              <a href="#">Rent</a>
+            </li>
+            <li class="mainNavUl__list" id="sellNavBut">
+              <a href="#">Sell</a>
+            </li>
+            <li class="mainNavUl__list" id="homeLoansNavBut">
+              <a href="#">Home Loans</a>
+            </li>
+            <li class="mainNavUl__list" id="agentFinderNavBut">
+              <a href="#">Agent Finder</a>
+            </li>
+          </ul>
+        </div>
+        <div class="topnav__middle topnav__middle--left">
+          <a href="index.html" class="topnav__link"
+            ><img
+              class="topnav__img"
+              src="../../../images/logo.png"
+              alt="Home logo"
+          /></a>
+        </div>
+        <div class="topnav__section topnav__section--left">
+          <ul class="mainNavUl">
+            <li class="mainNavUl__list mainNavUl__list--hide">
+              <a href="#">List your rental</a>
+            </li>
+            <li class="mainNavUl__list"><a href="#">Advertise</a></li>
+            <li class="mainNavUl__list" id="myZillowNavBut">
+              <a class="mainNavUl__list--mr" href="#">My Zillow</a>
+            </li>
+            <li class="mainNavUl__list mainNavUl__list--hide">
+              <a href="#">Help</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Buy DropDown -->
+      <div class="navDropDown" id="buyNavDropDown">
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Homes for Sale</h4></li>
+            <li><a href="#">Homes for sale</a></li>
+            <li><a href="#">For sale by owner</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Resources</h4></li>
+            <li>
+              <a href="./pages/BuyersGuide/buyersGuide.html">Buyers guide</a>
+            </li>
+            <li><a href="#">Foreclosure center</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Rent DropDown -->
+      <div class="navDropDown" id="rentNavDropDown">
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>Search for Rentals</h4></li>
+            <li><a href="#">Apartments for rent</a></li>
+            <li><a href="#">Houses for rent</a></li>
+            <li><a href="#">All rental listings</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>I'm a rental manager</h4></li>
+            <li><a href="#">List a rental</a></li>
+          </ul>
+        </div>
+        <div class="dropdownBox dropdownBox__nonBorder">
+          <ul class="dropdownBox__mainNavDropDown">
+            <li><h4>I'm a Renter</h4></li>
+            <li><a href="#">Renters Guide</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="mainSubPageContainer">
+      <div class="mainSubPageContainer__middleContainer">
+        <p class="pageName">THE BASICS</p>
+        <h1 class="mainHeader">Setting a Realistic Rental Budget</h1>
+        <p class="subHeader">
+          Before you look for a place, it's smart – and easy – to figure out how
+          much rent you really can afford.
+        </p>
+        <div class="mainSubPageContainer__mainPic">
+          <img
+            class="mainImage"
+            src="../../../images/howItWorks1.jpg"
+            alt="budget"
+          />
+        </div>
+        <div class="mainSubPageContainer__writerInfo"></div>
+        <div class="mainSubPageContainer__mainInfo">
+          <p class="paraInfo">
+            Before you start a serious search for places to live, it’s smart to
+            figure out how much rent you can really afford. Setting a realistic
+            rental budget now can save you disappointment later by preventing
+            you from falling for the “perfect” place that costs more than you
+            should spend.
+          </p>
+          <p class="paraInfo">
+            Paying 30 percent of your income on rent used to be the basic
+            guideline but that may be misleading. Is that income “gross” or
+            “net” (before or after taxes)? Does the rent include utilities? And
+            if you have student loans, a car payment, or credit card bills to
+            pay, 30 percent just might not be possible.
+          </p>
+          <h3 class="infoHeader">Rental math made easy</h3>
+          <p class="paraInfo">
+            Zillow’s rent affordability calculator does the heavy lifting for
+            you. Just plug in your monthly after-tax income, living expenses and
+            debts, plus what you save and the city where you want to live. The
+            results include a suggested rent you can comfortably afford as well
+            as listings within that range.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="footerInfo footerInfo--borderTp">
+        <div class="footerInfo__text">
+          <span class="footerInfo__txtSpan"
+            >Zillow Group is committed to ensuring digital accessibility for
+            individuals with disabilities. We are continuously working to
+            improve the accessibility of our web experience for everyone, and we
+            welcome feedback and accommodation requests. If you wish to report
+            an issue or seek an accommodation, please <br />
+            <a class="footerInfo--linkStyle" href="">contact us</a>.</span
+          >
+        </div>
+        <div class="footerInfo__logos">
+          <img src="../../../images/logo.png" alt="real estate logo" />
+          <span>Follow us: </span><a href="#" class="fab fa-facebook-f"></a
+          ><a href="#" class="fab fa-twitter"></a
+          ><span>© 2006-2019 Zillow </span><i class="fa fa-home"></i>
+        </div>
+        <div class="footerInfo__imageContainer">
+          <img
+            class="footerInfo__image"
+            src="../../../images/footer.png"
+            alt="cartoon houses pic"
+          />
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="./rentalResourceCenterSubPage.js"></script>
+</html>

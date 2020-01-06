@@ -117,5 +117,5 @@ getImg = elem => {
   }
 };
 changePage = () => {
-  window.location.href = "./foreclosureCenterSubPage/foreclosureCenterSubPage.html";
+  window.location.href = "./rentersGuideSubPage/rentersGuideSubPage.html";
 }

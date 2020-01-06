@@ -389,24 +389,32 @@ select:-webkit-autofill:focus {
 .indexPhoneNav {
   position: absolute;
   top: 0;
-  padding: 10px 10px 5px 10px;
-  @include boxSize(100%, null, null, transparent, null);
+  padding: 10px 10px 10px 10px;
+  @include for-phone-only() {
+    padding: 5px 2px 5px 2px;
+  }
+  @include boxSize(100%, 50px, null, transparent, null);
   @include flex(center, center, null);
   &__mobileMenueIcon {
     position: absolute;
     left: 15px;
     padding: 5px;
+    @include for-phone-only() {
+      left: 10px;
+    }
   }
   &__mobileMenueLogo {
     @include boxSize(135px, null, null, null, null);
     @include for-phone-only() {
-      @include boxSize(110px, null, null, null, null);
+      @include boxSize(120px, null, null, null, null);
     }
   }
 }
 // Phone Nav dropdown container
 .phoneNavMenue {
   position: absolute;
+  overflow-x: hidden;
+  overflow-y: scroll;
   z-index: 200;
   display: none;
   @include boxSize(100%, 100vh, null, color_function(myWhite), null);
@@ -477,6 +485,8 @@ select:-webkit-autofill:focus {
     }
   }
   &__liText {
+    text-decoration: none;
+    @include font(null, null, null, null, color_function(textColor));
     &--active {
       @include font($new-open-sans, 16px, 800, null, color_function(mainblue));
     }
@@ -835,9 +845,8 @@ select:-webkit-autofill:focus {
       transition-duration: 0.4s;
       margin: 15px;
       text-align: center;
-      @include boxSize(95%, auto, null, color_function(myWhite), 4px);
+      @include boxSize(30%, auto, null, color_function(myWhite), 4px);
       border: rgb(235, 235, 235) 1.8px solid;
-      max-width: 390px;
       padding: 20px 0 60px 0;
       &__header {
         @include font(null, 34px, null, null, null);
@@ -847,6 +856,9 @@ select:-webkit-autofill:focus {
         @include font($open-sans, 17px, null, null, null);
       }
       &__img {
+        @include boxSize(100%, null, null, null, null);
+      }
+      &__imageContainer {
         @include boxSize(100%, null, null, null, null);
       }
       .boxBut {
@@ -875,7 +887,11 @@ select:-webkit-autofill:focus {
           padding: 15px 5px 15px 5px;
         }
         &__img {
+          @include boxSize(100%, null, null, null, null);
+        }
+        &__imageContainer {
           @include boxSize(50%, null, null, null, null);
+          @include flex(center, center, null);
         }
         &__header {
           padding: 0 5px 0 0;
@@ -901,6 +917,9 @@ select:-webkit-autofill:focus {
           padding: 15px;
         }
         &__img {
+          @include boxSize(100%, null, null, null, null);
+        }
+        &__imageContainer {
           @include boxSize(100%, null, null, null, null);
         }
         &__header {
@@ -1014,6 +1033,11 @@ select:-webkit-autofill:focus {
 // Footer
 .footerInfo {
   @include boxSize(100%, 270px, null, null, null);
+  @include font(null, null, null, null, color_function(textColor));
+  &--borderTp {
+    border-top: 1px #d8d8d8 solid;
+    padding: 15px 0 0 0;
+  }
   @include for-tablet-portrait-up() {
     @include boxSize(100%, auto, null, null, null);
   }
@@ -3297,14 +3321,25 @@ select:-webkit-autofill:focus {
   }
 }
 
-// ----------------ForeClosureCenter PAGE-----------------
+// ----------------PAGES-----------------
 
 .mainContent {
   padding: 70px 0 0 0;
+  @media (max-width: 800px) {
+    padding: 0 0 0 0;
+  }
   @include boxSize(100%, null, null, #f9f9fb, null);
   &__banner {
     @include boxSize(100%, null, null, #f9f9fb, null);
     padding: 70px 0;
+    &--bannerPic {
+      padding: 0 0;
+      @include flex(center, center, null);
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 60vh;
+      color: #fff;
+    }
   }
   // header section
   &__headerContainer {
@@ -3312,29 +3347,48 @@ select:-webkit-autofill:focus {
     @include boxSize(100%, 162px, null, null, null);
   }
   .bannerHeader {
-    @include font(null, 60px, null, null, color_function(textColor));
+    &--whiteHeader {
+      color: color_function(myWhite);
+    }
+    padding: 0 10px;
+    text-align: center;
+    @include font($open-sans, 55px, null, null, color_function(textColor));
     @include boxSize(100%, null, null, null, null);
     @include flex(center, center, null);
-    @include for-tablet-portrait-up(){
+    @include for-tablet-landscape-up() {
       @include font(null, 50px, null, null, null);
+    }
+    @media(max-width: 800px) {
+      margin: 30px 0 0 0;
     }
     @include for-phone-only() {
       @include font(null, 40px, null, null, null);
     }
-    @media(max-width: 420px){ 
+    @media (max-width: 420px) {
       @include font(null, 35px, null, null, null);
     }
-    @media(max-width: 420px){ 
-      @include font(null, 32px, null, null, null);
+    @media (max-width: 420px) {
+      @include font(null, 30px, null, null, null);
+    }
+  }
+  .subBannerTxt {
+    @include font($open-sans, 22px, null, null, null);
+    text-align: center;
+    @include for-phone-only() {
+      padding: 0 15px;
+      @include font(null, 20px, null, null, null);
     }
   }
   .bannerYellowLine {
+    &--hide {
+      display: none;
+    }
     @include boxSize(200px, 5px, null, #ffd237, null);
   }
   &__picSection {
     @include boxSize(100%, null, null, null, null);
     @include flex(center, center, null);
-    padding: 60px 0;
+    padding: 30px 0;
   }
   &__picSectionHeaderContainer {
     @include boxSize(1227.2px, null, null, null, null);
@@ -3344,7 +3398,7 @@ select:-webkit-autofill:focus {
     @media (max-width: 1216px) {
       @include boxSize(100%, null, null, null, null);
     }
-    .picsHeader{
+    .picsHeader {
       @include for-tablet-portrait-up() {
         @include font(null, 25px, null, null, null);
       }
@@ -3381,11 +3435,13 @@ select:-webkit-autofill:focus {
     @include boxSize(33.33%, null, null, null, null);
     padding: 0 10px;
     @include flex(center, center, null);
+    cursor: pointer;
     @media (max-width: 1024px) {
       @include boxSize(408px, null, null, null, null);
       min-width: 45%;
     }
-    @media(max-width:530px) {
+    @media (max-width: 530px) {
+      padding: 0 5px;
       min-width: 95%;
     }
     &__imageContainer {
@@ -3398,19 +3454,105 @@ select:-webkit-autofill:focus {
     &__infoContainer {
       padding: 26px;
       @include boxSize(100%, 162px, null, color_function(myWhite), null);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     &__firstLinetxt {
       @include font($open-sans, 11px, 600, null, #54545a);
       margin: 0 0 5px 0;
+      text-transform: uppercase;
+      &:hover {
+        color: color_function(mainblue);
+      }
     }
     &__secondLinetxt {
-      @include font($open-sans, 22px, 600, null, color_function(textColor));
+      overflow: hidden;
+      @include font($open-sans, 24px, 600, null, color_function(textColor));
       @include for-tablet-portrait-up() {
-        @include font(null, 18px, null, null, null);
+        @include font(null, 20px, null, null, null);
       }
       @include for-phone-only() {
         @include font(null, 18px, null, null, null);
       }
+      &:hover {
+        color: color_function(mainblue);
+      }
+    }
+  }
+}
+
+// ----------------SUBPAGES-----------------
+.mainSubPageContainer {
+  padding: 70px 0 0 0;
+  @include font($open-sans, null, null, null, color_function(textColor));
+  @media (max-width: 800px) {
+    padding: 50px 0 0 0;
+  }
+  @include boxSize(100%, null, null, color_function(myWhite), null);
+  @include flex(center, center, null);
+  &__middleContainer {
+    @include boxSize(75%, null, null, color_function(myWhite), null);
+    @include for-phone-only() {
+      @include boxSize(85%, null, null, null, null);
+    }
+    @media(max-width: 420px) {
+      @include boxSize(90%, null, null, null, null);
+    }
+  }
+  &__mainPic {
+    @include boxSize(100%, null, null, null, null);
+    @include flex(center, center, null);
+    margin: 0 0 25px 0;
+    .mainImage {
+      @include boxSize(60%, null, null, null, null);
+      @include for-tablet-portrait-up() {
+        @include boxSize(80%, null, null, null, null);
+      }
+      @include for-phone-only() {
+        @include boxSize(100%, null, null, null, null);
+      }
+    }
+  }
+  .mainHeader {
+    @include font(null, 40px, null, null, null);
+    @include for-tablet-landscape-up() {
+      @include font(null, 35px, null, null, null);
+    }
+    @media(max-width: 800px) {
+      @include font(null, 30px, null, null, null);
+    }
+    @include for-phone-only() {
+      @include font(null, 25px, null, null, null);
+    }
+    @media(max-width: 480px) {
+      @include font(null, 22px, null, null, null);
+    }
+    @media(max-width: 420px) {
+      @include font(null, 21px, null, null, null);
+    }
+  }
+  .pageName {
+    @include font(null, 13.5px, null, null, #54545a);
+    margin: 25px 0 0 0;
+  }
+  .subHeader {
+    @include font(null, 24px, null, null, #66686b);
+    margin: 0 0 30px 0;
+    @include for-tablet-landscape-up() {
+      @include font(null, 21px, null, null, null);
+    }
+    @media(max-width: 800px) {
+      @include font(null, 19px, null, null, null);
+    }
+  }
+  .paraInfo {
+    margin: 0 0 20px 0;
+    @include font(null, 16px, null, null, null);
+    @media(max-width: 800px) {
+      @include font(null, 15px, null, null, null);
     }
   }
 }

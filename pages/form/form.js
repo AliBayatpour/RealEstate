@@ -41,10 +41,12 @@ const mobileMenuShowDropDown = (y, x) => {
 //  // showing or hiding mobile menue
 const ShowMobileMenue = x => {
   document.querySelector(x).style.display = "block";
+  document.querySelector(x).style.overflowY = "scroll";
   document.body.style.overflow = "hidden";
 };
 const HideMobileMenue = x => {
   document.querySelector(x).style.display = "none";
+  document.querySelector(x).style.overflowY = null;
   document.body.style.overflow = null;
 };
 

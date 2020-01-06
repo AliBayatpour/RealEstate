@@ -38,7 +38,7 @@ const mobileMenuShowDropDown = (y, x) => {
   }
 };
 
-//  // showing or hiding mobile menue
+  // showing or hiding mobile menue
 const ShowMobileMenue = x => {
   document.querySelector(x).style.display = "block";
   document.querySelector(x).style.overflowY = "scroll";
@@ -116,6 +116,7 @@ getImg = elem => {
     }
   }
 };
+
 changePage = () => {
-  window.location.href = "./foreclosureCenterSubPage/foreclosureCenterSubPage.html";
+  window.location.href = "./rentalResourceCenterSubPage/rentalResourceCenterSubPage.html";
 }
