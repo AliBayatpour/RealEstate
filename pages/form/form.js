@@ -247,3 +247,11 @@ checkMessage = () => {
     }, 4000);
   }
 };
+let indexPageInput = [];
+// Getting input value from dropdown link on index.html and locate to result.html
+function DropDownInputAssign(locationName, type) {
+  indexPageInput[0] = locationName;
+  indexPageInput[1] = type;
+  window.document.location =
+    "../../result.html" + "?inputLocation=" + indexPageInput;
+}

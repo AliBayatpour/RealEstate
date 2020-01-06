@@ -142,16 +142,16 @@ focusFunc = () => {
 };
 
 let indexPageInput = [];
+// Getting input value from dropdown link on index.html and locate to result.html
+function DropDownInputAssign(locationName, type) {
+  indexPageInput[0] = locationName;
+  indexPageInput[1] = type;
+  window.document.location = "result.html" + "?inputLocation=" + indexPageInput;
+}
 // Getting input value from mainsearch on index.html and locate to result.html
 function inputAssign(e, idName, type) {
   e.preventDefault();
   indexPageInput[0] = document.getElementById(idName).value;
-  indexPageInput[1] = type;
-  window.document.location = "result.html" + "?inputLocation=" + indexPageInput;
-}
-// Getting input value from dropdown link on index.html and locate to result.html
-function DropDownInputAssign(locationName, type) {
-  indexPageInput[0] = locationName;
   indexPageInput[1] = type;
   window.document.location = "result.html" + "?inputLocation=" + indexPageInput;
 }

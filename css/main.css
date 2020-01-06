@@ -135,7 +135,7 @@ select:-webkit-autofill:focus {
 }
 
 .phoneNavMenue {
-  position: absolute;
+  position: fixed;
   overflow-x: hidden;
   overflow-y: scroll;
   z-index: 200;
@@ -184,7 +184,7 @@ select:-webkit-autofill:focus {
       flex-wrap: wrap;
   margin-top: 50px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }

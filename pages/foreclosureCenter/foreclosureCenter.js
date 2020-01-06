@@ -83,7 +83,6 @@ getImg = elem => {
     });
     myItemWrapper.style.transition = null;
     e = e || window.event;
-    e.preventDefault();
     if (e.type == "touchstart") {
       posX1 = e.touches[0].clientX;
       posInitial = e.touches[0].clientX;
@@ -118,4 +117,11 @@ getImg = elem => {
 };
 changePage = () => {
   window.location.href = "./foreclosureCenterSubPage/foreclosureCenterSubPage.html";
+}
+let indexPageInput = [];
+// Getting input value from dropdown link on index.html and locate to result.html
+function DropDownInputAssign(locationName, type) {
+  indexPageInput[0] = locationName;
+  indexPageInput[1] = type;
+  window.document.location = "../../result.html" + "?inputLocation=" + indexPageInput;
 }
