@@ -308,7 +308,7 @@ function butDisplay(boxId, butId, flag) {
     if (window.matchMedia("(max-width: 899px)").matches) {
       x.style.maxWidth = `${document.body.clientWidth}px`;
       x.style.width = `${document.body.clientWidth}px`;
-      x.style.left = `-${y.getBoundingClientRect().x}px`;
+      x.style.left = `-${Number(y.getBoundingClientRect().x) - 4}px`;
     } else {
       x.style.maxWidth = null;
     }
@@ -352,7 +352,7 @@ for (i = 0; i < x.length; i++) {
       for (i = 0; i < s.length; i++) {
         if (s.options[i].innerHTML == this.innerHTML) {
           s.selectedIndex = i;
-          // Get clicked data element's value for hoa Filter
+          // Get clicked data element's value
           switch (s.parentNode.id) {
             case "hoaSelect":
               listingType.hoa = Number(s.options[i].value);
@@ -375,12 +375,13 @@ for (i = 0; i < x.length; i++) {
             case "daysOnMarketSelect":
               listingType.daysOnMarketObj = Number(s.options[i].value);
               break;
-
+            case "sortSelect":
+              listingType.sortTypeObj = s.options[i].value;
+              break;
             default:
               break;
           }
           h.innerHTML = this.innerHTML;
-          h.style.paddingRight = "12px";
           y = this.parentNode.getElementsByClassName("same-as-selected");
           for (k = 0; k < y.length; k++) {
             y[k].style.color = null;
@@ -398,6 +399,18 @@ for (i = 0; i < x.length; i++) {
   }
   x[i].appendChild(b);
   a.addEventListener("click", function(e) {
+    // when click on select box with arrow rotate arrow
+    let wrapperElem = this.parentElement.parentElement;
+    if (wrapperElem.className === "homeInfoHeader__selectboxWrapper") {
+      let selArrow = document.querySelector(".selectArrow");
+      selArrow.classList.toggle("rotateArrow");
+      // draw or hidden border
+      if (selArrow.classList.length === 4) {
+        wrapperElem.style.border = "dodgerblue 1px solid";
+      } else {
+        wrapperElem.style.border = null;
+      }
+    }
     /*when the select box is clicked, close any other select boxes,
     and open/close the current select box:*/
     e.stopPropagation();
@@ -413,7 +426,7 @@ for (i = 0; i < x.length; i++) {
     this.classList.toggle("select-arrow-active");
   });
 }
-function closeAllSelect(elmnt) {
+function closeAllSelect(elmnt, keepShadow = null) {
   /*a function that will close all select boxes in the document,
   except the current select box:*/
   var x,
@@ -431,8 +444,17 @@ function closeAllSelect(elmnt) {
   }
   for (i = 0; i < x.length; i++) {
     if (arrNo.indexOf(i)) {
+      // close all selects and if it was select box with big arrow rotate arrow remove its border too
+      let wrapperElem = x[i].parentElement.parentElement;
+      if (wrapperElem.className === "homeInfoHeader__selectboxWrapper") {
+        let selArrow = document.querySelector(".selectArrow");
+        wrapperElem.style.border = null;
+        selArrow.classList.remove("rotateArrow");
+      }
       x[i].classList.add("select-hide");
-      x[i].previousElementSibling.style.boxShadow = "none";
+      if (keepShadow === null) {
+        x[i].previousElementSibling.style.boxShadow = "none";
+      }
       x[i].previousElementSibling.style.border = null;
     } else {
       x[i].previousElementSibling.style.boxShadow = "0 0 5px rgb(30, 142, 255)";
@@ -441,7 +463,7 @@ function closeAllSelect(elmnt) {
     }
   }
 }
-// when scroll down each home container on mobile change nav color
+// change mobile nav style when scrolling
 const mobileNavStyleControl = x => {
   if (window.matchMedia("(max-width: 680px)").matches) {
     let height;
@@ -471,7 +493,13 @@ const mobileNavStyleControl = x => {
 };
 /*if the user clicks anywhere outside the select box,
 then close all select boxes:*/
-document.addEventListener("click", closeAllSelect);
+document.addEventListener("click", () => {
+  if (event.target.closest(".select-items")) {
+    closeAllSelect(null, true);
+  }else {
+    closeAllSelect();
+  }
+});
 if (window.location.pathname == "/result.html") {
   autocomplete(document.getElementById("searchBoxResult"), locations);
 }

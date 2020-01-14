@@ -19,7 +19,7 @@ if (window.location.pathname == "/result.html") {
 // change page when sell box clicked
 goToSell = () => {
   window.location.href = "./pages/foreclosureCenter/foreclosureCenter.html";
-}
+};
 // DropDown Nav button.
 document.addEventListener("mouseover", event => {
   // Display Buy dropDown
@@ -473,6 +473,37 @@ function checkboxClick(x, flag) {
     }
   }
 }
+// Sort the array
+sortArray = sortType => {
+  switch (sortType) {
+    //Price(High to Low)
+    case "PrHighToLow":
+      break;
+
+    //Price(Low to high)
+    case "PrHighToLow":
+      break;
+
+    //Newest
+    case "PrHighToLow":
+      break;
+
+    //Bedrooms
+    case "PrHighToLow":
+      break;
+
+    //Square Feet
+    case "PrHighToLow":
+      break;
+
+    //Lot size
+    case "PrHighToLow":
+      break;
+
+    default:
+      break;
+  }
+};
 //values in an object for filter
 let listingType = {
   sale: false,
@@ -501,7 +532,8 @@ let listingType = {
   minYearBuiltObj: 0,
   maxYearBuiltObj: 200000000,
   basementObj: null,
-  daysOnMarketObj: 5000
+  daysOnMarketObj: 5000,
+  sortTypeObj: "highToLowSort"
 };
 // Price Filter
 function priceFilter(minOrMax, price) {
@@ -913,6 +945,128 @@ basementFilter = elem => {
 stories_pool_WaterFront_view_Filter = () => {
   selectFiltered(listingType);
 };
+// sorting High to low price
+highToLowSort = () => {
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (Number(list[j].dataset.price) < Number(list[j + 1].dataset.price)) {
+        let temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
+      }
+    }
+  }
+};
+
+// sorting Low to High price
+lowToHighSort = () => {
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (Number(list[j].dataset.price) > Number(list[j + 1].dataset.price)) {
+        let temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
+      }
+    }
+  }
+};
+
+// sorting by days on market
+daysSort = () => {
+  // daysOnMarketData
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (
+        Number(list[j].dataset.daysOnMarketData) >
+        Number(list[j + 1].dataset.daysOnMarketData)
+      ) {
+        let temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
+      }
+    }
+  }
+};
+// sorting number of bedrooms
+bedroomsSort = () => {
+  // daysOnMarketData
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (
+        Number(list[j].dataset.bedroom) < Number(list[j + 1].dataset.bedroom)
+      ) {
+        let temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
+      }
+    }
+  }
+};
+// sorting number of bathrooms
+bathroomsSort = () => {
+  // daysOnMarketData
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (
+        Number(list[j].dataset.bathroom) < Number(list[j + 1].dataset.bathroom)
+      ) {
+        let temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
+      }
+    }
+  }
+};
+// sorting based on square feet
+squareFeetSort = () => {
+  // daysOnMarketData
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (
+        Number(list[j].dataset.livingAreaData) <
+        Number(list[j + 1].dataset.livingAreaData)
+      ) {
+        let temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
+      }
+    }
+  }
+};
+// sorting based on lot size
+lotSort = () => {
+  // daysOnMarketData
+  let n = list.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (
+        Number(list[j].dataset.lotSizeData) <
+        Number(list[j + 1].dataset.lotSizeData)
+      ) {
+        let temp = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = temp;
+      }
+    }
+  }
+};
+sortItemClick = (clickedElem, sortTypeName) => {
+  let sortOptions = document.querySelectorAll(".sortOptionsContainer__option");
+  // background-color: #F3F3EE;
+  sortOptions.forEach(element => {
+    element.classList.remove("sortOptionsContainer__option--sortActive");
+  });
+  clickedElem.classList.add("sortOptionsContainer__option--sortActive");
+  listingType.sortTypeObj = sortTypeName;
+  selectFiltered(listingType);
+  hideSort();
+};
 
 // Filter
 function selectFiltered(listingTypeInput) {
@@ -977,9 +1131,7 @@ function selectFiltered(listingTypeInput) {
     // variables for conditions
     let {
       sale: obSale,
-      potential: obPot,
       rent: obRent,
-      sold: obSold,
       minPrice: obMinPr,
       maxPrice: obMaxPr,
       bedNumber: obBdNum,
@@ -1001,7 +1153,6 @@ function selectFiltered(listingTypeInput) {
       maxLotSizeObj: obMxLoS,
       minYearBuiltObj: obMnYeB,
       maxYearBuiltObj: obMxYeB,
-      basementObj: obBase,
       daysOnMarketObj: obDaOnMark
     } = listingType;
     // listingType condition
@@ -1198,6 +1349,38 @@ function selectFiltered(listingTypeInput) {
     ) {
       list.push(mainList[count_m]);
     }
+    document.querySelector(
+      ".homeInfoHeader__resultNum"
+    ).innerHTML = `${numberWithCommas(Number(list.length))} results`;
+    document.querySelector(
+      ".resultNumberOnMoreBut"
+    ).innerHTML = `${numberWithCommas(Number(list.length))} results`;
+  }
+
+  switch (listingType.sortTypeObj) {
+    case "highToLowSort":
+      highToLowSort();
+      break;
+    case "lowToHighSort":
+      lowToHighSort();
+      break;
+    case "daysSort":
+      daysSort();
+      break;
+    case "bedroomsSort":
+      bedroomsSort();
+      break;
+    case "bathroomsSort":
+      bathroomsSort();
+      break;
+    case "squareFeetSort":
+      squareFeetSort();
+      break;
+    case "lotSort":
+      lotSort();
+      break;
+    default:
+      break;
   }
   let homeDelete = document.getElementById("homeInfo");
   while (homeDelete.firstChild) {
@@ -1213,10 +1396,12 @@ function selectFiltered(listingTypeInput) {
   let noResultContainer = document.querySelector(
     ".mainSection__noResultContainer"
   );
+  let homeInfoHeader = document.querySelector(".homeInfoHeader");
   if (list.length !== 0) {
     homeInfo.style.display = null;
     pageButton.style.display = null;
     noResultContainer.style.display = null;
+    homeInfoHeader.style.display = null;
     load(function() {
       makeList();
       loadList();
@@ -1226,6 +1411,7 @@ function selectFiltered(listingTypeInput) {
     homeInfo.style.display = "none";
     pageButton.style.display = "none";
     noResultContainer.style.display = "block";
+    homeInfoHeader.style.display = "none";
     initMap();
   }
   let arraySum = filterCounterArray.reduce((total, num) => {
@@ -1267,6 +1453,9 @@ function loadUser() {
       let undecoded = document.location.search.replace(/^.*?\=/, "");
       beforeSplitSearchBarInput = decodeURI(undecoded).split(",");
       let searchBarInput = beforeSplitSearchBarInput[0];
+      document.querySelector(
+        ".homeInfoHeader__headerText"
+      ).innerHTML = `${searchBarInput} Real Estate & Homes`;
       document.getElementById("searchBoxResult").value = searchBarInput;
       for (var i in data) {
         if (searchBarInput == data[i].City && data[i].Media[0] != undefined) {
@@ -1365,6 +1554,9 @@ function loadUser() {
           infoContainer.appendChild(homeInfoThirdRow);
           homeInfoThirdRow.className = "homeInfoThirdRow";
           let str = data[i].PropertySubType;
+          // number of bedrooms
+          divArray.dataset.bedroom = data[i].BedroomsTotal;
+          divArray.dataset.bathroom = data[i].BathroomsHalf;
           // House or condo or Apartment
           let properStrValue;
           let properStr;
@@ -1406,6 +1598,7 @@ function loadUser() {
           if (data[i].SpecialListingConditions[2]) {
             if (data[i].SpecialListingConditions[2] === "Short Sale") {
               divArray.dataset.homeType = "sale";
+              divArray.dataset.price = data[i].ListPrice;
               homeInfoFirstRow.innerHTML = `<li id="moneySpan" value=${
                 data[i].ListPrice
               } class = "moneySection"> $${numberWithCommas(
@@ -1427,6 +1620,7 @@ function loadUser() {
             }
           } else {
             divArray.dataset.homeType = "rent";
+            divArray.dataset.price = Math.round(data[i].ListPrice / 150);
             homeInfoFirstRow.innerHTML = `<li class = "moneySection" value=${data[
               i
             ].ListPrice / 150}> $${numberWithCommas(
@@ -1449,6 +1643,9 @@ function loadUser() {
         }
       }
       list = mainList;
+      document.querySelector(
+        ".homeInfoHeader__resultNum"
+      ).innerHTML = `${numberWithCommas(Number(list.length))} results`;
     }
     // Start Pagination when everything is ready
     load(function() {
@@ -1634,7 +1831,42 @@ window.addEventListener("click", function() {
   } else if (window.location.pathname == "/index.html") {
     searchIdVariable.style.border = null;
   }
+  // Hide sort box
+  if (
+    event.target.closest(".sortContainer") &&
+    !event.target.closest(".sortOptionsContainer")
+  ) {
+    hideSort();
+  }
 });
+hideSort = () => {
+  let sortContainer = document.querySelector(".sortContainer");
+  sortContainer.style.backgroundColor = "transparent";
+  sortContainer.style.transform = "translateY(100%)";
+};
+// Show sort box
+showSort = () => {
+  let showSortContainer = document.querySelector(".sortContainer");
+  showSortContainer.style.transform = "translateY(-100%)";
+  showSortContainer.style.backgroundColor = null;
+};
+// Show the Google map
+showHideMap = () => {
+  let mapContainer = document.querySelector(".mapContainer");
+  let mobSortBut = document.querySelector(".mobSortBut");
+  let mobMapBut = document.querySelector(".mobMapBut");
+  if (mapContainer.style.display === "block") {
+    mapContainer.style.display = "none";
+    mobSortBut.style.display = null;
+    mobMapBut.style.marginLeft = null;
+    mobMapBut.innerHTML = `Map`;
+  } else {
+    mapContainer.style.display = "block";
+    mobSortBut.style.display = "none";
+    mobMapBut.style.marginLeft = "auto";
+    mobMapBut.innerHTML = `List`;
+  }
+};
 window.addEventListener("scroll", () => {
   let minSearchResultVar = document.getElementById("mainSearchResult");
   let searchIdVar = document.getElementById("searchId");
@@ -1661,15 +1893,24 @@ window.addEventListener("scroll", () => {
     searchIdVar.style.margin = null;
   }
 });
+
 // Google Map
 function initMap() {
   let x = document.createElement("IMG");
   x.setAttribute("src", "redCircleFlag");
   //New map
-  let map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 39.381266, lng: -106.8022211 },
-    zoom: 5
-  });
+  let map;
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    map = new google.maps.Map(document.querySelector(`.mapContainer`), {
+      center: { lat: 39.381266, lng: -106.8022211 },
+      zoom: 4
+    });
+  } else {
+    map = new google.maps.Map(document.querySelector(`.map`), {
+      center: { lat: 39.381266, lng: -106.8022211 },
+      zoom: 5
+    });
+  }
   // Add a marker
   let image;
   // red circle for sale on map
@@ -1775,6 +2016,7 @@ getImg = () => {
     posX2 = 0,
     posInitial,
     posFinal,
+    transferscale,
     threshold = 100,
     slides = document.querySelectorAll(".homeBox"),
     slidesLength = slides.length,
@@ -1782,11 +2024,10 @@ getImg = () => {
   picLeftColumn.addEventListener("touchstart", dragStart);
   picLeftColumn.addEventListener("touchend", dragEnd);
   picLeftColumn.addEventListener("touchmove", dragAction);
-
   function dragStart(e) {
+    transferscale = Number(picLeftColumn.firstElementChild.clientWidth);
     picLeftColumn.style.transition = null;
     e = e || window.event;
-    e.preventDefault();
     if (e.type == "touchstart") {
       posX1 = e.touches[0].clientX;
       posInitial = e.touches[0].clientX;
@@ -1807,12 +2048,12 @@ getImg = () => {
     picLeftColumn.style.transition = "all 200ms ease-out";
     if (posFinal - posInitial < -threshold && getImgindex < slidesLength - 1) {
       getImgindex++;
-      picLeftColumn.style.right = 100 * getImgindex + "%";
+      picLeftColumn.style.right = transferscale * getImgindex + "px";
     } else if (posFinal - posInitial > threshold && getImgindex > 0) {
       getImgindex--;
-      picLeftColumn.style.right = 100 * getImgindex + "%";
+      picLeftColumn.style.right = transferscale * getImgindex + "px";
     } else {
-      picLeftColumn.style.right = 100 * getImgindex + "%";
+      picLeftColumn.style.right = transferscale * getImgindex + "px";
     }
   }
 };
@@ -1845,14 +2086,17 @@ function housePageBuilder(index, callback) {
         element.parentNode.removeChild(element);
       }
       imageArr = [];
-      // Insert pictures of each home each home-page
+      // Insert pictures of each home in each home-page
       for (let i = 0; i < data[index].Media.length; i++) {
         let otherImage = document.createElement("img");
-        otherImage.className = "homeBox";
+        let otherImageBox = document.createElement("div");
+        otherImageBox.className = "homeBox";
+        otherImageBox.style.width = "100%";
         otherImage.style.width = "100%";
         otherImage.src = data[index].Media[i].MediaURL;
-        otherImage.id = "smallImage" + i;
-        imageArr.push(otherImage);
+        otherImageBox.id = "smallImage" + i;
+        otherImageBox.appendChild(otherImage);
+        imageArr.push(otherImageBox);
         e.appendChild(imageArr[i]);
       }
       // Insert text information to each home-page
@@ -1917,10 +2161,10 @@ function housePageBuilder(index, callback) {
                     <div class = "estPaymentText">Est. payment:
                     <span class = "estPaymentNumber"> $${data[index]
                       .LotSizeSquareFeet * 2}/mo</span>
-                    <a id="prequalifiedLink" href="#"><span id="roundDollar">$</span><span class="prequallified">Get pre-qualified</span></a></div>`;
+                    <a id="prequalifiedLink" href="./pages/form/form.html"><span id="roundDollar">$</span><span class="prequallified">Get pre-qualified</span></a></div>`;
           document.getElementById("priceSection").appendChild(rentOrSale);
           let lastRow = document.getElementById("lastRow");
-          lastRow.innerHTML = `<button id="getMoreInfoBut">Get more info</button>`;
+          lastRow.innerHTML = `<button id="getMoreInfoBut" onclick="location.href = './pages/form/form.html'">Request a tour</button>`;
         }
       } else {
         priceSection.innerHTML = `<div class= "homeContainer__mainInfo"><span class ="moneySection"> $${numberWithCommas(
@@ -1942,7 +2186,7 @@ function housePageBuilder(index, callback) {
                 <span class= "zestimatePrice">$${numberWithCommas(
                   Math.round(data[index].ListPrice / 150)
                 )}/mo</span>`;
-        lastRow.innerHTML = `<button class= "requestApplyBut">Request to apply</button><button class= "requestTourBut">Request a tour</button>`;
+        lastRow.innerHTML = `<button class= "requestApplyBut" onclick="location.href = './pages/form/form.html'">Request to apply</button><button class= "requestTourBut" onclick="location.href = './pages/form/form.html'">Request a tour</button>`;
         document.getElementById("priceSection").appendChild(rentOrSale);
       }
       document.getElementById(
@@ -2080,6 +2324,37 @@ except the one passed as an argument:*/
     closeAllLists(e.target);
   });
 }
+// Like and dislike for desktop
+likeDislike = (elem, e) => {
+  e.stopPropagation();
+  if (elem.firstElementChild.id === "bigUnlike") {
+    elem.innerHTML = `<i class="fas fa-heart HomeContainerIcon__icon" id="bigLike" style="font-size:20px; color:#006aff"></i><span class="logoTxt">Save &nbsp&nbsp</span>`;
+  } else if (elem.firstElementChild.id === "bigLike") {
+    elem.innerHTML = `<i class="far fa-heart HomeContainerIcon__icon" id="bigUnlike" style="font-size:20px; color:#006aff"></i><span class="logoTxt">Save &nbsp&nbsp</span>`;
+  }
+};
+// Like and dislike for mobile phone
+phoneLikeDislike = (elem, e) => {
+  e.stopPropagation();
+  let col = "#006aff";
+  if (window.matchMedia("(max-width: 680px)").matches) {
+    let x = document.querySelector("#clickHome");
+    let height = 260.75;
+    if (window.matchMedia("(max-width: 450px)").matches) {
+      height = 206.08;
+    }
+    if (x.scrollTop > height) {
+      col = "#006aff";
+    } else {
+      col = "#fff";
+    }
+  }
+  if (elem.firstElementChild.id === "unlike") {
+    elem.innerHTML = `<i class="fas fa-heart HomeContainerIcon__icon" id="like" style="font-size:20px; color:${col}"></i>`;
+  } else if (elem.firstElementChild.id === "like") {
+    elem.innerHTML = `<i class="far fa-heart HomeContainerIcon__icon" id="unlike" style="font-size:20px; color:${col}"></i>`;
+  }
+};
 let locations = [
   "Mission Dolores",
   "Potrero",

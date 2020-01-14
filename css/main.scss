@@ -230,6 +230,7 @@ $new-open-sans: "Roboto", sans-serif;
     border: rgba(178, 181, 189, 0.8) 1px solid;
     padding: 4px 0 4px 5px;
     width: $boxWidth;
+    position: relative;
   }
   // Options container under the select box
   .select-items div {
@@ -290,7 +291,7 @@ $new-open-sans: "Roboto", sans-serif;
 }
 // Media query mixins
 @mixin for-phone-only {
-  @media (max-width: 680px) {
+  @media (max-width: 600px) {
     @content;
   }
 }
@@ -383,7 +384,7 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none;
   -webkit-text-fill-color: color_function(textColor);
-  -webkit-box-shadow: none;
+  box-shadow: none;
   transition: background-color 5000s ease-in-out 0s;
 }
 .indexPhoneNav {
@@ -430,7 +431,7 @@ select:-webkit-autofill:focus {
   }
   &__closeIcon {
     position: absolute;
-    left: 15px;
+    left: 10px;
     padding: 5px;
     color: color_function(mainblue);
     font-size: 25px;
@@ -1043,6 +1044,7 @@ select:-webkit-autofill:focus {
   }
   &--autoHeight {
     @include boxSize(100%, auto, null, null, null);
+    max-height: auto;
   }
   &__imageContainer {
     @include boxSize(100%, null, null, null);
@@ -1051,7 +1053,7 @@ select:-webkit-autofill:focus {
     width: 100%;
   }
   &__logos {
-    @include boxSize(100%, 45px, null, color_function(myWhite) null);
+    @include boxSize(100%, auto, null, color_function(myWhite) null);
     @include flex(center, center, null);
     img {
       width: 125px;
@@ -1068,7 +1070,7 @@ select:-webkit-autofill:focus {
     }
   }
   &__text {
-    @include font(null, 14px, null, null, null);
+    @include font(null, 13px, null, null, null);
     @include boxSize(100%, auto, null, color_function(myWhite), null);
     @include flex(center, null, null);
   }
@@ -1140,7 +1142,9 @@ select:-webkit-autofill:focus {
       @include flex(null, center, null);
       flex-wrap: nowrap;
       flex-basis: 100%;
-      margin: 5px 0;
+      margin: 3px 0 5px 0;
+      border-bottom: 1px solid #a7a6ab;
+      padding: 0 0 2px 0;
     }
   }
   &__mobileIcons {
@@ -1155,13 +1159,19 @@ select:-webkit-autofill:focus {
   .smallSearch {
     position: relative;
     margin: 0px 5px;
-    @include boxSize(260px, 35px, null, null, 3px);
+    @include boxSize(250px, 35px, null, null, 3px);
     border: 1px solid #a7a6ab;
     @include flex(null, null, null);
+    @media (max-width: 800px) {
+      @include boxSize(auto, 35px, null, null, 3px);
+    }
     #searchBoxResult {
-      @include boxSize(224px, 100%, null, null, 2px 0 0 2px);
       outline: none;
       border: none;
+      @include boxSize(220px, 100%, null, null, 2px 0 0 2px);
+      @media (max-width: 800px) {
+        @include boxSize(auto, 100%, null, null, 2px 0 0 2px);
+      }
     }
     input[type="text"]#searchBoxResult {
       padding: 5px;
@@ -1367,7 +1377,7 @@ select:-webkit-autofill:focus {
       #priceRangeInput {
         padding: 0 15px 0 20px;
         @include for-phone-only() {
-          padding: 0 5px 0 15px;
+          padding: 0 5px 15px 15px;
         }
 
         form {
@@ -1411,6 +1421,9 @@ select:-webkit-autofill:focus {
               margin-bottom: 10px;
               cursor: pointer;
             }
+          }
+          @include for-phone-only() {
+            display: none;
           }
         }
       }
@@ -1731,10 +1744,42 @@ select:-webkit-autofill:focus {
       user-select: none;
       padding-top: 15px;
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+      @include for-phone-only() {
+        padding-top: 0px;
+        top: -50px;
+      }
       #moreButContainer {
         @include boxSize(100%, 100%, null, null, null);
         overflow-y: auto;
         overflow-x: hidden;
+        .phoneOptions {
+          display: none;
+          @include for-phone-only() {
+            @include boxSize(100%, 45px, null, null, null);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 0 0 10px 0;
+            @include flex(space-between, center, null);
+            padding: 0 10px;
+          }
+          .resultNumberOnMoreBut {
+            @include font($open-sans, 17px, 700, null, #aaaaaa);
+          }
+          .PhoneMoreDoneButton {
+            outline: none;
+            border: none;
+            @include boxSize(
+              null,
+              null,
+              color_function(mainblue),
+              color_function(myWhite),
+              null
+            );
+            cursor: pointer;
+            padding: 3px 5px;
+            margin: 0 10px 0 5px;
+            @include font($open-sans, 14px, null, null, null);
+          }
+        }
         .bathListFieldset {
           padding: 0 25px 0 20px;
           @media (max-width: 380px) {
@@ -1877,6 +1922,25 @@ select:-webkit-autofill:focus {
             }
           }
           @include customSelect(null, auto, auto, 0, 100%);
+          @include for-phone-only() {
+            @include customSelect(null, 100%, 100%, 0, 100%);
+            .custom-select {
+              position: initial;
+            }
+            .select-items {
+              box-shadow: 0 0 20px 1px #2a2a33;
+              border-radius: 4px;
+              margin: auto;
+              width: 95%;
+              max-height: 100%;
+              height: 95vh;
+              top: 2.5vh;
+            }
+            .select-items div {
+              padding: 10px 0 10px 5px;
+              border-bottom: rgba(178, 181, 189, 0.8) 1px solid;
+            }
+          }
         }
         .openHouseFieldset {
           padding: 0 25px 0 20px;
@@ -2012,6 +2076,25 @@ select:-webkit-autofill:focus {
           .selectContainer {
             @include grid(null, null, true, null, null, 45% 10% 45%);
             @include customSelect(null, 100%, auto, 0, 100%);
+            @include for-phone-only() {
+              @include customSelect(null, 100%, 100%, 0, 100%);
+              .custom-select {
+                position: initial;
+              }
+              .select-items {
+                box-shadow: 0 0 20px 1px #2a2a33;
+                border-radius: 4px;
+                margin: auto;
+                width: 95%;
+                max-height: 100%;
+                height: 95vh;
+                top: 2.5vh;
+              }
+              .select-items div {
+                padding: 10px 0 10px 5px;
+                border-bottom: rgba(178, 181, 189, 0.8) 1px solid;
+              }
+            }
           }
         }
         .lotSizeFieldset {
@@ -2032,9 +2115,47 @@ select:-webkit-autofill:focus {
             @include grid(null, null, true, null, null, 45% 10% 45%);
             #lotFirstSelect {
               @include customSelect(null, 100%, 150px, 0, 100%);
+              @include for-phone-only() {
+                @include customSelect(null, 100%, 100%, 0, 100%);
+                .custom-select {
+                  position: initial;
+                }
+                .select-items {
+                  box-shadow: 0 0 20px 1px #2a2a33;
+                  border-radius: 4px;
+                  margin: auto;
+                  width: 95%;
+                  max-height: 100%;
+                  height: 95vh;
+                  top: 2.5vh;
+                }
+                .select-items div {
+                  padding: 10px 0 10px 5px;
+                  border-bottom: rgba(178, 181, 189, 0.8) 1px solid;
+                }
+              }
             }
             #lotsecondSelect {
               @include customSelect(null, 100%, 150px, -35px, null);
+              @include for-phone-only() {
+                @include customSelect(null, 100%, 100%, 0, 100%);
+                .custom-select {
+                  position: initial;
+                }
+                .select-items {
+                  box-shadow: 0 0 20px 1px #2a2a33;
+                  border-radius: 4px;
+                  margin: auto;
+                  width: 95%;
+                  max-height: 100%;
+                  height: 95vh;
+                  top: 2.5vh;
+                }
+                .select-items div {
+                  padding: 10px 0 10px 5px;
+                  border-bottom: rgba(178, 181, 189, 0.8) 1px solid;
+                }
+              }
             }
           }
         }
@@ -2392,7 +2513,7 @@ select:-webkit-autofill:focus {
   .mobileButs {
     display: none;
     padding: 10px 0;
-    @include for-tablet-landscape-up() {
+    @include for-tablet-portrait-up() {
       @include boxSize(100%, null, null, color_function(myWhite), null);
       @include flex(null, null, null);
       .mobSaveSearchBut {
@@ -2409,6 +2530,7 @@ select:-webkit-autofill:focus {
         @include font($open-sans, 14px, null, null, null);
       }
       .mobSortBut {
+        outline: none;
         border: none;
         @include boxSize(
           null,
@@ -2423,6 +2545,7 @@ select:-webkit-autofill:focus {
         @include font($open-sans, 14px, null, null, null);
       }
       .mobMapBut {
+        outline: none;
         border: none;
         @include boxSize(
           null,
@@ -2453,11 +2576,93 @@ select:-webkit-autofill:focus {
     @include boxSize(null, auto, null, null, null);
   }
 }
+
+// sort button above homeInfo
+.homeInfoHeader {
+  @include boxSize(100%, 104px, null, color_function(myWhite), null);
+  @include customSelect(null, auto, 162px, null, 100%);
+  padding: 20px;
+  @media (max-width: 980px) {
+    padding: 20px 10px;
+  }
+  @include flex(null, center, null);
+  &__sortBox {
+    margin-left: auto;
+    @include flex(null, center, null);
+    @include for-tablet-portrait-up() {
+      display: none;
+    }
+  }
+  .select-selected {
+    background-color: transparent;
+    box-shadow: none !important;
+    border: none !important;
+    position: relative;
+    border-radius: 4px;
+    margin: 0;
+    z-index: 2;
+    padding: 0 30px 0 0;
+  }
+  // Options container under the select box
+  .select-items div {
+    padding: 1px 0 1px 5px;
+    &:hover {
+      color: color_function(myWhite);
+    }
+  }
+  .select-items div:hover,
+  .same-as-selected {
+    background-color: color_function(mainblue);
+    color: color_function(myWhite);
+  }
+  .select-selected:after {
+    border: none;
+    content: "";
+  }
+  .select-selected.select-arrow-active:after {
+    border: none;
+  }
+  &__headerText {
+    @include boxSize(100%, null, null, null, null);
+    @include font($open-sans, 18px, null, null, color_function(textColor));
+    margin: 0 0 8px 0;
+  }
+  &__resultNum {
+    @include font($open-sans, 16px, 500, null, color_function(textColor));
+  }
+  &__sortText {
+    @include font($open-sans, 14px, 600, null, color_function(textColor));
+  }
+  &__selectboxWrapper {
+    border: transparent 1px solid;
+    position: relative;
+    @include flex(null, center, row);
+    padding: 0 0 0 5px;
+    &:hover {
+      border: 1px dodgerblue solid;
+    }
+    .selectArrow {
+      position: absolute;
+      right: 5px;
+      color: color_function(mainblue);
+      z-index: 1;
+    }
+    &--blueBorder {
+      border: 1px solid color_function(mainblue);
+    }
+  }
+}
+.rotateArrow {
+  transform: rotate(180deg);
+}
 .mainSection {
   padding-top: 127px;
   @include boxSize(100%, 100vh, null, #eee, null);
   @include grid(null, null, true, null, false, 46.5% 53.5%);
   @include for-tablet-landscape-up() {
+    @include grid(null, null, true, null, false, 60% 40%);
+  }
+  @include for-tablet-portrait-up() {
     padding-top: 161px;
     @include grid(null, null, true, null, false, 100%);
   }
@@ -2466,22 +2671,39 @@ select:-webkit-autofill:focus {
   }
 
   // Google map on result.html
-  #map {
+  .map {
     @include boxSize(100%, 100%, null, null, null);
-    @include for-tablet-landscape-up() {
+    @include for-tablet-portrait-up() {
       display: none;
     }
   }
   #homeContainer {
     scroll-behavior: smooth;
     overflow-y: scroll;
-    @include boxSize(100%, 100%, null, #eee, null);
+    @include boxSize(100%, 100%, null, color_function(myWhite), null);
     overflow-x: hidden;
+    position: relative;
+    .mapContainer {
+      display: none;
+      @include for-tablet-portrait-up() {
+        display: none;
+        position: absolute;
+        @include boxSize(100%, 100%, null, null, null);
+        z-index: 1;
+      }
+    }
     // Homes on the right side of the map
     #homeInfo {
       @include font($open-sans, null, null, null, null);
       @include grid(2, 1fr, false, 10px, false, null);
       padding: 5px;
+      @include for-tablet-landscape-up() {
+        @include grid(1, 1fr, false, 10px, false, null);
+      }
+      @include for-tablet-portrait-up() {
+        @include grid(2, 1fr, false, 10px, false, null);
+        padding: 5px;
+      }
       @include for-phone-only() {
         padding: 0;
         @include grid(1, 1fr, null, 0px, null, null);
@@ -2597,9 +2819,9 @@ select:-webkit-autofill:focus {
       button {
         outline: none;
         @include font($open-sans, 12px, 500, null, color_function(textColor));
-        @include boxSize(36px, 36px, null, #eee, null);
+        @include boxSize(36px, 36px, null, color_function(myWhite), null);
         @media (max-width: 380px) {
-          @include boxSize(30px, 30px, null, #eee, null);
+          @include boxSize(30px, 30px, null, color_function(myWhite), null);
         }
         border: none;
         cursor: pointer;
@@ -2624,7 +2846,13 @@ select:-webkit-autofill:focus {
           }
         }
         .pageButList {
-          @include boxSize(null, null, color_function(textColor), #eee, null);
+          @include boxSize(
+            null,
+            null,
+            color_function(textColor),
+            color_function(myWhite),
+            null
+          );
           &:hover {
             color: color_function(mainblue);
             background: rgba(0, 0, 0, 0.05);
@@ -2706,6 +2934,7 @@ select:-webkit-autofill:focus {
   display: none;
   position: absolute;
   top: 0;
+  z-index: 5;
   .directionIcon {
     @include font(null, 25px, null, null, color_function(mainblue));
     @include flex(center, center, null);
@@ -2831,45 +3060,47 @@ select:-webkit-autofill:focus {
       overflow-x: hidden;
       overflow-y: scroll;
       @include for-phone-only() {
-        max-height: 55%;
         overflow: hidden;
-        flex-wrap: nowrap;
+        height: 245px;
       }
-      @media (max-width: 450px) {
-        @include boxSize(null, 45%, null, null, null);
+      @media (max-width: 430px) {
+        height: 260px;
+      }
+      @media (max-width: 400px) {
+        height: 245px;
       }
       #picLeftColumn {
-        @include boxSize(100%, 100%, null, #eee, null);
-        @include flex(space-between, null, null);
+        @include boxSize(100%, null, null, #eee, null);
+        @include flex(null, null, null);
         @include for-phone-only() {
           @include flex(null, null, row);
           flex-wrap: nowrap;
           position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
         }
         .homeBox {
           max-width: 49.8%;
           margin-bottom: 5px;
           @include for-tablet-landscape-up() {
             max-width: 100%;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
           }
-          @media (max-width: 680px) {
-            max-width: 70%;
-            margin: 0 15%;
+          @include for-phone-only() {
+            min-width: 80%;
           }
-          @media (max-width: 500px) {
-            max-width: 100%;
-            margin: 0;
+          @media (max-width: 420px) {
+            min-width: 100%;
           }
         }
         #smallImage0 {
-          max-width: 100%;
-          @media (max-width: 680px) {
-            margin: 0 15%;
-            max-width: 70%;
+          min-width: 100%;
+          @include for-phone-only() {
+            min-width: 80%;
+            margin-left: 10%;
           }
-          @media (max-width: 500px) {
-            max-width: 100%;
+          @media (max-width: 420px) {
+            min-width: 100%;
             margin: 0;
           }
         }
@@ -2883,6 +3114,9 @@ select:-webkit-autofill:focus {
       @include flex(null, null, column);
       @include boxSize(100%, auto, null, null, null);
       flex-wrap: nowrap;
+      @include for-phone-only() {
+        overflow: hidden;
+      }
     }
     &__bottomRight {
       overflow-x: hidden;
@@ -3193,6 +3427,54 @@ select:-webkit-autofill:focus {
     }
   }
 }
+// sort container for mobile and tablet
+.sortContainer {
+  display: none;
+  @include for-tablet-portrait-up() {
+    @include flex(center, center, null);
+    transform: translateY(100%);
+    transition: background-color 50ms linear, transform 350ms ease-in;
+    @include boxSize(100%, 100%, null, rgba(255, 255, 255, 0.75), null);
+    position: absolute;
+    z-index: 1000;
+    .sortOptionsContainer {
+      @include boxSize(598px, null, null, #fff, null);
+      position: relative;
+      .closeSort {
+        color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      @include for-phone-only() {
+        @include boxSize(100%, 100%, null, #fff, null);
+      }
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      border: rgba(0, 0, 0, 0.3) 1px solid;
+      &__optionsList {
+      }
+      &__option {
+        list-style: none;
+        border-bottom: 1px solid #bbb;
+        padding: 10px;
+        @include font($open-sans, 15px, null, null, color_function(textColor));
+        @include boxSize(100%, 50px, null, null, null);
+        @include flex(null, center, null);
+        &--header {
+          @include flex(center, center, null);
+          @include font($open-sans, 20px, 700, null, #aaaaaa);
+          border-bottom: 1px solid #bbb;
+          padding: 10px;
+          @include boxSize(100%, 50px, null, null, null);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        &--sortActive {
+          background-color: #f3f3ee;
+        }
+      }
+    }
+  }
+}
 // ----------------FORM PAGE-----------------
 .formContainer {
   padding: 70px 10% 0 10%;
@@ -3358,7 +3640,7 @@ select:-webkit-autofill:focus {
     @include for-tablet-landscape-up() {
       @include font(null, 50px, null, null, null);
     }
-    @media(max-width: 800px) {
+    @media (max-width: 800px) {
       margin: 30px 0 0 0;
     }
     @include for-phone-only() {
@@ -3498,7 +3780,7 @@ select:-webkit-autofill:focus {
     @include for-phone-only() {
       @include boxSize(85%, null, null, null, null);
     }
-    @media(max-width: 420px) {
+    @media (max-width: 420px) {
       @include boxSize(90%, null, null, null, null);
     }
   }
@@ -3521,16 +3803,16 @@ select:-webkit-autofill:focus {
     @include for-tablet-landscape-up() {
       @include font(null, 35px, null, null, null);
     }
-    @media(max-width: 800px) {
+    @media (max-width: 800px) {
       @include font(null, 30px, null, null, null);
     }
     @include for-phone-only() {
       @include font(null, 25px, null, null, null);
     }
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       @include font(null, 22px, null, null, null);
     }
-    @media(max-width: 420px) {
+    @media (max-width: 420px) {
       @include font(null, 21px, null, null, null);
     }
   }
@@ -3544,14 +3826,14 @@ select:-webkit-autofill:focus {
     @include for-tablet-landscape-up() {
       @include font(null, 21px, null, null, null);
     }
-    @media(max-width: 800px) {
+    @media (max-width: 800px) {
       @include font(null, 19px, null, null, null);
     }
   }
   .paraInfo {
     margin: 0 0 20px 0;
     @include font(null, 16px, null, null, null);
-    @media(max-width: 800px) {
+    @media (max-width: 800px) {
       @include font(null, 15px, null, null, null);
     }
   }

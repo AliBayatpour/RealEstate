@@ -55,16 +55,22 @@
         <div class="phoneNavMenue__body">
           <div class="phoneNavMenue__ul">
             <div class="phoneNavMenue__li">
-              <span
+              <a
+                href="./index.html"
                 class="phoneNavMenue__liText phoneNavMenue__liText--active phoneNavMenue__liText--extraMr"
-                >Homepages</span
+                >Homepage</a
               >
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">My Zillow</span>
+              <a href="./pages/form/form.html" class="phoneNavMenue__liText"
+                >Contact us</a
+              >
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Buy</span
+              <a
+                href="./pages/BuyersGuide/buyersGuide.html"
+                class="phoneNavMenue__liText"
+                >Buy</a
               ><i
                 onclick="mobileMenuShowDropDown(this,'#indexPhoneMenueBuy')"
                 class="fa fa-angle-down phoneNavMenue__liArrow"
@@ -74,19 +80,18 @@
             <div class="phoneNavMenue__dropDown" id="indexPhoneMenueBuy">
               <div class="phoneNavMenue__dropDownUl">
                 <a
-                  href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
                   >Homes for Sale</a
                 >
                 <a
-                  href="#"
+                  onclick="DropDownInputAssign('Potrero', 'sale')"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Homes for Sale</a
+                  >Potrero homes For sale</a
                 >
                 <a
-                  href="#"
+                  onclick="DropDownInputAssign('Potrero', 'sale')"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >For sale by owner</a
+                  >Potrero homes For sale by owner</a
                 >
                 <a
                   href="#"
@@ -99,14 +104,17 @@
                   >Buyer's Guide</a
                 >
                 <a
-                  href="#"
+                  href="./pages/foreclosureCenter/foreclosureCenter.html"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
                   >Foreclosure center</a
                 >
               </div>
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Rent</span
+              <a
+                href="./pages/rentersGuide/rentersGuide.html"
+                class="phoneNavMenue__liText"
+                >Rent</a
               ><i
                 onclick="mobileMenuShowDropDown(this,'#indexPhoneMenueRent')"
                 class="fa fa-angle-down phoneNavMenue__liArrow"
@@ -116,59 +124,60 @@
             <div class="phoneNavMenue__dropDown" id="indexPhoneMenueRent">
               <div class="phoneNavMenue__dropDownUl">
                 <a
-                  href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
                   >Search for Rentals</a
                 >
                 <a
-                  href="#"
+                  onclick="DropDownInputAssign('Potrero', 'rent')"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Apartments for rent</a
+                  >Potrero homes for rent</a
                 >
                 <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >Houses for rent</a
-                >
-                <a
-                  href="#"
-                  class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >All rental listings</a
-                >
-                <a
-                  href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
                   >I'm a Rental Manager</a
                 >
                 <a
-                  href="#"
+                  href="./pages/rentalResourceCenter/rentalResourceCenter.html"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
-                  >List a rental</a
+                  >rental resource center</a
                 >
                 <a
-                  href="#"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--header"
                   >I'm a Renter</a
                 >
                 <a
-                  href="#"
+                  href="./pages/rentersGuide/rentersGuide.html"
                   class="phoneNavMenue__dropDownLi phoneNavMenue__dropDownLi--option"
                   >Renters Guide</a
                 >
               </div>
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Sell</span>
+              <a
+                class="phoneNavMenue__liText"
+                href="./pages/foreclosureCenter/foreclosureCenter.html"
+                >Sell</a
+              >
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Home loans</span>
+              <a
+                class="phoneNavMenue__liText"
+                href="./pages/rentalResourceCenter/rentalResourceCenter.html"
+                >Home loans</a
+              >
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText">Agent finder</span>
+              <a
+                class="phoneNavMenue__liText"
+                href="./pages/foreclosureCenter/foreclosureCenterSubPage/foreclosureCenterSubPage.html"
+                >Agent finder</a
+              >
             </div>
             <div class="phoneNavMenue__li">
-              <span class="phoneNavMenue__liText phoneNavMenue__liText--active"
-                >Advertise</span
+              <a
+                class="phoneNavMenue__liText phoneNavMenue__liText--active"
+                href="./pages/advertise/advertise.html"
+                >Advertise</a
               >
             </div>
           </div>
@@ -177,18 +186,27 @@
       <div class="topnav">
         <div class="topnav__section topnav__section--left">
           <ul class="mainNavUl">
-            <li class="mainNavUl__list" id="buyNavBut"><a href="#">Buy</a></li>
+            <li class="mainNavUl__list" id="buyNavBut">
+              <a href="./pages/BuyersGuide/buyersGuide.html">Buy</a>
+            </li>
             <li class="mainNavUl__list" id="rentNavBut">
-              <a href="#">Rent</a>
+              <a href="./pages/rentersGuide/rentersGuide.html">Rent</a>
             </li>
             <li class="mainNavUl__list" id="sellNavBut">
-              <a href="#">Sell</a>
+              <a href="./pages/foreclosureCenter/foreclosureCenter.html"
+                >Sell</a
+              >
             </li>
             <li class="mainNavUl__list" id="homeLoansNavBut">
-              <a href="#">Home Loans</a>
+              <a href="./pages/rentalResourceCenter/rentalResourceCenter.html"
+                >Home Loans</a
+              >
             </li>
             <li class="mainNavUl__list" id="agentFinderNavBut">
-              <a href="#">Agent Finder</a>
+              <a
+                href="./pages/foreclosureCenter/foreclosureCenterSubPage/foreclosureCenterSubPage.html"
+                >Agent Finder</a
+              >
             </li>
           </ul>
         </div>
@@ -200,14 +218,20 @@
         <div class="topnav__section topnav__section--left">
           <ul class="mainNavUl">
             <li class="mainNavUl__list mainNavUl__list--hide">
-              <a href="#">List your rental</a>
+              <a href="./pages/zillowRentalManager/zillowRentalManager.html"
+                >List your rental</a
+              >
             </li>
-            <li class="mainNavUl__list"><a href="#">Advertise</a></li>
+            <li class="mainNavUl__list">
+              <a href="./pages/advertise/advertise.html">Advertise</a>
+            </li>
             <li class="mainNavUl__list" id="myZillowNavBut">
-              <a class="mainNavUl__list--mr" href="#">My Zillow</a>
+              <a class="mainNavUl__list--mr" href="./pages/form/form.html"
+                >Contact us</a
+              >
             </li>
             <li class="mainNavUl__list mainNavUl__list--hide">
-              <a href="#">Help</a>
+              <a href="./index.html" style="color: #006aff;">Home Page</a>
             </li>
           </ul>
         </div>
@@ -217,8 +241,18 @@
         <div class="dropdownBox">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>Homes for Sale</h4></li>
-            <li><a href="#">Homes for sale</a></li>
-            <li><a href="#">For sale by owner</a></li>
+            <li
+              onclick="DropDownInputAssign('Potrero', 'sale')"
+              style="cursor: pointer;"
+            >
+              <a>Potrero Homes for sale</a>
+            </li>
+            <li
+              onclick="DropDownInputAssign('Potrero', 'sale')"
+              style="cursor: pointer;"
+            >
+              <a>Potrero For sale by owner</a>
+            </li>
           </ul>
         </div>
         <div class="dropdownBox dropdownBox__nonBorder">
@@ -227,7 +261,11 @@
             <li>
               <a href="./pages/BuyersGuide/buyersGuide.html">Buyers guide</a>
             </li>
-            <li><a href="#">Foreclosure center</a></li>
+            <li>
+              <a href="./pages/foreclosureCenter/foreclosureCenter.html"
+                >Foreclosure center</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -236,21 +274,30 @@
         <div class="dropdownBox">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>Search for Rentals</h4></li>
-            <li><a href="#">Apartments for rent</a></li>
-            <li><a href="#">Houses for rent</a></li>
-            <li><a href="#">All rental listings</a></li>
+            <li
+              onclick="DropDownInputAssign('Potrero', 'rent')"
+              style="cursor: pointer;"
+            >
+              <a>Potrero homes for rent</a>
+            </li>
           </ul>
         </div>
         <div class="dropdownBox">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>I'm a rental manager</h4></li>
-            <li><a href="#">List a rental</a></li>
+            <li>
+              <a href="./pages/zillowRentalManager/zillowRentalManager.html"
+                >Zillow Rental Manager</a
+              >
+            </li>
           </ul>
         </div>
         <div class="dropdownBox dropdownBox__nonBorder">
           <ul class="dropdownBox__mainNavDropDown">
             <li><h4>I'm a Renter</h4></li>
-            <li><a href="#">Renters Guide</a></li>
+            <li>
+              <a href="./pages/rentersGuide/rentersGuide.html">Renters Guide</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -263,7 +310,7 @@
             onclick="resultShowMobileMenue()"
             src="./images/mobileMenue.png"
             alt="Menue Icon"
-            style="width: 22px; margin: 0 3px 0 5px;"
+            style="width: 22px; margin: 0 3px 0 10px;"
           />
           <a href="index.html" style=" margin: 0 5px 0 10px;"
             ><img
@@ -730,6 +777,21 @@
         <button id="moreButSmallnav">More</button>
         <div id="moreMainContainer">
           <div id="moreButContainer">
+            <div class="phoneOptions">
+              <button
+                class="PhoneMoreDoneButton"
+                onclick="removeFilterRelode()"
+              >
+                Reset all
+              </button>
+              <div class="resultNumberOnMoreBut"></div>
+              <button
+                class="PhoneMoreDoneButton"
+                onclick="donePush('#moreMainContainer', 'moreButSmallnav')"
+              >
+                Done
+              </button>
+            </div>
             <fieldset class="bathListFieldset">
               <legend>Bathrooms</legend>
               <ul class="bathList">
@@ -1124,16 +1186,27 @@
           </div>
         </div>
       </div>
-      <button id="saveSearch">Save Search</button>
+      <button
+        id="saveSearch"
+        onclick="location.href = './pages/form/form.html'"
+      >
+        Get help
+      </button>
       <div class="mobileButs">
-        <button class="mobSaveSearchBut">Save Search</button>
-        <button class="mobSortBut">Sort</button>
-        <button class="mobMapBut">Map</button>
+        <button
+          class="mobSaveSearchBut"
+          onclick="location.href = './pages/form/form.html'"
+        >
+          Get help
+        </button>
+        <button class="mobSortBut" onclick="showSort()">Sort</button>
+        <button class="mobMapBut" onclick="showHideMap()">Map</button>
       </div>
     </div>
     <section class="mainSection">
-      <div id="map"></div>
-      <div id="homeContainer">
+      <div class="map"></div>
+      <div id="homeContainer" class="rightHomeContainer">
+        <div class="mapContainer"></div>
         <div class="mainSection__noResultContainer">
           <div class="mainSection__noResult">
             <h1 class="mainSection__noMatchTxt--pad">Real Estate</h1>
@@ -1141,7 +1214,12 @@
             <p class="mainSection__changeSearchTxt">
               Try changing your search.
             </p>
-            <p class="mainSection__removeFiterTxt" onclick="removeFilterRelode()">Remove all filters</p>
+            <p
+              class="mainSection__removeFiterTxt"
+              onclick="removeFilterRelode()"
+            >
+              Remove all filters
+            </p>
           </div>
           <div class="mainSection__whyZillow">
             <h6 class="mainSection__whyZillowHeader">WHY USE ZILLOW?</h6>
@@ -1152,16 +1230,17 @@
               (Zestimates) and the Zillow Home Value Price Index.
             </p>
             <p class="mainSection__paragraph mainSection__paragraph--marginBot">
-             <span class="mainSection__paraHead">Disclaimer:</span> School attendance zone boundaries are supplied by
-              Pitney Bowes and are subject to change. Check with the applicable
-              school district prior to making a decision based on these
-              boundaries.
+              <span class="mainSection__paraHead">Disclaimer:</span> School
+              attendance zone boundaries are supplied by Pitney Bowes and are
+              subject to change. Check with the applicable school district prior
+              to making a decision based on these boundaries.
             </p>
             <p class="mainSection__paragraph">
-              <span class="mainSection__paraHead">About the ratings:</span> GreatSchools ratings are based on a comparison
-              of test results for all schools in the state. It is designed to be
-              a starting point to help parents make baseline comparisons, not
-              the only factor in selecting the right school for your family.
+              <span class="mainSection__paraHead">About the ratings:</span>
+              GreatSchools ratings are based on a comparison of test results for
+              all schools in the state. It is designed to be a starting point to
+              help parents make baseline comparisons, not the only factor in
+              selecting the right school for your family.
             </p>
           </div>
           <footer>
@@ -1196,6 +1275,30 @@
             </div>
           </footer>
         </div>
+        <div class="homeInfoHeader">
+          <h1 class="homeInfoHeader__headerText">Homes</h1>
+          <span class="homeInfoHeader__resultNum">Results</span>
+          <div class="homeInfoHeader__sortBox">
+            <span class="homeInfoHeader__sortText">sortby: </span>
+            <div class="homeInfoHeader__selectboxWrapper">
+              <div class="custom-select" id="sortSelect">
+                <select id="sortSelect">
+                  <option value="highToLowSort">Price (High to Low)</option>
+                  <option value="lowToHighSort">Price (Low to High)</option>
+                  <option value="daysSort">Newest</option>
+                  <option value="bedroomsSort">Bedrooms</option>
+                  <option value="bathroomsSort">Bathrooms</option>
+                  <option value="squareFeetSort">Square Feet</option>
+                  <option value="lotSort">lot Size</option>
+                </select>
+              </div>
+              <i
+                class="fas fa-chevron-down selectArrow"
+                style="font-size:20px"
+              ></i>
+            </div>
+          </div>
+        </div>
         <div id="homeInfo" onclick="checkClickArea(event)"></div>
         <div id="pageButtons">
           <button id="previous" onclick="previousPage()">PREV</button>
@@ -1217,12 +1320,12 @@
         </div>
         <div class="mainBigHomeContainer__secondRow">
           <i class="fa fa-angle-left directionIcon HomeContainerIcon__icon"></i>
-          <button class="HomeContainerIcon HomeContainerIcon--left">
+          <button class="HomeContainerIcon HomeContainerIcon--left" onclick="phoneLikeDislike(this, event)">
             <i
-              class="far fa-heart HomeContainerIcon__icon"
-              style="font-size:20px"
-            ></i
-            ><span class="HomeContainerIcon__txt">Save &nbsp&nbsp</span>
+              class="far fa-heart HomeContainerIcon__icon" id="unlike"
+              style="font-size:20px;"
+            ></i>
+            <span class="HomeContainerIcon__txt">Save &nbsp&nbsp</span>
           </button>
           <button class="HomeContainerIcon">
             <i
@@ -1252,12 +1355,12 @@
           <div id="RightInfoRow" class="homeContainer__topRight">
             <div class="logoSection">
               <img src="images/logo.png" alt="Zillow Logo" />
-              <button id="heart">
-                <i class="far fa-heart" style="font-size:20px"></i
+              <button id="heart" onclick="likeDislike(this, event)">
+                <i class="far fa-heart" id="bigUnlike" style="font-size:20px"></i
                 ><span class="logoTxt">Save &nbsp&nbsp</span>
               </button>
               <button id="share">
-                <i class="far fa-share-square" style="font-size:20px"></i
+                <i class="far fa-share-square" style="font-size:20px;"></i
                 ><span class="logoTxt">Share &nbsp&nbsp</span>
               </button>
               <button id="more">
@@ -1345,6 +1448,65 @@
       </div>
       <div id="closeSign">&#10005;</div>
     </section>
+    <!-- Sort for tablet and mobile -->
+    <div class="sortContainer">
+      <div class="sortOptionsContainer">
+        <i
+          class="fas fa-times closeSort"
+          onclick="hideSort()"
+          style="font-size: 25px;"
+        ></i>
+        <ul class="sortOptionsContainer__optionsList">
+          <li
+            class="sortOptionsContainer__option sortOptionsContainer__option--header"
+          >
+            Sort
+          </li>
+          <li
+            class="sortOptionsContainer__option sortOptionsContainer__option--sortActive"
+            onclick="sortItemClick(this, 'highToLowSort')"
+          >
+            Price (High to Low)
+          </li>
+          <li
+            class="sortOptionsContainer__option"
+            onclick="sortItemClick(this, 'lowToHighSort')"
+          >
+            Price (Low to High)
+          </li>
+          <li
+            class="sortOptionsContainer__option"
+            onclick="sortItemClick(this, 'daysSort')"
+          >
+            Newest
+          </li>
+          <li
+            class="sortOptionsContainer__option"
+            onclick="sortItemClick(this, 'bedroomsSort')"
+          >
+            Bedrooms
+          </li>
+          <li
+            class="sortOptionsContainer__option"
+            onclick="sortItemClick(this, 'bathroomsSort')"
+          >
+            Bathrooms
+          </li>
+          <li
+            class="sortOptionsContainer__option"
+            onclick="sortItemClick(this,'squareFeetSort')"
+          >
+            Square Feet
+          </li>
+          <li
+            class="sortOptionsContainer__option"
+            onclick="sortItemClick(this,'lotSort')"
+          >
+            lot Size
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9SJrJz2gP0QBjWUFgXWGISnJrCA8ko3c&callback=initMap"
