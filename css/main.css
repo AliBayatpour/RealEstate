@@ -9,6 +9,10 @@
   display: block;
 }
 
+.hide {
+  display: none;
+}
+
 input[type="text"]:focus {
   border: #006aff 1px solid;
   outline: none;
@@ -2620,7 +2624,7 @@ select:-webkit-autofill:focus {
   font-weight: 600;
   top: 35px;
   right: -50px;
-  z-index: 2;
+  z-index: 3;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -2632,6 +2636,8 @@ select:-webkit-autofill:focus {
 
 @media (max-width: 600px) {
   .resultNav #moreDropDown #moreMainContainer {
+    width: 100%;
+    height: 100vh;
     padding-top: 0px;
     top: -50px;
   }
@@ -5904,9 +5910,52 @@ select:-webkit-autofill:focus {
   }
 }
 
+.mainBigHomeContainer .phoneHomeMoreButContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.mainBigHomeContainer .phoneHomeMoreButContainer__dropDown {
+  width: 240px;
+  height: auto;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  right: 0;
+}
+
+.mainBigHomeContainer .phoneHomeMoreButContainer__dropDown a {
+  text-decoration: none;
+  display: block;
+  color: #2a2a33;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.mainBigHomeContainer .phoneHomeMoreButContainer__dropDown a:hover {
+  background-color: #d9f0f9;
+  font-weight: 700;
+}
+
 .mainBigHomeContainer .HomeContainerIcon {
   color: #006aff;
   background-color: white;
+  outline: none;
   border: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6066,6 +6115,7 @@ select:-webkit-autofill:focus {
 }
 
 .mainBigHomeContainer .homeContainer .picContainer #picLeftColumn .homeBox {
+  padding: 0 2px;
   max-width: 49.8%;
   margin-bottom: 5px;
 }
@@ -6104,6 +6154,35 @@ select:-webkit-autofill:focus {
   .mainBigHomeContainer .homeContainer .picContainer #picLeftColumn #smallImage0 {
     min-width: 100%;
     margin: 0;
+  }
+}
+
+.mainBigHomeContainer .homeContainer .picContainer__picCounter {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mainBigHomeContainer .homeContainer .picContainer__picCounter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    width: 62px;
+    height: 22px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -6357,7 +6436,22 @@ select:-webkit-autofill:focus {
   margin-right: 5px;
 }
 
-.mainBigHomeContainer .homeContainer__topRight .logoSection #more {
+.mainBigHomeContainer .homeContainer__topRight .logoSection .homeMoreButContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainBigHomeContainer .homeContainer__topRight .logoSection .homeMoreButContainer #more {
   cursor: pointer;
   color: #006aff;
   background: transparent;
@@ -6374,6 +6468,33 @@ select:-webkit-autofill:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.mainBigHomeContainer .homeContainer__topRight .logoSection .homeMoreButContainer__dropDown {
+  width: 240px;
+  height: auto;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  right: 0;
+}
+
+.mainBigHomeContainer .homeContainer__topRight .logoSection .homeMoreButContainer__dropDown a {
+  text-decoration: none;
+  display: block;
+  color: #2a2a33;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.mainBigHomeContainer .homeContainer__topRight .logoSection .homeMoreButContainer__dropDown a:hover {
+  background-color: #d9f0f9;
+  font-weight: 700;
 }
 
 .mainBigHomeContainer .homeContainer__buttons {
@@ -7047,6 +7168,170 @@ select:-webkit-autofill:focus {
   height: 37.6px;
   color: white;
   background-color: #ccc;
+}
+
+.shareHomeContainer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: background-color 50ms linear, -webkit-transform 350ms ease-in;
+  transition: background-color 50ms linear, -webkit-transform 350ms ease-in;
+  transition: background-color 50ms linear, transform 350ms ease-in;
+  transition: background-color 50ms linear, transform 350ms ease-in, -webkit-transform 350ms ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 10;
+}
+
+.shareHomeContainer__formWrapper {
+  width: auto;
+  background-color: white;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .shareHomeContainer__formWrapper {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.shareHomeContainer__formWrapper .shareCloseSign {
+  position: absolute;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  right: 10px;
+  top: 10px;
+}
+
+.shareHomeContainer .shareForm {
+  width: 403px;
+  border-radius: 2px;
+  background-color: white;
+  border: #a7a6ab 1px solid;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+  height: 460px;
+  padding: 20px 20px;
+}
+
+@media (max-width: 600px) {
+  .shareHomeContainer .shareForm {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.shareHomeContainer .shareForm fieldset {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.shareHomeContainer .shareForm fieldset legend {
+  color: #2a2a33;
+  font-family: "Open Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+}
+
+.shareHomeContainer .shareForm fieldset label {
+  color: #2a2a33;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 0 3px 0;
+}
+
+.shareHomeContainer .shareForm__inputContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin: 0 0 15px 0;
+}
+
+.shareHomeContainer .shareForm__inputContainer ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.shareHomeContainer .shareForm__inputContainer ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.shareHomeContainer .shareForm__inputContainer :-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.shareHomeContainer .shareForm__inputContainer :-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.shareHomeContainer .shareForm__inputContainer input {
+  padding: 4px 6px 2px 6px;
+}
+
+.shareHomeContainer .shareForm__subInputText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+}
+
+.shareHomeContainer .shareForm .shareFormTextArea {
+  color: #2a2a33;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  padding: 4px 6px 2px 6px;
+}
+
+.shareHomeContainer .shareForm .shareFormSubmitBut {
+  width: 99.4px;
+  height: 36.4px;
+  color: white;
+  border-radius: 4px;
+  background-color: #006aff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .shareHomeContainer .shareForm .shareFormSubmitBut {
+    width: 100%;
+  }
 }
 
 .mainContent {

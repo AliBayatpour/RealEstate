@@ -2021,9 +2021,12 @@ getImg = () => {
     slides = document.querySelectorAll(".homeBox"),
     slidesLength = slides.length,
     getImgindex = 0;
+
+  picLeftColumn.onmousedown = dragStart;
   picLeftColumn.addEventListener("touchstart", dragStart);
   picLeftColumn.addEventListener("touchend", dragEnd);
   picLeftColumn.addEventListener("touchmove", dragAction);
+
   function dragStart(e) {
     transferscale = Number(picLeftColumn.firstElementChild.clientWidth);
     picLeftColumn.style.transition = null;
@@ -2031,6 +2034,12 @@ getImg = () => {
     if (e.type == "touchstart") {
       posX1 = e.touches[0].clientX;
       posInitial = e.touches[0].clientX;
+    } else {
+      e.preventDefault();
+      posX1 = e.clientX;
+      posInitial = e.clientX;
+      document.onmouseup = dragEnd;
+      document.onmousemove = dragAction;
     }
   }
   function dragAction(e) {
@@ -2039,6 +2048,10 @@ getImg = () => {
       posX2 = posX1 - e.touches[0].clientX;
       posX1 = e.touches[0].clientX;
       posFinal = e.touches[0].clientX;
+    } else {
+      posX2 = posX1 - e.clientX;
+      posX1 = e.clientX;
+      posFinal = e.clientX;
     }
 
     picLeftColumn.style.right = posX2 - picLeftColumn.offsetLeft + "px";
@@ -2055,6 +2068,11 @@ getImg = () => {
     } else {
       picLeftColumn.style.right = transferscale * getImgindex + "px";
     }
+    document.querySelector(
+      ".picContainer__picCounter"
+    ).innerHTML = `${getImgindex + 1} of ${slidesLength}`;
+    document.onmouseup = null;
+    document.onmousemove = null;
   }
 };
 // images of home will be saved in this array
@@ -2099,6 +2117,9 @@ function housePageBuilder(index, callback) {
         imageArr.push(otherImageBox);
         e.appendChild(imageArr[i]);
       }
+      document.querySelector(
+        ".picContainer__picCounter"
+      ).innerHTML = `1 of ${data[index].Media.length}`;
       // Insert text information to each home-page
       document.getElementById("homeSectionContainer").style.display = "grid";
       let priceSection = document.getElementById("priceSection");
@@ -2324,20 +2345,11 @@ except the one passed as an argument:*/
     closeAllLists(e.target);
   });
 }
-// Like and dislike for desktop
-likeDislike = (elem, e) => {
-  e.stopPropagation();
-  if (elem.firstElementChild.id === "bigUnlike") {
-    elem.innerHTML = `<i class="fas fa-heart HomeContainerIcon__icon" id="bigLike" style="font-size:20px; color:#006aff"></i><span class="logoTxt">Save &nbsp&nbsp</span>`;
-  } else if (elem.firstElementChild.id === "bigLike") {
-    elem.innerHTML = `<i class="far fa-heart HomeContainerIcon__icon" id="bigUnlike" style="font-size:20px; color:#006aff"></i><span class="logoTxt">Save &nbsp&nbsp</span>`;
-  }
-};
-// Like and dislike for mobile phone
+// Like and dislike
 phoneLikeDislike = (elem, e) => {
   e.stopPropagation();
   let col = "#006aff";
-  if (window.matchMedia("(max-width: 680px)").matches) {
+  if (window.matchMedia("(max-width: 600px)").matches) {
     let x = document.querySelector("#clickHome");
     let height = 260.75;
     if (window.matchMedia("(max-width: 450px)").matches) {
@@ -2348,11 +2360,24 @@ phoneLikeDislike = (elem, e) => {
     } else {
       col = "#fff";
     }
-  }
-  if (elem.firstElementChild.id === "unlike") {
-    elem.innerHTML = `<i class="fas fa-heart HomeContainerIcon__icon" id="like" style="font-size:20px; color:${col}"></i>`;
-  } else if (elem.firstElementChild.id === "like") {
-    elem.innerHTML = `<i class="far fa-heart HomeContainerIcon__icon" id="unlike" style="font-size:20px; color:${col}"></i>`;
+    if (elem.firstElementChild.classList[0] === "far") {
+      elem.innerHTML = `<i class="fas fa-heart HomeContainerIcon__icon" style="font-size:20px; color:${col}"></i>`;
+    } else if (elem.firstElementChild.classList[0] === "fas") {
+      elem.innerHTML = `<i class="far fa-heart HomeContainerIcon__icon" style="font-size:20px; color:${col}"></i>`;
+    }
+  } else {
+    let newTag = document.createElement("i");
+    newTag.style.color = "#006aff";
+    newTag.style.fontSize = "20px";
+    if (elem.firstElementChild.classList[0] === "far") {
+      elem.removeChild(elem.children[0]);
+      newTag.setAttribute("class", "fas fa-heart");
+      elem.insertBefore(newTag, elem.firstChild);
+    } else if (elem.firstElementChild.classList[0] === "fas") {
+      elem.removeChild(elem.children[0]);
+      newTag.setAttribute("class", "far fa-heart");
+      elem.insertBefore(newTag, elem.firstChild);
+    }
   }
 };
 let locations = [

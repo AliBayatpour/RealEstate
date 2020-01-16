@@ -146,7 +146,8 @@ window.onclick = function(event) {
       document.getElementById("homeSectionContainer").style.display = "none";
     } else if (
       !event.target.closest("#clickHome") &&
-      !event.target.closest(".mainBigHomeContainer__smallHeader")
+      !event.target.closest(".mainBigHomeContainer__smallHeader") &&
+      !event.target.closest(".shareHomeContainer")
     ) {
       document.getElementById("homeSectionContainer").style.display = "none";
     }
@@ -496,10 +497,66 @@ then close all select boxes:*/
 document.addEventListener("click", () => {
   if (event.target.closest(".select-items")) {
     closeAllSelect(null, true);
-  }else {
+  } else {
     closeAllSelect();
   }
 });
 if (window.location.pathname == "/result.html") {
   autocomplete(document.getElementById("searchBoxResult"), locations);
 }
+
+// Form Validation
+formValidation = elem => {
+  if (elem.type === "email") {
+    let check = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    var emails = elem.value.split(",");
+    let flag = true;
+    emails.forEach(function(email) {
+      if (check.test(email.trim()) && flag) {
+        elem.style.backgroundColor = null;
+      } else {
+        flag = false
+        elem.style.backgroundColor = "rgba(255, 0, 0, 0.4)";
+      }
+    });
+  } else {
+    if (elem.value) {
+      elem.style.backgroundColor = null;
+    } else {
+      elem.style.backgroundColor = "rgba(255, 0, 0, 0.4)";
+    }
+  }
+};
+shareFormSubmit = e => {
+  e.preventDefault();
+  hideShareForm();
+  let inputs = document.querySelectorAll(".shareInput");
+  inputs.forEach(element => {
+    element.value = null;
+  });
+  document.querySelector(".shareFormTextArea").innerHTML =
+    "Check out this home I found on Zillow.";
+};
+// More button dropDown
+moreDropDownShowHide = (classNm) => {
+  let moreButContainer = document.querySelector(`.${classNm}`);
+  moreButContainer.classList.toggle('show');
+  moreButContainer.classList.toggle('hide');
+}
+hideShareForm = event => {
+  let FormContainer = document.querySelector(".shareHomeContainer");
+  FormContainer.style.backgroundColor = "transparent";
+  FormContainer.style.transform = "translateY(100%)";
+};
+// Show Form box
+showShareForm = event => {
+  let showFormContainer = document.querySelector(".shareHomeContainer");
+  showFormContainer.style.transform = "translateY(-100%)";
+  showFormContainer.style.backgroundColor = null;
+};
+
+shareFormShowHideCheck = event => {
+  if (!event.target.closest(".shareHomeContainer__formWrapper")) {
+    hideShareForm();
+  }
+};

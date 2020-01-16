@@ -324,6 +324,9 @@ $new-open-sans: "Roboto", sans-serif;
 .show {
   display: block;
 }
+.hide {
+  display: none;
+}
 input[type="text"]:focus {
   border: color_function(mainblue) 1px solid;
   outline: none;
@@ -1740,11 +1743,12 @@ select:-webkit-autofill:focus {
       @include font($open-sans, 14px, 600, null, rgba(0, 0, 0, 0.75));
       top: 35px;
       right: -50px;
-      z-index: 2;
+      z-index: 3;
       user-select: none;
       padding-top: 15px;
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
       @include for-phone-only() {
+        @include boxSize(100%, 100vh, null, null, null);
         padding-top: 0px;
         top: -50px;
       }
@@ -2999,6 +3003,28 @@ select:-webkit-autofill:focus {
       border-bottom: none;
     }
   }
+  .phoneHomeMoreButContainer {
+    @include flex(center, center, null);
+    position: relative;
+    &__dropDown {
+      @include boxSize(240px, auto, null, color_function(myWhite) null);
+      position: absolute;
+      top: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+      right: 0;
+      a {
+        text-decoration: none;
+        display: block;
+        @include font($open-sans, 14px, 400, null, color_function(textColor));
+        @include boxSize(100%, null, null, null, null);
+        padding: 8px 16px;
+        &:hover {
+          background-color: #d9f0f9;
+          @include font(null, null, 700, null, null);
+        }
+      }
+    }
+  }
   .HomeContainerIcon {
     @include boxSize(
       null,
@@ -3007,6 +3033,7 @@ select:-webkit-autofill:focus {
       color_function(myWhite),
       null
     );
+    outline: none;
     border: none;
     @include flex(center, center, null);
     @include font($open-sans, 14px, null, null, null);
@@ -3031,6 +3058,9 @@ select:-webkit-autofill:focus {
         null
       );
     }
+  }
+  #phoneMoreIcon {
+
   }
   .homeContainer {
     @include boxSize(90%, 100vh, null, color_function(myWhite), null);
@@ -3080,6 +3110,7 @@ select:-webkit-autofill:focus {
           transform: translate(0, -50%);
         }
         .homeBox {
+          padding: 0 2px;
           max-width: 49.8%;
           margin-bottom: 5px;
           @include for-tablet-landscape-up() {
@@ -3103,6 +3134,23 @@ select:-webkit-autofill:focus {
             min-width: 100%;
             margin: 0;
           }
+        }
+      }
+      &__picCounter {
+        display: none;
+        @include for-phone-only() {
+          @include flex(center, center, null);
+          position: absolute;
+          right: 15px;
+          bottom: 15px;
+          @include font($open-sans, 13px, null, null, null);
+          @include boxSize(
+            62px,
+            22px,
+            color_function(myWhite),
+            rgba(0, 0, 0, 0.5),
+            null
+          );
         }
       }
     }
@@ -3266,16 +3314,44 @@ select:-webkit-autofill:focus {
           border: none;
           margin-right: 5px;
         }
-        #more {
-          @include buttonMaker(
-            color_function(mainblue),
-            transparent,
-            null,
-            none,
-            null
-          );
-          border: none;
+        .homeMoreButContainer {
+          position: relative;
           @include flex(center, center, null);
+          #more {
+            @include buttonMaker(
+              color_function(mainblue),
+              transparent,
+              null,
+              none,
+              null
+            );
+            border: none;
+            @include flex(center, center, null);
+          }
+          &__dropDown {
+            @include boxSize(240px, auto, null, color_function(myWhite) null);
+            position: absolute;
+            top: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+            right: 0;
+            a {
+              text-decoration: none;
+              display: block;
+              @include font(
+                $open-sans,
+                14px,
+                400,
+                null,
+                color_function(textColor)
+              );
+              @include boxSize(100%, null, null, null, null);
+              padding: 8px 16px;
+              &:hover {
+                background-color: #d9f0f9;
+                @include font(null, null, 700, null, null);
+              }
+            }
+          }
         }
       }
     }
@@ -3451,8 +3527,6 @@ select:-webkit-autofill:focus {
       }
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       border: rgba(0, 0, 0, 0.3) 1px solid;
-      &__optionsList {
-      }
       &__option {
         list-style: none;
         border-bottom: 1px solid #bbb;
@@ -3599,6 +3673,97 @@ select:-webkit-autofill:focus {
         color_function(borderColorC),
         null
       );
+    }
+  }
+}
+// ----------------SHARE FORM ON RESULT.HTML-----------------
+.shareHomeContainer {
+  @include boxSize(100%, 100%, null, rgba(255, 255, 255, 0.75), null);
+  transform: translateY(100%);
+  transition: background-color 50ms linear, transform 350ms ease-in;
+  @include flex(center, center, null);
+  position: absolute;
+  z-index: 10;
+  &__formWrapper {
+    @include boxSize(auto, null, null, color_function(myWhite), null);
+    position: relative;
+    @include for-phone-only() {
+      @include boxSize(100%, 100%, null, null, null);
+    }
+    .shareCloseSign {
+      position: absolute;
+      cursor: pointer;
+      color: rgba($color: #000000, $alpha: 0.6);
+      right: 10px;
+      top: 10px;
+    }
+  }
+  .shareForm {
+    @include boxSize(403px, null, null, color_function(myWhite), 2px);
+    border: rgb(167, 166, 171) 1px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+    height: 460px;
+    padding: 20px 20px;
+    @include for-phone-only() {
+      @include boxSize(100%, 100%, null, null, null);
+    }
+    fieldset {
+      border: none;
+      @include flex(null, null, column);
+      @include boxSize(100%, null, null, null, null);
+      legend {
+        @include font($open-sans, 28px, 700, null, color_function(textColor));
+        margin: 0 0 15px 0;
+      }
+      label {
+        @include font($open-sans, 15px, 700, null, color_function(textColor));
+        padding: 0 0 3px 0;
+      }
+    }
+    &__inputContainer {
+      @include flex(null, null, column);
+      @include boxSize(100%, null, null, null, null);
+      margin: 0 0 15px 0;
+      ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        @include font($open-sans, 14px, null, null, null);
+      }
+      ::-moz-placeholder {
+        /* Firefox 19+ */
+        @include font($open-sans, 14px, null, null, null);
+      }
+      :-ms-input-placeholder {
+        /* IE 10+ */
+        @include font($open-sans, 14px, null, null, null);
+      }
+      :-moz-placeholder {
+        /* Firefox 18- */
+        @include font($open-sans, 14px, null, null, null);
+      }
+      input {
+        padding: 4px 6px 2px 6px;
+      }
+    }
+    &__subInputText {
+      @include font($open-sans, 12px, null, null, null);
+    }
+    .shareFormTextArea {
+      @include font($open-sans, 15px, null, null, color_function(textColor));
+      padding: 4px 6px 2px 6px;
+    }
+    .shareFormSubmitBut {
+      @include boxSize(
+        99.4px,
+        36.4px,
+        color_function(myWhite),
+        color_function(mainblue),
+        4px
+      );
+      border: none;
+      cursor: pointer;
+      @include for-phone-only() {
+        @include boxSize(100%, null, null, null, null);
+      }
     }
   }
 }

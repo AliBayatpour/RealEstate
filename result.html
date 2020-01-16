@@ -1260,8 +1260,14 @@
                 <img src="images/logo.png" alt="Home" />
                 <div class="footerInfo__smallContainer">
                   <span>Follow us: </span
-                  ><a href="#" class="fab fa-facebook-f"></a
-                  ><a href="#" class="fab fa-twitter"></a
+                  ><a
+                    href="https://www.facebook.com/Zillow"
+                    class="fab fa-facebook-f"
+                  ></a
+                  ><a
+                    href="https://twitter.com/zillow"
+                    class="fab fa-twitter"
+                  ></a
                   ><span>© 2006-2019 Zillow </span><i class="fa fa-home"></i>
                 </div>
               </div>
@@ -1320,27 +1326,43 @@
         </div>
         <div class="mainBigHomeContainer__secondRow">
           <i class="fa fa-angle-left directionIcon HomeContainerIcon__icon"></i>
-          <button class="HomeContainerIcon HomeContainerIcon--left" onclick="phoneLikeDislike(this, event)">
+          <button
+            class="HomeContainerIcon HomeContainerIcon--left"
+            onclick="phoneLikeDislike(this, event)"
+          >
             <i
-              class="far fa-heart HomeContainerIcon__icon" id="unlike"
+              class="far fa-heart HomeContainerIcon__icon"
               style="font-size:20px;"
             ></i>
             <span class="HomeContainerIcon__txt">Save &nbsp&nbsp</span>
           </button>
-          <button class="HomeContainerIcon">
+          <button class="HomeContainerIcon" onclick="showShareForm(event)">
             <i
               class="far fa-share-square HomeContainerIcon__icon"
               style="font-size:20px"
             ></i
             ><span class="HomeContainerIcon__txt">Share &nbsp&nbsp</span>
           </button>
-          <button class="HomeContainerIcon" id="more">
-            <i
-              class="fa fa-ellipsis-h HomeContainerIcon__icon"
-              style="font-size:20px"
-            ></i
-            ><span class="HomeContainerIcon__txt">More</span>
-          </button>
+          <div class="phoneHomeMoreButContainer">
+            <button
+              class="HomeContainerIcon"
+              id="phoneMoreIcon"
+              onclick="moreDropDownShowHide('phoneHomeMoreButContainer__dropDown')"
+            >
+              <i
+                class="fa fa-ellipsis-h HomeContainerIcon__icon"
+                style="font-size:20px"
+              ></i
+              ><span class="HomeContainerIcon__txt">More</span>
+            </button>
+            <div class="phoneHomeMoreButContainer__dropDown hide">
+              <a href="./pages/form/form.html">Report a problem</a>
+              <a href="./pages/help/help.html">Help center</a>
+              <a href="./pages/BuyersGuide/buyersGuide.html"
+                >Go to home guide</a
+              >
+            </div>
+          </div>
         </div>
       </div>
       <div
@@ -1350,23 +1372,36 @@
       >
         <div class="picContainer">
           <div id="picLeftColumn"></div>
+          <div class="picContainer__picCounter"></div>
         </div>
         <div id="infoRightColumn" class="homeContainer__rightInfo">
           <div id="RightInfoRow" class="homeContainer__topRight">
             <div class="logoSection">
               <img src="images/logo.png" alt="Zillow Logo" />
-              <button id="heart" onclick="likeDislike(this, event)">
-                <i class="far fa-heart" id="bigUnlike" style="font-size:20px"></i
+              <button id="heart" onclick="phoneLikeDislike(this, event)">
+                <i class="far fa-heart" style="font-size:20px"></i
                 ><span class="logoTxt">Save &nbsp&nbsp</span>
               </button>
-              <button id="share">
+              <button id="share" onclick="showShareForm(event)">
                 <i class="far fa-share-square" style="font-size:20px;"></i
                 ><span class="logoTxt">Share &nbsp&nbsp</span>
               </button>
-              <button id="more">
-                <i class="fa fa-ellipsis-h" style="font-size:20px"></i
-                ><span class="logoTxt">More</span>
-              </button>
+              <div class="homeMoreButContainer">
+                <button
+                  id="more"
+                  onclick="moreDropDownShowHide('homeMoreButContainer__dropDown')"
+                >
+                  <i class="fa fa-ellipsis-h" style="font-size:20px"></i
+                  ><span class="logoTxt">More</span>
+                </button>
+                <div class="homeMoreButContainer__dropDown hide">
+                  <a href="./pages/form/form.html">Report a problem</a>
+                  <a href="./pages/help/help.html">Help center</a>
+                  <a href="./pages/BuyersGuide/buyersGuide.html"
+                    >Go to home guide</a
+                  >
+                </div>
+              </div>
             </div>
             <div id="priceSection" class="homeContainer__generalInfo"></div>
             <div id="lastRow" class="homeContainer__buttons"></div>
@@ -1505,6 +1540,62 @@
             lot Size
           </li>
         </ul>
+      </div>
+    </div>
+    <!-- Share home form -->
+    <div class="shareHomeContainer" onclick="shareFormShowHideCheck(event)">
+      <div class="shareHomeContainer__formWrapper">
+        <i
+          class="fas fa-times shareCloseSign"
+          onclick="hideShareForm(event)"
+          style="font-size: 25px;"
+        ></i>
+        <form class="shareForm" onsubmit="shareFormSubmit(event)">
+          <fieldset>
+            <legend>Email this home</legend>
+            <div class="shareForm__inputContainer">
+              <label>Recipient's email<span style="color: red;">*</span></label>
+              <input
+                type="email"
+                class="shareInput"
+                placeholder="Enter Email"
+                onkeyup="formValidation(this)"
+                required
+              />
+              <span class="shareForm__subInputText"
+                >Separate multiple addresses with a comma</span
+              >
+            </div>
+            <div class="shareForm__inputContainer">
+              <label
+                >Your email address<span style="color: red;">*</span></label
+              >
+              <input
+                type="email"
+                class="shareInput"
+                placeholder="Enter Email"
+                onkeyup="formValidation(this)"
+                required
+              />
+            </div>
+            <div class="shareForm__inputContainer">
+              <label>Include message(optional)</label>
+              <textarea
+                class="shareFormTextArea"
+                name="textarea"
+                rows="5"
+                onkeyup="formValidation(this)"
+              >
+Check out this home I found on Zillow.</textarea
+              >
+            </div>
+            <input
+              class="shareFormSubmitBut"
+              type="submit"
+              onkeyup="formValidation(this)"
+            />
+          </fieldset>
+        </form>
       </div>
     </div>
   </body>

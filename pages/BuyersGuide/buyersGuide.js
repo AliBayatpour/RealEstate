@@ -49,7 +49,7 @@ const HideMobileMenue = x => {
   document.querySelector(x).style.overflowY = null;
   document.body.style.overflow = null;
 };
-
+let ondrag = false;
 // drag and drop image gallary for mobile phone
 getImg = elem => {
   let posX1 = 0,
@@ -64,6 +64,7 @@ getImg = elem => {
   let myItemWrapper;
   let itemsWrapper = document.querySelectorAll(".mainContent__itemsWrapper");
   itemsWrapper.forEach((element, index) => {
+    element.onmousedown = dragStart;
     element.setAttribute("id", `itmId${index}`);
     element.addEventListener("touchstart", dragStart);
     element.addEventListener("touchend", dragEnd);
@@ -86,24 +87,39 @@ getImg = elem => {
     if (e.type == "touchstart") {
       posX1 = e.touches[0].clientX;
       posInitial = e.touches[0].clientX;
+    } else {
+      posX1 = e.clientX;
+      posInitial = e.clientX;
+      document.onmouseup = dragEnd;
+      document.onmousemove = dragAction;
     }
   }
   function dragAction(e) {
+    ondrag = true;
     e = e || window.event;
     if (e.type == "touchmove") {
       posX2 = posX1 - e.touches[0].clientX;
       posX1 = e.touches[0].clientX;
       posFinal = e.touches[0].clientX;
+    } else {
+      posX2 = posX1 - e.clientX;
+      posX1 = e.clientX;
+      posFinal = e.clientX;
     }
-
     myItemWrapper.style.right = posX2 - myItemWrapper.offsetLeft + "px";
   }
   function dragEnd(e) {
     e = e || window.event;
     myItemWrapper.style.transition = "all 200ms ease-out";
+    let responsiveSlideLength;
+    if (window.matchMedia("(max-width: 530px)").matches) {
+      responsiveSlideLength = slidesLength - 1;
+    } else {
+      responsiveSlideLength = slidesLength - 2;
+    }
     if (
       posFinal - posInitial < -threshold &&
-      getImgindex[myIndex] < slidesLength - 1
+      getImgindex[myIndex] < responsiveSlideLength
     ) {
       getImgindex[myIndex]++;
       myItemWrapper.style.right = transferscale * getImgindex[myIndex] + "px";
@@ -113,10 +129,16 @@ getImg = elem => {
     } else {
       myItemWrapper.style.right = transferscale * getImgindex[myIndex] + "px";
     }
+    document.onmouseup = null;
+    document.onmousemove = null;
   }
 };
 changePage = () => {
-  window.location.href = "./buyersGuideSubPage/buyersGuideSubPage.html";
+  if (!ondrag) {
+    window.location.href = "./buyersGuideSubPage/buyersGuideSubPage.html";
+  } else {
+    ondrag = false;
+  }
 };
 let indexPageInput = [];
 // Getting input value from dropdown link on index.html and locate to result.html
