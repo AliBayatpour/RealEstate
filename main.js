@@ -1915,13 +1915,13 @@ function initMap() {
   let image;
   // red circle for sale on map
   let imageSale = {
-    url: "https://i.imgur.com/RUbotQy.png",
+    url: "https://i.postimg.cc/0yJBf6Xh/red-Circle-Flag.png",
     origin: new google.maps.Point(0, 0),
     scaledSize: new google.maps.Size(15, 15)
   };
   // violet circle for rent on map
   let imageRent = {
-    url: "https://i.imgur.com/yw7EFO6.png",
+    url: "https://i.postimg.cc/GpwSScZt/violet-Circle-Flag.png",
     origin: new google.maps.Point(0, 0),
     scaledSize: new google.maps.Size(15, 15)
   };
