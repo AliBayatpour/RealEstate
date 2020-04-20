@@ -11,9 +11,9 @@ initialization = () => {
     dropdownHomes.innerHTML += `<span class="dropdown-content__stateSpans" onclick="DropDownInputAssign('${locations[item]}', 'all')">${locations[item]}</span>`;
   }
 };
-if (window.location.pathname == "/result.html") {
+if (window.location.pathname.includes("result")) {
   document.body.style.overflow = "hidden";
-} else if (window.location.pathname == "/index.html") {
+} else if (window.location.pathname.includes("index")) {
   document.body.style.overflowX = "hidden";
 }
 // change page when sell box clicked
@@ -1828,7 +1828,7 @@ window.addEventListener("click", function() {
     setTimeout(() => {
       searchIdVariable.style.border = "#006AFF 2px solid";
     }, 50);
-  } else if (window.location.pathname == "/index.html") {
+  } else if (window.location.pathname.includes("index")) {
     searchIdVariable.style.border = null;
   }
   // Hide sort box
@@ -1871,7 +1871,7 @@ window.addEventListener("scroll", () => {
   let minSearchResultVar = document.getElementById("mainSearchResult");
   let searchIdVar = document.getElementById("searchId");
   let searchBoxVar = document.getElementById("searchBox");
-  if (window.pageYOffset > 350 && window.location.pathname == "/index.html") {
+  if (window.pageYOffset > 350 && window.location.pathname.includes("index")) {
     minSearchResultVar.style.top = "0";
     minSearchResultVar.style.position = "fixed";
     minSearchResultVar.style.background = "white";
@@ -1881,7 +1881,7 @@ window.addEventListener("scroll", () => {
     searchIdVar.style.height = "50px";
     searchIdVar.style.borderRadius = "2px";
     searchIdVar.style.margin = "15px 0";
-  } else if (window.location.pathname == "/index.html") {
+  } else if (window.location.pathname.includes("index")) {
     minSearchResultVar.style.top = null;
     minSearchResultVar.style.position = null;
     minSearchResultVar.style.background = null;
@@ -2443,6 +2443,6 @@ let locations = [
   "Ingleside Heights",
   "Monterey Heights",
 ];
-if (window.location.pathname == "/index.html") {
+if (window.location.pathname.includes("index")) {
   autocomplete(document.getElementById("searchBox"), locations);
 }
