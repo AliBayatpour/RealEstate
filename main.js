@@ -21,7 +21,7 @@ goToSell = () => {
   window.location.href = "./pages/foreclosureCenter/foreclosureCenter.html";
 };
 // DropDown Nav button.
-document.addEventListener("mouseover", event => {
+document.addEventListener("mouseover", (event) => {
   // Display Buy dropDown
   if (
     event.target.closest("#buyNavBut") ||
@@ -61,12 +61,12 @@ const mobileMenuShowDropDown = (y, x) => {
 };
 
 // showing or hiding mobile menue
-const indexShowMobileMenue = x => {
+const indexShowMobileMenue = (x) => {
   document.querySelector(x).style.display = "block";
   document.querySelector(x).style.overflowY = "scroll";
   document.body.style.overflow = "hidden";
 };
-const IndexHideMobileMenue = x => {
+const IndexHideMobileMenue = (x) => {
   document.querySelector(x).style.display = "none";
   document.querySelector(x).style.overflowY = null;
   document.body.style.overflow = null;
@@ -160,9 +160,9 @@ function inputAssign(e, idName, type) {
 inputKeyUp = (e, type) => {
   e.which = e.which || e.keyCode;
   if (e.which == 13) {
-    if (window.location.pathname == "/index.html") {
+    if (window.location.pathname.includes("index")) {
       inputAssign(event, "searchBox", type);
-    } else if (window.location.pathname == "/result.html") {
+    } else if (window.location.pathname.includes("result")) {
       inputAssign(event, "searchBoxResult", type);
     }
   }
@@ -211,7 +211,7 @@ function checkboxClick(x, flag) {
     getNew: function() {
       this._current++;
       return this._current;
-    }
+    },
   };
 
   let cn = [];
@@ -474,7 +474,7 @@ function checkboxClick(x, flag) {
   }
 }
 // Sort the array
-sortArray = sortType => {
+sortArray = (sortType) => {
   switch (sortType) {
     //Price(High to Low)
     case "PrHighToLow":
@@ -533,7 +533,7 @@ let listingType = {
   maxYearBuiltObj: 200000000,
   basementObj: null,
   daysOnMarketObj: 5000,
-  sortTypeObj: "highToLowSort"
+  sortTypeObj: "highToLowSort",
 };
 // Price Filter
 function priceFilter(minOrMax, price) {
@@ -807,7 +807,7 @@ function exactBed() {
   }
   selectFiltered(listingType);
 }
-homeTypeFilter = elem => {
+homeTypeFilter = (elem) => {
   if (elem.checked) {
     switch (elem.value) {
       case "House":
@@ -879,12 +879,12 @@ homeTypeFilter = elem => {
   selectFiltered(listingType);
 };
 // Bath filter
-bathFilter = elem => {
+bathFilter = (elem) => {
   listingType.bathNumber = elem.value;
   selectFiltered(listingType);
 };
 // Open house filter
-openHouseFilter = elem => {
+openHouseFilter = (elem) => {
   switch (elem.checked) {
     case true:
       listingType.mustHaveOpenHouseObj = true;
@@ -896,7 +896,7 @@ openHouseFilter = elem => {
   }
   selectFiltered(listingType);
 };
-garageFilter = elem => {
+garageFilter = (elem) => {
   switch (elem.checked) {
     case true:
       listingType.mustHaveGarageObj = true;
@@ -908,7 +908,7 @@ garageFilter = elem => {
   }
   selectFiltered(listingType);
 };
-yearBuiltFilter = elem => {
+yearBuiltFilter = (elem) => {
   switch (elem.id) {
     case "minYear":
       if (elem.value != "") {
@@ -930,7 +930,7 @@ yearBuiltFilter = elem => {
   }
   selectFiltered(listingType);
 };
-basementFilter = elem => {
+basementFilter = (elem) => {
   switch (elem.checked) {
     case true:
       listingType.basementObj = true;
@@ -1059,7 +1059,7 @@ lotSort = () => {
 sortItemClick = (clickedElem, sortTypeName) => {
   let sortOptions = document.querySelectorAll(".sortOptionsContainer__option");
   // background-color: #F3F3EE;
-  sortOptions.forEach(element => {
+  sortOptions.forEach((element) => {
     element.classList.remove("sortOptionsContainer__option--sortActive");
   });
   clickedElem.classList.add("sortOptionsContainer__option--sortActive");
@@ -1153,7 +1153,7 @@ function selectFiltered(listingTypeInput) {
       maxLotSizeObj: obMxLoS,
       minYearBuiltObj: obMnYeB,
       maxYearBuiltObj: obMxYeB,
-      daysOnMarketObj: obDaOnMark
+      daysOnMarketObj: obDaOnMark,
     } = listingType;
     // listingType condition
     const listingTypeCondition = saleOrRent == obSale || saleOrRent == obRent;
@@ -1903,12 +1903,12 @@ function initMap() {
   if (window.matchMedia("(max-width: 900px)").matches) {
     map = new google.maps.Map(document.querySelector(`.mapContainer`), {
       center: { lat: 39.381266, lng: -106.8022211 },
-      zoom: 4
+      zoom: 4,
     });
   } else {
     map = new google.maps.Map(document.querySelector(`.map`), {
       center: { lat: 39.381266, lng: -106.8022211 },
-      zoom: 5
+      zoom: 5,
     });
   }
   // Add a marker
@@ -1917,13 +1917,13 @@ function initMap() {
   let imageSale = {
     url: "https://i.postimg.cc/0yJBf6Xh/red-Circle-Flag.png",
     origin: new google.maps.Point(0, 0),
-    scaledSize: new google.maps.Size(15, 15)
+    scaledSize: new google.maps.Size(15, 15),
   };
   // violet circle for rent on map
   let imageRent = {
     url: "https://i.postimg.cc/GpwSScZt/violet-Circle-Flag.png",
     origin: new google.maps.Point(0, 0),
-    scaledSize: new google.maps.Size(15, 15)
+    scaledSize: new google.maps.Size(15, 15),
   };
   // only show something if there are homes available
   let homeInfoCheck = document.querySelector("#homeInfo").firstChild;
@@ -1950,16 +1950,16 @@ function initMap() {
       </div>`;
       // creating a new infoWindow
       let infowindow = new google.maps.InfoWindow({
-        content: mapMarkerContent
+        content: mapMarkerContent,
       });
       // build marker
       let marker = new google.maps.Marker({
         position: {
           lat: Number(pageList[i].dataset.lat),
-          lng: Number(pageList[i].dataset.lon)
+          lng: Number(pageList[i].dataset.lon),
         },
         map: map,
-        icon: image
+        icon: image,
       });
       // create an event listener for each marker
       marker.addListener("mouseover", function() {
@@ -2441,7 +2441,7 @@ let locations = [
   "Mt Davidson Manor",
   "Cole Valley",
   "Ingleside Heights",
-  "Monterey Heights"
+  "Monterey Heights",
 ];
 if (window.location.pathname == "/index.html") {
   autocomplete(document.getElementById("searchBox"), locations);
