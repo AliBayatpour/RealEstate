@@ -501,7 +501,7 @@ document.addEventListener("click", () => {
     closeAllSelect();
   }
 });
-if (window.location.pathname.includes('result')) {
+if (!currentLocation) {
   autocomplete(document.getElementById("searchBoxResult"), locations);
 }
 
