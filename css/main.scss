@@ -3506,7 +3506,7 @@ select:-webkit-autofill:focus {
   @include for-tablet-portrait-up() {
     @include flex(center, center, null);
     transition: all 350ms ease-in;
-    left: 0;
+    left: -100%;
     top: 0;
     @include boxSize(100%, 100%, null, rgba(255, 255, 255, 0.75), null);
     position: absolute;
