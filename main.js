@@ -11,7 +11,7 @@ initialization = () => {
     dropdownHomes.innerHTML += `<span class="dropdown-content__stateSpans" onclick="DropDownInputAssign('${locations[item]}', 'all')">${locations[item]}</span>`;
   }
 };
-if (window.location.pathname.includes('result')) {
+if (window.location.pathname.includes("result")) {
   document.body.style.overflow = "hidden";
 } else {
   document.body.style.overflowX = "hidden";
@@ -160,7 +160,7 @@ function inputAssign(e, idName, type) {
 inputKeyUp = (e, type) => {
   e.which = e.which || e.keyCode;
   if (e.which == 13) {
-    if (!window.location.pathname.includes('result')) {
+    if (!window.location.pathname.includes("result")) {
       inputAssign(event, "searchBox", type);
     } else {
       inputAssign(event, "searchBoxResult", type);
@@ -1828,7 +1828,7 @@ window.addEventListener("click", function() {
     setTimeout(() => {
       searchIdVariable.style.border = "#006AFF 2px solid";
     }, 50);
-  } else if (!window.location.pathname.includes('result')) {
+  } else if (!window.location.pathname.includes("result")) {
     searchIdVariable.style.border = null;
   }
   // Hide sort box
@@ -1841,14 +1841,14 @@ window.addEventListener("click", function() {
 });
 hideSort = () => {
   let sortContainer = document.querySelector(".sortContainer");
-  sortContainer.style.backgroundColor = "transparent";
-  sortContainer.style.transform = "translateY(100%)";
+  sortContainer.style.opacity = "0";
+  sortContainer.style.transform = "translate(-100%, -100%)";
 };
 // Show sort box
 showSort = () => {
   let showSortContainer = document.querySelector(".sortContainer");
-  showSortContainer.style.transform = "translateY(-100%)";
-  showSortContainer.style.backgroundColor = null;
+  showSortContainer.style.transform = null;
+  showSortContainer.style.opacity = null;
 };
 // Show the Google map
 showHideMap = () => {
@@ -1871,7 +1871,10 @@ window.addEventListener("scroll", () => {
   let minSearchResultVar = document.getElementById("mainSearchResult");
   let searchIdVar = document.getElementById("searchId");
   let searchBoxVar = document.getElementById("searchBox");
-  if (window.pageYOffset > 350 && !window.location.pathname.includes('result')) {
+  if (
+    window.pageYOffset > 350 &&
+    !window.location.pathname.includes("result")
+  ) {
     minSearchResultVar.style.top = "0";
     minSearchResultVar.style.position = "fixed";
     minSearchResultVar.style.background = "white";
@@ -1881,7 +1884,7 @@ window.addEventListener("scroll", () => {
     searchIdVar.style.height = "50px";
     searchIdVar.style.borderRadius = "2px";
     searchIdVar.style.margin = "15px 0";
-  } else if (!window.location.pathname.includes('result')) {
+  } else if (!window.location.pathname.includes("result")) {
     minSearchResultVar.style.top = null;
     minSearchResultVar.style.position = null;
     minSearchResultVar.style.background = null;
@@ -2443,6 +2446,6 @@ let locations = [
   "Ingleside Heights",
   "Monterey Heights",
 ];
-if (!window.location.pathname.includes('result')) {
+if (!window.location.pathname.includes("result")) {
   autocomplete(document.getElementById("searchBox"), locations);
 }
