@@ -7,13 +7,13 @@ $colors: (
   redCircle: #ff5a50,
   violetCircle: #985dff,
   yellowCircle: #ffd237,
-  borderColorC: #ccc
+  borderColorC: #ccc,
 );
 // color_function(textColor)
 // Arrays of variables for image paths
 $img_path: (
   bannerhouse: "../images/bannerhouse.jpg",
-  footerimage: "../images/footer.png"
+  footerimage: "../images/footer.png",
 );
 
 // fonts
@@ -3058,9 +3058,6 @@ select:-webkit-autofill:focus {
         null
       );
     }
-  }
-  #phoneMoreIcon {
-
   }
   .homeContainer {
     @include boxSize(90%, 100vh, null, color_function(myWhite), null);

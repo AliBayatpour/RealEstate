@@ -1,10 +1,11 @@
+
 // Psudo style
 var UID = {
   _current: 0,
   getNew: function() {
     this._current++;
     return this._current;
-  }
+  },
 };
 
 HTMLElement.prototype.pseudoStyle = function(element, prop, value) {
@@ -236,7 +237,7 @@ window.onclick = function(event) {
 const resultShowMobileMenue = () => {
   document.querySelector("#resultPhoneNavMenue").style.display = "block";
 };
-const resultHideMobileMenue = x => {
+const resultHideMobileMenue = (x) => {
   document.querySelector(x).style.display = "none";
 };
 // invisible arrow in each button
@@ -465,7 +466,7 @@ function closeAllSelect(elmnt, keepShadow = null) {
   }
 }
 // change mobile nav style when scrolling
-const mobileNavStyleControl = x => {
+const mobileNavStyleControl = (x) => {
   if (window.matchMedia("(max-width: 680px)").matches) {
     let height;
     if (window.matchMedia("(max-width: 450px)").matches) {
@@ -479,14 +480,14 @@ const mobileNavStyleControl = x => {
       i.style.backgroundColor = "#fff";
       i.style.backgroundImage = "none";
       i.style.borderBottom = "rgba(167, 166, 171, 0.5) 0.7px solid";
-      j.forEach(element => {
+      j.forEach((element) => {
         element.style.color = "#006aff";
       });
     } else {
       i.style.backgroundColor = null;
       i.style.backgroundImage = null;
       i.style.borderBottom = null;
-      j.forEach(element => {
+      j.forEach((element) => {
         element.style.color = null;
       });
     }
@@ -501,12 +502,12 @@ document.addEventListener("click", () => {
     closeAllSelect();
   }
 });
-if (!currentLocation) {
+if (window.location.pathname.includes('result')) {
   autocomplete(document.getElementById("searchBoxResult"), locations);
 }
 
 // Form Validation
-formValidation = elem => {
+formValidation = (elem) => {
   if (elem.type === "email") {
     let check = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     var emails = elem.value.split(",");
@@ -515,7 +516,7 @@ formValidation = elem => {
       if (check.test(email.trim()) && flag) {
         elem.style.backgroundColor = null;
       } else {
-        flag = false
+        flag = false;
         elem.style.backgroundColor = "rgba(255, 0, 0, 0.4)";
       }
     });
@@ -527,11 +528,11 @@ formValidation = elem => {
     }
   }
 };
-shareFormSubmit = e => {
+shareFormSubmit = (e) => {
   e.preventDefault();
   hideShareForm();
   let inputs = document.querySelectorAll(".shareInput");
-  inputs.forEach(element => {
+  inputs.forEach((element) => {
     element.value = null;
   });
   document.querySelector(".shareFormTextArea").innerHTML =
@@ -540,22 +541,22 @@ shareFormSubmit = e => {
 // More button dropDown
 moreDropDownShowHide = (classNm) => {
   let moreButContainer = document.querySelector(`.${classNm}`);
-  moreButContainer.classList.toggle('show');
-  moreButContainer.classList.toggle('hide');
-}
-hideShareForm = event => {
+  moreButContainer.classList.toggle("show");
+  moreButContainer.classList.toggle("hide");
+};
+hideShareForm = (event) => {
   let FormContainer = document.querySelector(".shareHomeContainer");
   FormContainer.style.backgroundColor = "transparent";
   FormContainer.style.transform = "translateY(100%)";
 };
 // Show Form box
-showShareForm = event => {
+showShareForm = (event) => {
   let showFormContainer = document.querySelector(".shareHomeContainer");
   showFormContainer.style.transform = "translateY(-100%)";
   showFormContainer.style.backgroundColor = null;
 };
 
-shareFormShowHideCheck = event => {
+shareFormShowHideCheck = (event) => {
   if (!event.target.closest(".shareHomeContainer__formWrapper")) {
     hideShareForm();
   }
