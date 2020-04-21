@@ -5772,10 +5772,11 @@ select:-webkit-autofill:focus {
   width: 100%;
   height: 100vh;
   background-color: rgba(42, 42, 51, 0.65);
-  display: none;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 5;
+  display: none;
 }
 
 .mainBigHomeContainer .directionIcon {

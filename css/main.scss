@@ -2935,9 +2935,9 @@ select:-webkit-autofill:focus {
   overflow: hidden;
   @include flex(center, center, null);
   @include boxSize(100%, 100vh, null, rgba(42, 42, 51, 0.65), null);
-  display: none;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 5;
   .directionIcon {
     @include font(null, 25px, null, null, color_function(mainblue));
@@ -3499,6 +3499,7 @@ select:-webkit-autofill:focus {
       display: none;
     }
   }
+  display: none;
 }
 // sort container for mobile and tablet
 .sortContainer {
