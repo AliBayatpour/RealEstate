@@ -1,4 +1,3 @@
-
 // Psudo style
 var UID = {
   _current: 0,
@@ -502,7 +501,7 @@ document.addEventListener("click", () => {
     closeAllSelect();
   }
 });
-if (window.location.pathname.includes('result')) {
+if (window.location.pathname.includes("result")) {
   autocomplete(document.getElementById("searchBoxResult"), locations);
 }
 
@@ -544,16 +543,13 @@ moreDropDownShowHide = (classNm) => {
   moreButContainer.classList.toggle("show");
   moreButContainer.classList.toggle("hide");
 };
-hideShareForm = (event) => {
-  let FormContainer = document.querySelector(".shareHomeContainer");
-  FormContainer.style.backgroundColor = "transparent";
-  FormContainer.style.transform = "translateY(100%)";
+let FormContainer = document.querySelector(".shareHomeContainer");
+hideShareForm = () => {
+  FormContainer.style.left = "-100%";
 };
 // Show Form box
-showShareForm = (event) => {
-  let showFormContainer = document.querySelector(".shareHomeContainer");
-  showFormContainer.style.transform = "translateY(-100%)";
-  showFormContainer.style.backgroundColor = null;
+showShareForm = () => {
+  FormContainer.style.left = "0%";
 };
 
 shareFormShowHideCheck = (event) => {

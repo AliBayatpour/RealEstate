@@ -3268,9 +3268,6 @@ select:-webkit-autofill:focus {
       @include flex(null, null, column);
       border-bottom: 1px solid color_function(borderColorC);
       padding: 10px 15px;
-      @include for-phone-only() {
-        padding: 10px 5px;
-      }
       .logoSection {
         padding: 0 0 10px 0;
         border-bottom: 1px solid color_function(borderColorC);
@@ -3466,6 +3463,9 @@ select:-webkit-autofill:focus {
         @include boxSize(100%, null, null, null, null);
         @include font($open-sans, 14px, 700, null, color_function(textColor));
         margin-top: 5px;
+        @include for-phone-only() {
+          line-height: 25px;
+        }
       }
       .lineText {
         @include flex(null, center, null);
@@ -3677,10 +3677,11 @@ select:-webkit-autofill:focus {
 // ----------------SHARE FORM ON RESULT.HTML-----------------
 .shareHomeContainer {
   @include boxSize(100%, 100%, null, rgba(255, 255, 255, 0.75), null);
-  transform: translateY(100%);
-  transition: background-color 50ms linear, transform 350ms ease-in;
+  transition: all 350ms ease-in;
   @include flex(center, center, null);
   position: absolute;
+  left: -100%;
+  top: 0;
   z-index: 10;
   &__formWrapper {
     @include boxSize(auto, null, null, color_function(myWhite), null);
