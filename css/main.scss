@@ -3505,8 +3505,9 @@ select:-webkit-autofill:focus {
   display: none;
   @include for-tablet-portrait-up() {
     @include flex(center, center, null);
-    transform: translateY(100%);
-    transition: opacity 50ms linear, transform 350ms ease-in;
+    transition: all 350ms ease-in;
+    left: 0;
+    top: 0;
     @include boxSize(100%, 100%, null, rgba(255, 255, 255, 0.75), null);
     position: absolute;
     z-index: 1000;
