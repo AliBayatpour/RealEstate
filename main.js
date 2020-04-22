@@ -11,7 +11,7 @@ initialization = () => {
     dropdownHomes.innerHTML += `<span class="dropdown-content__stateSpans" onclick="DropDownInputAssign('${locations[item]}', 'all')">${locations[item]}</span>`;
   }
 };
-if (window.location.pathname.includes('result')) {
+if (window.location.pathname.includes("result")) {
   document.body.style.overflow = "hidden";
 } else {
   document.body.style.overflowX = "hidden";
@@ -160,7 +160,7 @@ function inputAssign(e, idName, type) {
 inputKeyUp = (e, type) => {
   e.which = e.which || e.keyCode;
   if (e.which == 13) {
-    if (!window.location.pathname.includes('result')) {
+    if (!window.location.pathname.includes("result")) {
       inputAssign(event, "searchBox", type);
     } else {
       inputAssign(event, "searchBoxResult", type);
@@ -1445,7 +1445,7 @@ let beforeSplitSearchBarInput = [];
 // Loading and showing homes on result.html
 function loadUser() {
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "realstatebigDataset.json", true);
+  xhr.open("GET", "data.json", true);
   xhr.onload = function() {
     if (this.status == 200) {
       let jsonData = JSON.parse(this.responseText);
@@ -1828,7 +1828,7 @@ window.addEventListener("click", function() {
     setTimeout(() => {
       searchIdVariable.style.border = "#006AFF 2px solid";
     }, 50);
-  } else if (!window.location.pathname.includes('result')) {
+  } else if (!window.location.pathname.includes("result")) {
     searchIdVariable.style.border = null;
   }
   // Hide sort box
@@ -1871,7 +1871,10 @@ window.addEventListener("scroll", () => {
   let minSearchResultVar = document.getElementById("mainSearchResult");
   let searchIdVar = document.getElementById("searchId");
   let searchBoxVar = document.getElementById("searchBox");
-  if (window.pageYOffset > 350 && !window.location.pathname.includes('result')) {
+  if (
+    window.pageYOffset > 350 &&
+    !window.location.pathname.includes("result")
+  ) {
     minSearchResultVar.style.top = "0";
     minSearchResultVar.style.position = "fixed";
     minSearchResultVar.style.background = "white";
@@ -1881,7 +1884,7 @@ window.addEventListener("scroll", () => {
     searchIdVar.style.height = "50px";
     searchIdVar.style.borderRadius = "2px";
     searchIdVar.style.margin = "15px 0";
-  } else if (!window.location.pathname.includes('result')) {
+  } else if (!window.location.pathname.includes("result")) {
     minSearchResultVar.style.top = null;
     minSearchResultVar.style.position = null;
     minSearchResultVar.style.background = null;
@@ -2082,7 +2085,7 @@ function housePageBuilder(index, callback) {
   document.getElementById("picLeftColumn").style.right = 0;
   galleryCounter = 1;
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "realstatebigDataset.json", true);
+  xhr.open("GET", "data.json", true);
   xhr.onload = function() {
     if (this.status == 200) {
       // Create some variables
@@ -2222,12 +2225,12 @@ function housePageBuilder(index, callback) {
           document.querySelector(
             ".overview__agentImg"
           ).src = `${person[0].picture.large}`;
+          document.querySelector(
+            ".overview__AgentName"
+          ).innerHTML = `${person[0].name.first} ${person[0].name.last}`;
         }
       };
       xhrImg.send();
-      document.querySelector(
-        ".overview__AgentName"
-      ).innerHTML = `${data[index].ListAgentFullName}`;
       document.getElementById("bottomInfoRow").scrollTop = 0;
       document.getElementById("clickHome").scrollTop = 0;
       document.querySelector(".picContainer").scrollTop = 0;
@@ -2443,6 +2446,6 @@ let locations = [
   "Ingleside Heights",
   "Monterey Heights",
 ];
-if (!window.location.pathname.includes('result')) {
+if (!window.location.pathname.includes("result")) {
   autocomplete(document.getElementById("searchBox"), locations);
 }

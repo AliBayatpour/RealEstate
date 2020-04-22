@@ -654,6 +654,7 @@ select:-webkit-autofill:focus {
   background-size: cover;
   @include grid(1, 1fr, null, null, null, null);
   align-items: center;
+  position: relative;
   .bannerContent {
     text-align: center;
     @include flex(center, center, column);
@@ -2684,7 +2685,7 @@ select:-webkit-autofill:focus {
   #homeContainer {
     scroll-behavior: smooth;
     overflow-y: scroll;
-    @include boxSize(100%, 100%, null, color_function(myWhite), null);
+    @include boxSize(100%, 100vh, null, color_function(myWhite), null);
     overflow-x: hidden;
     position: relative;
     .mapContainer {
@@ -2692,7 +2693,7 @@ select:-webkit-autofill:focus {
       @include for-tablet-portrait-up() {
         display: none;
         position: absolute;
-        @include boxSize(100%, 100%, null, null, null);
+        @include boxSize(100%, 100vh, null, null, null);
         z-index: 1;
       }
     }
