@@ -1455,10 +1455,15 @@ function loadUser() {
       let searchBarInput = beforeSplitSearchBarInput[0];
       document.querySelector(
         ".homeInfoHeader__headerText"
-      ).innerHTML = `${searchBarInput} Real Estate & Homes`;
+      ).innerHTML = `${searchBarInput.replace(/^\w/, (c) =>
+        c.toUpperCase()
+      )} Real Estate & Homes`;
       document.getElementById("searchBoxResult").value = searchBarInput;
       for (var i in data) {
-        if (searchBarInput == data[i].City && data[i].Media[0] != undefined) {
+        if (
+          searchBarInput.toLowerCase() == data[i].City.toLowerCase() &&
+          data[i].Media[0] != undefined
+        ) {
           // Container for each home
           let divArray = document.createElement("div");
           // Container for Image
