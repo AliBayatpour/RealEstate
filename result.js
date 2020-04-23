@@ -144,12 +144,14 @@ window.onclick = function(event) {
   if (document.getElementById("homeSectionContainer").style.display == "grid") {
     if (event.target.closest(".directionIcon")) {
       document.getElementById("homeSectionContainer").style.display = "none";
+      document.querySelector(".rightHomeContainer").style.overflow = null;
     } else if (
       !event.target.closest("#clickHome") &&
       !event.target.closest(".mainBigHomeContainer__smallHeader") &&
       !event.target.closest(".shareHomeContainer")
     ) {
       document.getElementById("homeSectionContainer").style.display = "none";
+      document.querySelector(".rightHomeContainer").style.overflow = null;
     }
   }
   // showing or hiding mobile menue

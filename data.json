@@ -4135,6 +4135,253 @@
       "UnparsedAddress": "1251 Plymouth Ave, San Francisco, CA 94112",
       "City": "Potrero",
       "AvailabilityDate": "2018-06-29T03:00:34.141Z"
+    },
+    {
+      "ListingId": "5af601c4fc76173b348294f7",
+      "LotSizeAcres": 6,
+      "LotSizeSquareFeet": 1246,
+      "AssociationFee": 388,
+      "ListPrice": 305553,
+      "BedroomsTotal": 2,
+      "GarageSpaces": 2,
+      "BathroomsHalf": 3,
+      "StoriesTotal": 3,
+      "LivingArea": 9570,
+      "YearBuilt": 1977,
+      "PropertySubType": "Single Family Residence",
+      "DaysOnMarket": 251,
+      "View": ["View", "Lake View"],
+      "WaterfrontYN": true,
+      "Cooling": ["Evaporative Cooler", "Ceiling Fan", "Central Air"],
+      "Heating": ["Forced Air", "Wood", "Heat Pump"],
+      "PoolPrivateYN": true,
+      "Disclaimer": "Molestiae nostrum expedita cumque cumque eveniet. Enim rerum qui in fuga qui. Eligendi iusto quasi cupiditate eum quo vel repudiandae sunt.\n \r\tQuis aliquam fuga illum aliquam. Occaecati aut hic quibusdam quaerat. Sint cumque deserunt sunt. Omnis nostrum voluptates perferendis enim voluptatem.",
+      "SpecialListingConditions": ["Standard", "REO", "Short Sale"],
+      "ParkingTotal": 4,
+      "Media": [
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/21.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/01.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/31.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/33.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/19.jpg"
+        }
+      ],
+      "UnparsedAddress": "1870 Egbert Ave, San Francisco, CA 94124",
+      "City": "Potrero",
+      "AvailabilityDate": "2018-07-02T15:30:05.581Z"
+    },
+    {
+      "ListingId": "5af601c4fc76173b3482946e",
+      "LotSizeAcres": 7,
+      "LotSizeSquareFeet": 1471,
+      "AssociationFee": 227,
+      "ListPrice": 42855,
+      "BedroomsTotal": 2,
+      "GarageSpaces": 4,
+      "BathroomsHalf": 2,
+      "StoriesTotal": 3,
+      "LivingArea": 7878,
+      "YearBuilt": 1984,
+      "PropertySubType": "Apartment",
+      "DaysOnMarket": 349,
+      "View": ["View", "Lake View"],
+      "WaterfrontYN": false,
+      "Cooling": null,
+      "Heating": ["Wood"],
+      "PoolPrivateYN": true,
+      "Disclaimer": "Culpa vel ea eos. Facilis et nihil laboriosam sint. Aperiam libero tempora fugit. Accusamus dolorum unde distinctio. Quis et id voluptas nulla.\n \r\tQui quidem incidunt ea eum delectus modi. Eum aut sapiente asperiores dolor quas. Quia omnis molestiae harum eum voluptatem voluptatem.",
+      "SpecialListingConditions": ["Standard"],
+      "ParkingTotal": 3,
+      "Media": [
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/33.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/12.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/29.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/22.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/03.jpg"
+        }
+      ],
+      "UnparsedAddress": "918 Alabama St, San Francisco, CA 94110",
+      "City": "Potrero",
+      "AvailabilityDate": "2018-07-20T12:34:48.081Z"
+    },
+    {
+      "ListingId": "5af601c4fc76173b34829485",
+      "LotSizeAcres": 2,
+      "LotSizeSquareFeet": 1147,
+      "AssociationFee": 252,
+      "ListPrice": 755677,
+      "BedroomsTotal": 1,
+      "GarageSpaces": 4,
+      "BathroomsHalf": 3,
+      "StoriesTotal": 3,
+      "LivingArea": 3992,
+      "YearBuilt": 1993,
+      "PropertySubType": "Apartment",
+      "DaysOnMarket": 67,
+      "View": ["View", "Lake View"],
+      "WaterfrontYN": true,
+      "Cooling": ["Evaporative Cooler", "Ceiling Fan", "Central Air"],
+      "Heating": ["Forced Air", "Electric"],
+      "PoolPrivateYN": true,
+      "Disclaimer": "Doloremque quae dolor dolores qui quaerat. Maiores sit aspernatur magni fugit dolores sunt vero animi. Repellendus dolor ut occaecati enim. Qui omnis ut eveniet delectus veritatis reiciendis nemo.\n \r\tCommodi repudiandae id voluptas soluta sint deserunt velit. Qui suscipit est facere neque vitae voluptatem esse. Quis voluptatem eaque praesentium qui maxime. Eaque aut vel alias.",
+      "SpecialListingConditions": ["Standard", "REO"],
+      "ParkingTotal": 3,
+      "Media": [
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/34.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/09.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/07.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/22.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/25.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/31.jpg"
+        }
+      ],
+      "UnparsedAddress": "1510 35th Ave, San Francisco, CA 94122",
+      "City": "Potrero",
+      "AvailabilityDate": "2018-05-29T03:13:13.236Z"
+    },
+    {
+      "ListingId": "5af601c4fc76173b3482948a",
+      "LotSizeAcres": 3,
+      "LotSizeSquareFeet": 1373,
+      "AssociationFee": 340,
+      "ListPrice": 393186,
+      "BedroomsTotal": 3,
+      "GarageSpaces": 1,
+      "BathroomsHalf": 2,
+      "StoriesTotal": 3,
+      "LivingArea": 6535,
+      "YearBuilt": 1993,
+      "PropertySubType": "Single Family Residence",
+      "DaysOnMarket": 155,
+      "View": ["View", "Lake View"],
+      "WaterfrontYN": false,
+      "Cooling": null,
+      "Heating": ["Forced Air", "Wood", "Electric"],
+      "PoolPrivateYN": false,
+      "Disclaimer": "Aut occaecati unde soluta sed temporibus facere eius temporibus. Esse eveniet quae autem officiis quos qui. Architecto et reprehenderit quia id voluptatem iste fuga eos. Totam consectetur alias magnam voluptatem accusantium eum.\n \r\tProvident molestiae odit recusandae nam facere accusamus optio. Veniam neque consequatur sit debitis. Quia ut eum numquam itaque error.",
+      "SpecialListingConditions": ["Standard", "REO", "Short Sale", "Probate"],
+      "ParkingTotal": 3,
+      "Media": [
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/32.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/09.jpg"
+        }
+      ],
+      "UnparsedAddress": "85 Lomita Ave, San Francisco, CA 94122",
+      "City": "Potrero",
+      "AvailabilityDate": "2018-06-15T20:28:35.650Z"
+    },
+    {
+      "ListingId": "5af601c4fc76173b3482944d",
+      "LotSizeAcres": 3,
+      "LotSizeSquareFeet": 892,
+      "AssociationFee": 371,
+      "ListPrice": 823463,
+      "BedroomsTotal": 1,
+      "GarageSpaces": 4,
+      "BathroomsHalf": 1,
+      "StoriesTotal": 3,
+      "LivingArea": 3051,
+      "YearBuilt": 1968,
+      "StandardStatus": "Active",
+      "PropertySubType": "Condominium",
+      "DaysOnMarket": 75,
+      "View": ["View", "Lake View"],
+      "WaterfrontYN": false,
+      "Cooling": null,
+      "Heating": ["Electric", "Heat Pump"],
+      "PoolPrivateYN": false,
+      "Disclaimer": "Commodi officia quaerat quibusdam eligendi libero. Et at odit nostrum inventore corrupti ab harum. Quis facere ipsum magnam repellat quibusdam non. Recusandae voluptatem delectus molestias sunt sed laborum.\n \r\tVeritatis qui doloremque non quibusdam. Et culpa voluptatem magnam nulla voluptatem repudiandae sunt. Vel quo necessitatibus repudiandae eum accusantium unde. Et commodi assumenda et laboriosam laboriosam. Est beatae voluptatem rerum ducimus unde quasi sint itaque.",
+      "SpecialListingConditions": [
+        "Standard",
+        "REO",
+        "Short Sale",
+        "Probate",
+        "Auction"
+      ],
+      "ParkingTotal": 2,
+      "Media": [
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/11.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/09.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/30.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/33.jpg"
+        }
+      ],
+      "UnparsedAddress": "58 Ocean Ave, San Francisco, CA 94112",
+      "City": "Potrero",
+      "AvailabilityDate": "2018-07-06T03:45:11.054Z"
+    },
+    {
+      "ListingId": "5af601c4fc76173b34829491",
+      "LotSizeAcres": 4,
+      "LotSizeSquareFeet": 1829,
+      "AssociationFee": 191,
+      "ListPrice": 682155,
+      "BedroomsTotal": 4,
+      "GarageSpaces": 1,
+      "BathroomsHalf": 4,
+      "StoriesTotal": 3,
+      "LivingArea": 6903,
+      "YearBuilt": 2003,
+      "PropertySubType": "Single Family Residence",
+      "DaysOnMarket": 233,
+      "View": ["View", "Lake View"],
+      "WaterfrontYN": true,
+      "Cooling": ["Evaporative Cooler", "Ceiling Fan"],
+      "Heating": ["Forced Air", "Wood", "Boiler"],
+      "PoolPrivateYN": true,
+      "Disclaimer": "Qui officia totam omnis. Sunt iusto voluptatem blanditiis molestias sapiente. Quos necessitatibus aperiam explicabo perspiciatis. Inventore ut velit facere laborum ut quia.\n \r\tNecessitatibus quod quam omnis molestias neque. Omnis voluptas a molestiae provident molestiae veniam repudiandae. Voluptate magni quisquam voluptates quaerat velit et nam. Est deserunt voluptates aperiam dolor praesentium corrupti reiciendis.",
+      "SpecialListingConditions": ["Standard", "REO", "Short Sale"],
+      "ParkingTotal": 3,
+      "Media": [
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/12.jpg"
+        },
+        {
+          "MediaURL": "https://s3.amazonaws.com/retsly-importd-production/test_data/listings/33.jpg"
+        }
+      ],
+      "UnparsedAddress": "550 Moultrie St, San Francisco, CA 94110",
+      "City": "Potrero",
+      "AvailabilityDate": "2018-06-25T16:58:49.418Z"
     }
   ]
 }

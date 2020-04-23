@@ -2125,6 +2125,7 @@ function housePageBuilder(index, callback) {
       ).innerHTML = `1 of ${data[index].Media.length}`;
       // Insert text information to each home-page
       document.getElementById("homeSectionContainer").style.display = "grid";
+      document.querySelector(".rightHomeContainer").style.overflow = "hidden";
       let priceSection = document.getElementById("priceSection");
       let rentOrSale = document.createElement("div");
       rentOrSale.id = "rentOrSale";

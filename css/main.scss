@@ -2685,7 +2685,7 @@ select:-webkit-autofill:focus {
   #homeContainer {
     scroll-behavior: smooth;
     overflow-y: scroll;
-    @include boxSize(100%, 100vh, null, color_function(myWhite), null);
+    @include boxSize(100%, 100%, null, color_function(myWhite), null);
     overflow-x: hidden;
     position: relative;
     .mapContainer {
@@ -2693,7 +2693,7 @@ select:-webkit-autofill:focus {
       @include for-tablet-portrait-up() {
         display: none;
         position: absolute;
-        @include boxSize(100%, 100vh, null, null, null);
+        @include boxSize(100%, 100%, null, null, null);
         z-index: 1;
       }
     }
@@ -3064,6 +3064,7 @@ select:-webkit-autofill:focus {
     @include boxSize(90%, 100vh, null, color_function(myWhite), null);
     @include grid(null, null, true, null, null, 61% 39%);
     justify-self: center;
+    overflow: hidden;
     @include for-tablet-landscape-up() {
       @include grid(null, null, true, null, null, 55% 45%);
     }
@@ -3388,6 +3389,7 @@ select:-webkit-autofill:focus {
     }
     // Text section including price and ... for each home
     &__generalInfo {
+      @include boxSize(100%, null, null, null, null);
       li {
         list-style: none;
       }
@@ -3629,6 +3631,7 @@ select:-webkit-autofill:focus {
     // Drag and drop upload test
     .dropFile {
       padding: 15px 10px;
+      overflow: hidden;
       border-radius: 4px;
       border: 1px solid #ddd;
       width: 100%;
