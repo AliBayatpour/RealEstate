@@ -643,18 +643,16 @@ select:-webkit-autofill:focus {
 }
 // Banner section on index.html
 #banner {
-  overflow: hidden;
   @include boxSize(100%, 88vh, null, null, null);
   background-image: url(img_function(bannerhouse));
   background-position: 50% 30%;
+  background-size: cover;
+  @include grid(1, 1fr, null, null, null, null);
+  align-items: center;
   @include for-tablet-landscape-up() {
     background-position: 20% 0%;
     @include boxSize(null, 100vh, null, null, null);
   }
-  background-size: cover;
-  @include grid(1, 1fr, null, null, null, null);
-  align-items: center;
-  position: relative;
   .bannerContent {
     text-align: center;
     @include flex(center, center, column);
