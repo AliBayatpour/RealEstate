@@ -2941,6 +2941,7 @@ select:-webkit-autofill:focus {
   .directionIcon {
     @include font(null, 25px, null, null, color_function(mainblue));
     @include flex(center, center, null);
+    padding: 5px;
     @include for-phone-only() {
       margin: 0 0 0 15px;
       @include font(null, null, null, null, rgba(255, 255, 255, 0.9));
