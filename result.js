@@ -145,6 +145,7 @@ window.onclick = function(event) {
     if (event.target.closest(".directionIcon")) {
       document.getElementById("homeSectionContainer").style.display = "none";
       document.querySelector(".rightHomeContainer").style.overflow = null;
+      document.querySelector(".rightHomeContainer").style.height = null;
     } else if (
       !event.target.closest("#clickHome") &&
       !event.target.closest(".mainBigHomeContainer__smallHeader") &&
@@ -152,6 +153,7 @@ window.onclick = function(event) {
     ) {
       document.getElementById("homeSectionContainer").style.display = "none";
       document.querySelector(".rightHomeContainer").style.overflow = null;
+      document.querySelector(".rightHomeContainer").style.height = null;
     }
   }
   // showing or hiding mobile menue
